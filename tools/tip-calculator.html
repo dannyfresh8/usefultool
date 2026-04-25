@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator - Free Restaurant Tip Calculator</title>
+    <meta name="description" content="Free tip calculator for restaurants. Calculate tips for any bill amount with customizable percentages. Perfect for dining out.">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-icon">🛠️</div>
+                <div>
+                    <div class="logo-title">ProductivityTools</div>
+                    <div class="logo-sub">Free calculators & guides</div>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/tools.html" class="nav-link active">Tools</a>
+                <a href="/guides.html" class="nav-link">Guides</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Tip Calculator</span>
+            </div>
+            
+            <h1 style="font-size:36px;font-weight:700;margin-bottom:12px;">Tip Calculator</h1>
+            <p style="font-size:18px;color:#4b5563;margin-bottom:32px;">Calculate tips for restaurants, bars, or any service. Split the bill among friends.</p>
+            
+            <div class="tool-container" style="max-width:600px;">
+                <div style="margin-bottom:20px;">
+                    <label class="tool-label">💰 Bill Amount</label>
+                    <div style="position:relative;">
+                        <span style="position:absolute;left:16px;top:14px;color:#6b7280;font-size:18px;">$</span>
+                        <input type="number" id="billAmount" class="tool-input" style="padding-left:36px;font-size:24px;font-weight:600;" value="100.00" step="0.01" min="0">
+                    </div>
+                </div>
+
+                <div style="margin-bottom:20px;">
+                    <label class="tool-label">📊 Tip Percentage</label>
+                    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:12px;">
+                        <button class="tip-btn" onclick="setTip(10)">10%</button>
+                        <button class="tip-btn" onclick="setTip(15)">15%</button>
+                        <button class="tip-btn active" id="tip20" onclick="setTip(20)">20%</button>
+                        <button class="tip-btn" onclick="setTip(25)">25%</button>
+                        <button class="tip-btn" onclick="setTip(0)">Custom</button>
+                    </div>
+                    <input type="number" id="customTip" class="tool-input" placeholder="Custom %" style="display:none;" oninput="updateCustom()" min="0" max="100">
+                </div>
+
+                <div style="margin-bottom:20px;">
+                    <label class="tool-label">👥 Split Between</label>
+                    <div style="display:flex;align-items:center;gap:16px;">
+                        <button onclick="changePeople(-1)" style="width:48px;height:48px;background:#f3f4f6;border:none;border-radius:8px;font-size:24px;cursor:pointer;">−</button>
+                        <div style="flex:1;text-align:center;">
+                            <span id="peopleCount" style="font-size:36px;font-weight:700;">1</span>
+                            <div style="font-size:13px;color:#6b7280;">person(s)</div>
+                        </div>
+                        <button onclick="changePeople(1)" style="width:48px;height:48px;background:#f3f4f6;border:none;border-radius:8px;font-size:24px;cursor:pointer;">+</button>
+                    </div>
+                </div>
+
+                <div class="tool-result">
+                    <h3>📋 Calculation Results</h3>
+                    <div class="result-row">
+                        <span class="result-label">Bill Amount</span>
+                        <span class="result-value" id="resultBill">$100.00</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Tip Amount</span>
+                        <span class="result-value" id="resultTip" style="color:#059669;">$20.00</span>
+                    </div>
+                    <div class="result-row" style="border-bottom:none;">
+                        <span class="result-label">Total</span>
+                        <span class="result-total" id="resultTotal">$120.00</span>
+                    </div>
+                    <div id="splitResult" style="margin-top:16px;padding:16px;background:white;border-radius:8px;text-align:center;display:none;">
+                        <div style="color:#6b7280;margin-bottom:4px;">Each Person Pays</div>
+                        <div style="font-size:28px;font-weight:800;" id="resultPerPerson">$120.00</div>
+                    </div>
+                </div>
+
+                <button onclick="resetCalc()" style="margin-top:16px;width:100%;padding:14px;background:#f3f4f6;border:none;border-radius:8px;font-weight:600;cursor:pointer;">Reset Calculator</button>
+            </div>
+
+            <div class="guide-tip" style="max-width:600px;">
+                <strong>💡 Quick Math Trick:</strong> To calculate 20% tip, multiply bill by 0.2. For 15%, find 10% (move decimal) and add half.
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let tipPercent = 20;
+        let people = 1;
+
+        function updateDisplay() {
+            const bill = parseFloat(document.getElementById('billAmount').value) || 0;
+            const tip = bill * (tipPercent / 100);
+            const total = bill + tip;
+            const perPerson = people > 0 ? total / people : total;
+
+            document.getElementById('resultBill').textContent = '$' + bill.toFixed(2);
+            document.getElementById('resultTip').textContent = '$' + tip.toFixed(2);
+            document.getElementById('resultTotal').textContent = '$' + total.toFixed(2);
+            document.getElementById('resultPerPerson').textContent = '$' + perPerson.toFixed(2);
+            document.getElementById('peopleCount').textContent = people;
+
+            const splitDiv = document.getElementById('splitResult');
+            splitDiv.style.display = people > 1 ? 'block' : 'none';
+        }
+
+        function setTip(pct) {
+            tipPercent = pct;
+            document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('active'));
+            if (pct > 0) {
+                event.target.classList.add('active');
+                document.getElementById('customTip').style.display = 'none';
+            } else {
+                document.getElementById('customTip').style.display = 'block';
+                document.getElementById('customTip').focus();
+            }
+            updateDisplay();
+        }
+
+        function updateCustom() {
+            const val = parseFloat(document.getElementById('customTip').value);
+            if (val > 0) {
+                tipPercent = val;
+                updateDisplay();
+            }
+        }
+
+        function changePeople(delta) {
+            people = Math.max(1, people + delta);
+            updateDisplay();
+        }
+
+        function resetCalc() {
+            document.getElementById('billAmount').value = '100.00';
+            tipPercent = 20;
+            people = 1;
+            document.querySelectorAll('.tip-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tip20').classList.add('active');
+            document.getElementById('customTip').style.display = 'none';
+            document.getElementById('customTip').value = '';
+            updateDisplay();
+        }
+
+        // Auto-update on bill change
+        document.getElementById('billAmount').addEventListener('input', updateDisplay);
+        updateDisplay();
+    </script>
+
+    <style>
+        .tip-btn { padding:12px;background:#f3f4f6;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px; }
+        .tip-btn:hover { background:#e5e7eb; }
+        .tip-btn.active { background:#2563eb; color:white; }
+        .guide-tip { background:#fef3c7;border-left:4px solid #f59e0b;padding:16px;border-radius:8px;margin:24px auto; }
+    </style>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <p>100+ free tools and guides to help you save money, boost productivity, and build better habits.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
+                        <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Guides</h4>
+                    <ul>
+                        <li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ProductivityTools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
