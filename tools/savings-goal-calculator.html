@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Goal Calculator - Free Savings Planner</title>
+    <meta name="description" content="Free savings goal calculator. See how long to reach your savings target with monthly contributions and compound interest.">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-icon">🛠️</div>
+                <div>
+                    <div class="logo-title">ProductivityTools</div>
+                    <div class="logo-sub">Free calculators & guides</div>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/tools.html" class="nav-link active">Tools</a>
+                <a href="/guides.html" class="nav-link">Guides</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Savings Goal Calculator</span>
+            </div>
+            
+            <h1 style="font-size:36px;font-weight:700;margin-bottom:12px;">Savings Goal Calculator</h1>
+            <p style="font-size:18px;color:#4b5563;margin-bottom:32px;">Find out how long it will take to reach your savings goal.</p>
+            
+            <div class="tool-container" style="max-width:600px;">
+                <div style="margin-bottom:20px;">
+                    <label class="tool-label">🎯 Savings Goal</label>
+                    <div style="position:relative;">
+                        <span style="position:absolute;left:16px;top:14px;color:#6b7280;font-size:18px;">$</span>
+                        <input type="number" id="goalAmount" class="tool-input" style="padding-left:36px;font-size:24px;font-weight:600;" value="10000" step="100" min="0">
+                    </div>
+                </div>
+                <div style="margin-bottom:20px;">
+                    <label class="tool-label">🏦 Current Savings</label>
+                    <div style="position:relative;">
+                        <span style="position:absolute;left:16px;top:14px;color:#6b7280;font-size:18px;">$</span>
+                        <input type="number" id="currentSavings" class="tool-input" style="padding-left:36px;" value="1000" step="100" min="0">
+                    </div>
+                </div>
+                <div style="margin-bottom:20px;">
+                    <label class="tool-label">📤 Monthly Contribution</label>
+                    <div style="position:relative;">
+                        <span style="position:absolute;left:16px;top:14px;color:#6b7280;font-size:18px;">$</span>
+                        <input type="number" id="monthlyContribution" class="tool-input" style="padding-left:36px;" value="500" step="50" min="0">
+                    </div>
+                </div>
+                <div style="margin-bottom:20px;">
+                    <label class="tool-label">📈 Annual Interest Rate (%)</label>
+                    <input type="number" id="interestRate" class="tool-input" value="4" step="0.1" min="0" max="30">
+                </div>
+
+                <div class="tool-result">
+                    <h3>📋 Results</h3>
+                    <div class="result-row">
+                        <span class="result-label">Time to Reach Goal</span>
+                        <span class="result-total" id="timeResult">~18 months</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Total Contributions</span>
+                        <span class="result-value" id="totalContrib">$9,000.00</span>
+                    </div>
+                    <div class="result-row" style="border-bottom:none;">
+                        <span class="result-label">Interest Earned</span>
+                        <span class="result-value" id="interestEarned" style="color:#059669;">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-tip" style="max-width:600px;">
+                <strong>💡 Tip:</strong> Automate your savings! Set up automatic transfers right after payday.
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function calculate() {
+            const goal = parseFloat(document.getElementById('goalAmount').value) || 0;
+            const current = parseFloat(document.getElementById('currentSavings').value) || 0;
+            const monthly = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+            const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const monthlyRate = annualRate / 100 / 12;
+            
+            if (goal <= current) {
+                document.getElementById('timeResult').textContent = 'Already there! 🎉';
+                document.getElementById('totalContrib').textContent = '$0.00';
+                document.getElementById('interestEarned').textContent = '$0.00';
+                return;
+            }
+            if (monthly <= 0 && monthlyRate <= 0) {
+                document.getElementById('timeResult').textContent = '∞ (add monthly contributions)';
+                document.getElementById('totalContrib').textContent = '$0.00';
+                document.getElementById('interestEarned').textContent = '$0.00';
+                return;
+            }
+
+            let balance = current;
+            let months = 0;
+            let totalContrib = 0;
+            
+            if (monthlyRate > 0) {
+                // Compound interest formula: n = log((goal * r + P) / (current * r + P)) / log(1 + r)
+                const P = monthly;
+                const r = monthlyRate;
+                const F = goal;
+                const C = current;
+                if (F * r + P <= C * r + P && P <= 0) {
+                    document.getElementById('timeResult').textContent = 'Need more per month';
+                    return;
+                }
+                months = Math.ceil(Math.log((F * r + P) / (C * r + P)) / Math.log(1 + r));
+                if (months < 0 || !isFinite(months)) months = 1;
+                
+                // Calculate total contributions
+                balance = current;
+                for (let i = 0; i < months; i++) {
+                    balance = balance * (1 + r) + monthly;
+                    totalContrib += monthly;
+                }
+            } else {
+                months = Math.ceil((goal - current) / monthly);
+                totalContrib = monthly * months;
+                balance = current + totalContrib;
+            }
+
+            const years = Math.floor(months / 12);
+            const remMonths = months % 12;
+            let timeStr = '';
+            if (years > 0) timeStr += years + ' year' + (years > 1 ? 's ' : ' ');
+            if (remMonths > 0 || years === 0) timeStr += remMonths + ' month' + (remMonths !== 1 ? 's' : '');
+            
+            document.getElementById('timeResult').textContent = '~' + timeStr;
+            document.getElementById('totalContrib').textContent = '$' + totalContrib.toFixed(2);
+            document.getElementById('interestEarned').textContent = '$' + Math.max(0, (balance - current - totalContrib)).toFixed(2);
+        }
+
+        document.querySelectorAll('#goalAmount, #currentSavings, #monthlyContribution, #interestRate').forEach(el => {
+            el.addEventListener('input', calculate);
+        });
+        calculate();
+    </script>
+
+    <style>
+        .guide-tip { background:#fef3c7;border-left:4px solid #f59e0b;padding:16px;border-radius:8px;margin:24px auto; }
+    </style>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <p>100+ free tools and guides to help you save money, boost productivity, and build better habits.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
+                        <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
+                        <li><a href="/tools/budget-planner.html">Budget Planner</a></li>
+                        <li><a href="/tools/savings-goal-calculator.html">Savings Goal Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Guides</h4>
+                    <ul>
+                        <li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ProductivityTools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

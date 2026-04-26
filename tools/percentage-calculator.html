@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator - Free Online Percentage Calculator</title>
+    <meta name="description" content="Free percentage calculator. Calculate percentages, find what percent one number is of another, percentage increase and decrease.">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-icon">🛠️</div>
+                <div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div>
+            </a>
+            <nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Percentage Calculator</span></div>
+            <h1 style="font-size:36px;font-weight:700;margin-bottom:12px;">Percentage Calculator</h1>
+            <p style="font-size:18px;color:#4b5563;margin-bottom:32px;">Quick percentage calculations for everyday use.</p>
+            <div class="tool-container" style="max-width:600px;">
+                <div style="display:flex;gap:8px;margin-bottom:24px;">
+                    <button class="tip-btn active" id="mode1" onclick="setMode(1)" style="flex:1;">What is X% of Y?</button>
+                    <button class="tip-btn" id="mode2" onclick="setMode(2)" style="flex:1;">X is what % of Y?</button>
+                    <button class="tip-btn" id="mode3" onclick="setMode(3)" style="flex:1;">% Increase/Decrease</button>
+                </div>
+                <div id="calcMode1">
+                    <div style="margin-bottom:12px;"><label class="tool-label">Percentage (%)</label><input type="number" id="pct1" class="tool-input" value="20"></div>
+                    <div style="margin-bottom:12px;"><label class="tool-label">Of Number</label><input type="number" id="num1" class="tool-input" value="200"></div>
+                    <div class="tool-result"><h3>Result</h3><div style="font-size:32px;font-weight:800;color:#2563eb;" id="result1">40</div></div>
+                </div>
+                <div id="calcMode2" style="display:none;">
+                    <div style="margin-bottom:12px;"><label class="tool-label">Number X</label><input type="number" id="numX" class="tool-input" value="30"></div>
+                    <div style="margin-bottom:12px;"><label class="tool-label">Of Number Y</label><input type="number" id="numY" class="tool-input" value="150"></div>
+                    <div class="tool-result"><h3>Result</h3><div style="font-size:32px;font-weight:800;color:#2563eb;" id="result2">20%</div></div>
+                </div>
+                <div id="calcMode3" style="display:none;">
+                    <div style="margin-bottom:12px;"><label class="tool-label">Original Value</label><input type="number" id="origVal" class="tool-input" value="100"></div>
+                    <div style="margin-bottom:12px;"><label class="tool-label">New Value</label><input type="number" id="newVal" class="tool-input" value="150"></div>
+                    <div class="tool-result"><h3>Result</h3><div style="font-size:32px;font-weight:800;color:#2563eb;" id="result3">+50%</div></div>
+                </div>
+            </div>
+            <div class="guide-tip" style="max-width:600px;"><strong>💡 Tip:</strong> To find 10% of any number, just move the decimal one place left!</div>
+        </div>
+    </main>
+    <script>
+        function setMode(m) { [1,2,3].forEach(i => { document.getElementById('mode'+i).classList.toggle('active', i===m); document.getElementById('calcMode'+i).style.display = i===m ? 'block' : 'none'; }); calcAll(); }
+        function calcAll() {
+            const pct = parseFloat(document.getElementById('pct1').value) || 0;
+            const n1 = parseFloat(document.getElementById('num1').value) || 0;
+            document.getElementById('result1').textContent = (pct / 100 * n1).toFixed(2);
+            const x = parseFloat(document.getElementById('numX').value) || 0;
+            const y = parseFloat(document.getElementById('numY').value) || 1;
+            document.getElementById('result2').textContent = (x / y * 100).toFixed(1) + '%';
+            const o = parseFloat(document.getElementById('origVal').value) || 1;
+            const n = parseFloat(document.getElementById('newVal').value) || 0;
+            const diff = ((n - o) / o * 100);
+            document.getElementById('result3').textContent = (diff >= 0 ? '+' : '') + diff.toFixed(1) + '%';
+        }
+        document.querySelectorAll('#pct1, #num1, #numX, #numY, #origVal, #newVal').forEach(el => el.addEventListener('input', calcAll));
+        calcAll();
+    </script>
+    <style>
+        .tip-btn { padding:12px;background:#f3f4f6;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:13px; }
+        .tip-btn:hover { background:#e5e7eb; } .tip-btn.active { background:#2563eb; color:white; }
+        .guide-tip { background:#fef3c7;border-left:4px solid #f59e0b;padding:16px;border-radius:8px;margin:24px auto; }
+    </style>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><p>100+ free tools and guides to help you save money, boost productivity, and build better habits.</p></div>
+                <div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/percentage-calculator.html">Percentage Calculator</a></li></ul></div>
+                <div class="footer-links"><h4>Guides</h4><ul><li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 ProductivityTools. All rights reserved.</p></div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Calculator - Free Compound Investment Growth Calculator</title>
+    <meta name="description" content="Free investment calculator. See how your investments grow with compound interest over time. Calculate future value.">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+    <main><div class="container">
+        <div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Investment Calculator</span></div>
+        <h1 style="font-size:36px;font-weight:700;margin-bottom:12px;">Investment Calculator</h1>
+        <p style="font-size:18px;color:#4b5563;margin-bottom:32px;">See how your investments grow with compound interest over time.</p>
+        <div class="tool-container" style="max-width:600px;">
+            <div style="margin-bottom:16px;"><label class="tool-label">💰 Initial Investment</label><div style="position:relative;"><span style="position:absolute;left:16px;top:14px;color:#6b7280;">$</span><input type="number" id="initInvest" class="tool-input" style="padding-left:36px;" value="10000" step="1000"></div></div>
+            <div style="margin-bottom:16px;"><label class="tool-label">📤 Monthly Contribution</label><div style="position:relative;"><span style="position:absolute;left:16px;top:14px;color:#6b7280;">$</span><input type="number" id="monthlyInvest" class="tool-input" style="padding-left:36px;" value="500" step="100"></div></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px;">
+                <div><label class="tool-label">📈 Return Rate (%)</label><input type="number" id="returnRate" class="tool-input" value="8" step="0.5"></div>
+                <div><label class="tool-label">📅 Years</label><input type="number" id="investYears" class="tool-input" value="20" min="1" max="50"></div>
+                <div><label class="tool-label">🔄 Compound</label><select id="compoundFreq" class="tool-input"><option value="12">Monthly</option><option value="4">Quarterly</option><option value="1">Yearly</option></select></div>
+            </div>
+            <div class="tool-result">
+                <h3>📋 Investment Growth</h3>
+                <div class="result-row"><span class="result-label">Future Value</span><span class="result-total" id="futureValue">$326,437.98</span></div>
+                <div class="result-row"><span class="result-label">Total Contributions</span><span class="result-value" id="totalContribInvest">$130,000.00</span></div>
+                <div class="result-row" style="border-bottom:none;"><span class="result-label">Total Interest</span><span class="result-value" id="totalInterestInvest" style="color:#059669;">$196,437.98</span></div>
+            </div>
+            <div style="margin-top:20px;padding:16px;background:#f0f9ff;border-radius:8px;">
+                <div style="display:flex;height:24px;border-radius:12px;overflow:hidden;">
+                    <div id="contribBar" style="height:100%;background:#2563eb;border-radius:12px;"></div>
+                    <div id="interestBar" style="height:100%;background:#22c55e;"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:13px;color:#6b7280;margin-top:4px;"><span>🔵 Contributions</span><span>🟢 Interest</span></div>
+            </div>
+        </div>
+    </div></main>
+    <script>
+        function calcInvest() {
+            const init = parseFloat(document.getElementById('initInvest').value) || 0;
+            const monthly = parseFloat(document.getElementById('monthlyInvest').value) || 0;
+            const rate = (parseFloat(document.getElementById('returnRate').value) || 0) / 100;
+            const years = parseInt(document.getElementById('investYears').value) || 1;
+            const freq = parseInt(document.getElementById('compoundFreq').value) || 12;
+            const periods = years * freq;
+            const periodicRate = rate / freq;
+            let fv = init;
+            for (let i = 0; i < periods; i++) {
+                fv = fv * (1 + periodicRate) + monthly / freq;
+            }
+            const totalContrib = init + monthly * years;
+            const totalInterest = fv - totalContrib;
+            document.getElementById('futureValue').textContent = '$'+fv.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+            document.getElementById('totalContribInvest').textContent = '$'+totalContrib.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+            document.getElementById('totalInterestInvest').textContent = '$'+totalInterest.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+            const contribPct = fv > 0 ? (totalContrib/fv)*100 : 50;
+            document.getElementById('contribBar').style.width = contribPct + '%';
+            document.getElementById('interestBar').style.width = (100-contribPct) + '%';
+        }
+        document.querySelectorAll('#initInvest, #monthlyInvest, #returnRate, #investYears, #compoundFreq').forEach(el => el.addEventListener('input', calcInvest));
+        calcInvest();
+    </script>
+    <style>.guide-tip { background:#fef3c7;border-left:4px solid #f59e0b;padding:16px;border-radius:8px;margin:24px auto; }</style>
+    <footer class="footer"><div class="container"><div class="footer-grid">
+        <div class="footer-brand"><p>100+ free tools and guides to help you save money, boost productivity, and build better habits.</p></div>
+        <div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/investment-calculator.html">Investment Calculator</a></li></ul></div>
+        <div class="footer-links"><h4>Guides</h4><ul><li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li></ul></div>
+    </div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools. All rights reserved.</p></div></div></footer>
+</body>
+</html>

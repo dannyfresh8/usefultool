@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator - Free Exact Age Calculator</title>
+    <meta name="description" content="Free age calculator. Calculate your exact age in years, months, days, hours, minutes, and seconds instantly.">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a>
+            <nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Age Calculator</span></div>
+            <h1 style="font-size:36px;font-weight:700;margin-bottom:12px;">Age Calculator</h1>
+            <p style="font-size:18px;color:#4b5563;margin-bottom:32px;">Find your exact age down to the second. Perfect for birthdays, milestones, and fun facts.</p>
+            <div class="tool-container" style="max-width:500px;">
+                <div style="margin-bottom:20px;"><label class="tool-label">📅 Date of Birth</label>
+                    <div style="display:flex;gap:8px;">
+                        <select id="birthMonth" class="tool-input" style="flex:1;">
+                            <option value="0">Jan</option><option value="1">Feb</option><option value="2">Mar</option><option value="3">Apr</option><option value="4">May</option><option value="5">Jun</option>
+                            <option value="6">Jul</option><option value="7">Aug</option><option value="8">Sep</option><option value="9">Oct</option><option value="10">Nov</option><option value="11">Dec</option>
+                        </select>
+                        <select id="birthDay" class="tool-input" style="flex:0.7;">
+                            <script>for(let i=1;i<=31;i++) document.write('<option value="'+i+'">'+i+'</option>');</script>
+                        </select>
+                        <select id="birthYear" class="tool-input" style="flex:0.8;">
+                            <script>const y=new Date().getFullYear();for(let i=y;i>=1900;i--) document.write('<option value="'+i+'">'+i+'</option>');</script>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-result">
+                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center;">
+                        <div style="padding:16px;"><div style="font-size:36px;font-weight:800;color:#2563eb;" id="ageYears">--</div><div style="font-size:13px;color:#6b7280;">Years</div></div>
+                        <div style="padding:16px;"><div style="font-size:36px;font-weight:800;color:#059669;" id="ageMonths">--</div><div style="font-size:13px;color:#6b7280;">Months</div></div>
+                        <div style="padding:16px;"><div style="font-size:36px;font-weight:800;color:#d97706;" id="ageDays">--</div><div style="font-size:13px;color:#6b7280;">Days</div></div>
+                    </div>
+                    <div style="border-top:1px solid #e5e7eb;padding-top:16px;text-align:center;font-size:15px;color:#6b7280;">
+                        <span id="ageHours">--</span> hours &bull; <span id="ageMinutes">--</span> minutes &bull; <span id="ageSeconds">--</span> seconds
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:12px;">🎂 <span id="nextBirthday">Next birthday in -- days</span></div>
+            </div>
+        </div>
+    </main>
+    <script>
+        function calcAge() {
+            const m = parseInt(document.getElementById('birthMonth').value);
+            const d = parseInt(document.getElementById('birthDay').value);
+            const y = parseInt(document.getElementById('birthYear').value);
+            const birth = new Date(y, m, d);
+            const now = new Date();
+            let diff = now - birth;
+            if (diff < 0) { document.getElementById('ageYears').textContent = '0'; return; }
+            const years = now.getFullYear() - birth.getFullYear() - (now.getMonth() < birth.getMonth() || (now.getMonth() === birth.getMonth() && now.getDate() < birth.getDate()) ? 1 : 0);
+            let monthDiff = now.getMonth() - birth.getMonth();
+            if (now.getDate() < birth.getDate()) monthDiff--;
+            if (monthDiff < 0) monthDiff += 12;
+            const msInDay = 86400000;
+            const days = Math.floor(diff / msInDay);
+            const hours = Math.floor(diff / 3600000);
+            const minutes = Math.floor(diff / 60000);
+            const seconds = Math.floor(diff / 1000);
+            document.getElementById('ageYears').textContent = years;
+            document.getElementById('ageMonths').textContent = monthDiff;
+            document.getElementById('ageDays').textContent = days;
+            document.getElementById('ageHours').textContent = hours.toLocaleString();
+            document.getElementById('ageMinutes').textContent = minutes.toLocaleString();
+            document.getElementById('ageSeconds').textContent = seconds.toLocaleString();
+            const nextBday = new Date(now.getFullYear(), m, d);
+            if (nextBday < now) nextBday.setFullYear(nextBday.getFullYear() + 1);
+            const daysToBday = Math.ceil((nextBday - now) / msInDay);
+            document.getElementById('nextBirthday').textContent = 'Next birthday in ' + daysToBday + ' days';
+        }
+        document.querySelectorAll('#birthMonth, #birthDay, #birthYear').forEach(el => el.addEventListener('change', calcAge));
+        setTimeout(calcAge, 100);
+        setInterval(calcAge, 1000);
+    </script>
+    <style>
+        .guide-tip { background:#fef3c7;border-left:4px solid #f59e0b;padding:16px;border-radius:8px;margin:24px auto; }
+    </style>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><p>100+ free tools and guides to help you save money, boost productivity, and build better habits.</p></div>
+                <div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/age-calculator.html">Age Calculator</a></li></ul></div>
+                <div class="footer-links"><h4>Guides</h4><ul><li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 ProductivityTools. All rights reserved.</p></div>
+        </div>
+    </footer>
+</body>
+</html>

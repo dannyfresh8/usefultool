@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner - Free Monthly Budget Calculator</title>
+    <meta name="description" content="Free monthly budget planner. Track income, expenses, and savings. See where your money goes with visual breakdown.">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-icon">🛠️</div>
+                <div>
+                    <div class="logo-title">ProductivityTools</div>
+                    <div class="logo-sub">Free calculators & guides</div>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/tools.html" class="nav-link active">Tools</a>
+                <a href="/guides.html" class="nav-link">Guides</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Budget Planner</span>
+            </div>
+            
+            <h1 style="font-size:36px;font-weight:700;margin-bottom:12px;">Budget Planner</h1>
+            <p style="font-size:18px;color:#4b5563;margin-bottom:32px;">Plan your monthly budget. Track income vs expenses and see how much you can save.</p>
+            
+            <div class="tool-container" style="max-width:700px;">
+                <div style="margin-bottom:24px;">
+                    <label class="tool-label">💰 Monthly Income</label>
+                    <div style="position:relative;">
+                        <span style="position:absolute;left:16px;top:14px;color:#6b7280;font-size:18px;">$</span>
+                        <input type="number" id="incomeInput" class="tool-input" style="padding-left:36px;font-size:24px;font-weight:600;" value="5000" step="100" min="0">
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom:16px;">📊 Expenses This Month</h3>
+                <div id="expenseList"></div>
+                <button onclick="addExpense()" style="margin-top:8px;padding:10px 20px;background:#f3f4f6;border:2px dashed #d1d5db;border-radius:8px;cursor:pointer;width:100%;font-size:15px;color:#6b7280;">+ Add Expense Category</button>
+
+                <div class="tool-result" style="margin-top:24px;">
+                    <h3>📋 Budget Summary</h3>
+                    <div class="result-row">
+                        <span class="result-label">Total Income</span>
+                        <span class="result-value" id="sumIncome">$5,000.00</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-label">Total Expenses</span>
+                        <span class="result-value" id="sumExpenses" style="color:#dc2626;">$0.00</span>
+                    </div>
+                    <div class="result-row" style="border-bottom:none;">
+                        <span class="result-label">Remaining</span>
+                        <span class="result-total" id="sumRemaining">$5,000.00</span>
+                    </div>
+                    <div id="budgetBar" style="margin-top:16px;height:24px;background:#e5e7eb;border-radius:12px;overflow:hidden;">
+                        <div id="budgetFill" style="height:100%;background:#2563eb;border-radius:12px;width:0%;transition:width 0.3s;"></div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;font-size:13px;color:#6b7280;margin-top:4px;">
+                        <span>$0 spent</span>
+                        <span id="budgetPercent">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-tip" style="max-width:700px;">
+                <strong>💡 Tip:</strong> Use the <a href="/guides/budgeting-for-beginners.html" style="color:#2563eb;">50/30/20 budgeting rule</a>: 50% needs, 30% wants, 20% savings.
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let expenseCount = 0;
+        const defaultCategories = ['Rent / Mortgage', 'Groceries', 'Utilities', 'Transportation', 'Dining Out', 'Entertainment', 'Shopping', 'Insurance', 'Savings'];
+
+        function addExpense(name, amount) {
+            expenseCount++;
+            const div = document.createElement('div');
+            div.className = 'expense-row';
+            div.style.cssText = 'display:flex;gap:8px;margin-bottom:8px;align-items:center;';
+            div.innerHTML = `
+                <input type="text" class="tool-input expense-name" style="flex:1;" value="${name || ''}" placeholder="Category name">
+                <div style="position:relative;flex:0.6;">
+                    <span style="position:absolute;left:12px;top:12px;color:#6b7280;">$</span>
+                    <input type="number" class="tool-input expense-amount" style="padding-left:28px;" value="${amount || ''}" placeholder="0.00" min="0" step="0.01" oninput="updateBudget()">
+                </div>
+                <button onclick="this.parentElement.remove();updateBudget();" style="background:none;border:none;font-size:20px;cursor:pointer;color:#ef4444;padding:8px;">×</button>
+            `;
+            document.getElementById('expenseList').appendChild(div);
+            if (name) updateBudget();
+        }
+
+        function updateBudget() {
+            const income = parseFloat(document.getElementById('incomeInput').value) || 0;
+            const expenseInputs = document.querySelectorAll('.expense-amount');
+            let totalExpenses = 0;
+            expenseInputs.forEach(el => totalExpenses += parseFloat(el.value) || 0);
+            
+            const remaining = income - totalExpenses;
+            
+            document.getElementById('sumIncome').textContent = '$' + income.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('sumExpenses').textContent = '$' + totalExpenses.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            
+            const remainingEl = document.getElementById('sumRemaining');
+            remainingEl.textContent = '$' + remaining.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            remainingEl.style.color = remaining >= 0 ? '#059669' : '#dc2626';
+
+            const pct = income > 0 ? Math.min(100, (totalExpenses / income) * 100) : 0;
+            document.getElementById('budgetFill').style.width = pct + '%';
+            document.getElementById('budgetFill').style.background = pct > 90 ? '#dc2626' : pct > 70 ? '#f59e0b' : '#2563eb';
+            document.getElementById('budgetPercent').textContent = Math.round(pct) + '%';
+        }
+
+        document.getElementById('incomeInput').addEventListener('input', updateBudget);
+        
+        defaultCategories.forEach(cat => addExpense(cat));
+        updateBudget();
+    </script>
+
+    <style>
+        .expense-row .tool-input { font-size:14px;padding:10px 12px; }
+        .guide-tip { background:#fef3c7;border-left:4px solid #f59e0b;padding:16px;border-radius:8px;margin:24px auto; }
+    </style>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <p>100+ free tools and guides to help you save money, boost productivity, and build better habits.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
+                        <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
+                        <li><a href="/tools/budget-planner.html">Budget Planner</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Guides</h4>
+                    <ul>
+                        <li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ProductivityTools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
