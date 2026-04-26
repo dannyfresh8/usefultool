@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Speed Converter - mph, km/h, knots, m/s</title><meta name="description" content="Convert speed between miles per hour, kilometers per hour, knots, meters per second, and more."><meta name="robots" content="index, follow">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-179G7PSK2S"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-179G7PSK2S');</script>
+<link rel="stylesheet" href="../css/style.css"></head>
+<body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Speed Converter</span></div>
+<h1>Speed Converter</h1>
+<p>Convert between speed units instantly.</p>
+<div class="tool-box"><div class="form-group"><label>Value</label><input type="number" id="value" value="60" step="0.1" oninput="convertSpeed()"></div>
+<div class="form-group"><label>From</label><select id="from" onchange="convertSpeed()"><option value="mph">Miles per hour (mph)</option><option value="kmh" selected>Kilometers per hour (km/h)</option><option value="ms">Meters per second (m/s)</option><option value="knots">Knots</option></select></div>
+<div id="results" style="margin-top:16px;"></div></div>
+<p style="margin-top:24px;color:#6b7280;font-size:14px;">🔁 Related: <a href="/tools/unit-converter.html">Unit Converter</a></p></div></main>
+<script>
+ var factors={mph:1.60934,kmh:1,ms:3.6,knots:1.852};
+ function convertSpeed(){
+  var v=+document.getElementById('value').value||0,f=document.getElementById('from').value;
+  var base=v*factors[f];
+  var html='';var units={mph:'mph',kmh:'km/h',ms:'m/s',knots:'knots'};
+  for(var u in factors){if(u!=f)html+='<div style="display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid #e5e7eb;"><span>'+units[u]+'</span><span style="font-weight:700;">'+(base/factors[u]).toFixed(2)+'</span></div>';}
+  document.getElementById('results').innerHTML=html;
+ }
+ convertSpeed();
+</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul>
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
+                        <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
+                        <li><a href="/tools/budget-planner.html">Budget Planner</a></li>
+                        <li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li>
+                        <li><a href="/tools/loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="/tools/discount-calculator.html">Discount Calculator</a></li>
+                        <li><a href="/tools/investment-calculator.html">Investment Calculator</a></li>
+                        <li><a href="/tools/tax-calculator.html">Tax Calculator</a></li>
+                        <li><a href="/tools/random-password-generator.html">Password Generator</a></li>
+                        <li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li>
+                    </ul>
+</ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+</body>
+</html>

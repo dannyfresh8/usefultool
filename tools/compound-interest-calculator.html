@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Compound Interest Calculator</title><meta name="description" content="Free compound interest calculator. See how your investments grow over time with compound interest."><meta name="robots" content="index, follow">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-179G7PSK2S"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-179G7PSK2S');</script>
+<link rel="stylesheet" href="../css/style.css"></head>
+<body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Compound Interest Calculator</span></div>
+<h1>Compound Interest Calculator</h1>
+<p>See how your money grows over time with compound interest.</p>
+<div class="tool-box"><div class="form-group"><label>Initial Investment ($)</label><input type="number" id="principal" value="1000" min="0"></div>
+<div class="form-group"><label>Monthly Contribution ($)</label><input type="number" id="monthly" value="100" min="0"></div>
+<div class="form-group"><label>Annual Interest Rate (%)</label><input type="number" id="rate" value="7" step="0.1" min="0"></div>
+<div class="form-group"><label>Investment Period (Years)</label><input type="number" id="years" value="10" min="1" max="50"></div>
+<button class="btn btn-primary" onclick="calcCompound()">Calculate</button>
+<div id="result" style="font-size:28px;font-weight:700;text-align:center;margin-top:20px;color:#2563eb;"></div>
+<div id="breakdown" style="margin-top:12px;color:#6b7280;text-align:center;"></div>
+<div id="growthTable" style="margin-top:20px;max-height:250px;overflow-y:auto;"></div></div>
+<p style="margin-top:24px;color:#6b7280;font-size:14px;">📈 Related: <a href="/tools/investment-calculator.html">Investment Calculator</a> | <a href="/guides/investing-for-beginners.html">Investing for Beginners</a></p></div></main>
+<script>
+function calcCompound(){
+ var p=+document.getElementById('principal').value||0;
+ var m=+document.getElementById('monthly').value||0;
+ var r=+document.getElementById('rate').value||0;
+ var y=+document.getElementById('years').value||1;
+ var rate=r/100/12,months=y*12,balance=p;
+ var totalContrib=p;
+ for(var i=0;i<months;i++){balance+=m;totalContrib+=m;balance*=(1+rate);}
+ var interest=balance-totalContrib;
+ document.getElementById('result').innerHTML='$'+Math.round(balance).toLocaleString();
+ document.getElementById('breakdown').innerHTML='Total contributed: $'+Math.round(totalContrib).toLocaleString()+' | Interest earned: $'+Math.round(interest).toLocaleString();
+ var html='<table style="width:100%;border-collapse:collapse;font-size:13px;"><tr style="background:#f3f4f6;"><th style="padding:6px;text-align:left;">Year</th><th style="padding:6px;text-align:right;">Balance</th></tr>';
+ var b2=p;
+ for(var y2=1;y2<=y;y2++){for(var m2=0;m2<12;m2++){b2+=m;b2*=(1+r/100/12);}html+='<tr><td style="padding:4px;border-bottom:1px solid #e5e7eb;">Year '+y2+'</td><td style="padding:4px;border-bottom:1px solid #e5e7eb;text-align:right;">$'+Math.round(b2).toLocaleString()+'</td></tr>';}
+ html+='</table>';document.getElementById('growthTable').innerHTML=html;
+}
+calcCompound();
+</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul>
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
+                        <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
+                        <li><a href="/tools/budget-planner.html">Budget Planner</a></li>
+                        <li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li>
+                        <li><a href="/tools/loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="/tools/discount-calculator.html">Discount Calculator</a></li>
+                        <li><a href="/tools/investment-calculator.html">Investment Calculator</a></li>
+                        <li><a href="/tools/tax-calculator.html">Tax Calculator</a></li>
+                        <li><a href="/tools/random-password-generator.html">Password Generator</a></li>
+                        <li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li>
+                    </ul>
+</ul></div><div class="footer-links"><h4>Guides</h4><ul>
+                    <h4>Guides</h4>
+                    <ul>
+                        <li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li>
+                        <li><a href="/guides/budgeting-for-beginners.html">Budgeting</a></li>
+                        <li><a href="/guides/how-to-start-a-business.html">Start a Business</a></li>
+                        <li><a href="/guides/freelancing-101.html">Freelancing 101</a></li>
+                        <li><a href="/guides/investing-for-beginners.html">Investing</a></li>
+                        <li><a href="/guides/productivity-tips.html">Productivity</a></li>
+                        <li><a href="/guides/resume-writing-tips.html">Resume Tips</a></li>
+                        <li><a href="/guides/passive-income-ideas.html">Passive Income</a></li>
+                        <li><a href="/guides/frugal-living-tips.html">Frugal Living</a></li>
+                        <li><a href="/guides/digital-minimalism-guide.html">Digital Minimalism</a></li>
+                    </ul>
+</ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+</body>
+</html>
