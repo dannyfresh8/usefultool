@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Timezone Converter - Time Zone Calculator</title><meta name="description" content="Convert time between time zones. Easily see what time it is in different cities around the world."><meta name="robots" content="index, follow">
+<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-179G7PSK2S"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-179G7PSK2S');</script>
+<link rel="stylesheet" href="../css/style.css"></head>
+<body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Timezone Converter</span></div>
+<h1>Timezone Converter</h1>
+<p>Convert time between different time zones.</p>
+<div class="tool-box"><div class="form-group"><label>Time (HH:MM)</label><input type="time" id="time" value="12:00"></div>
+<div class="form-group"><label>From Timezone</label><select id="fromTz"><option value="-5">EST (UTC-5)</option><option value="-8">PST (UTC-8)</option><option value="0" selected>UTC/GMT</option><option value="1">CET (UTC+1)</option><option value="3">MSK (UTC+3)</option><option value="5.5">IST (UTC+5:30)</option><option value="8">CST/Beijing (UTC+8)</option><option value="9">JST (UTC+9)</option><option value="11">AEDT (UTC+11)</option></select></div>
+<div class="form-group"><label>To Timezone</label><select id="toTz"><option value="-5">EST (UTC-5)</option><option value="-8">PST (UTC-8)</option><option value="0">UTC/GMT</option><option value="1" selected>CET (UTC+1)</option><option value="3">MSK (UTC+3)</option><option value="5.5">IST (UTC+5:30)</option><option value="8">CST/Beijing (UTC+8)</option><option value="9">JST (UTC+9)</option><option value="11">AEDT (UTC+11)</option></select></div>
+<button class="btn btn-primary" onclick="convTz()">Convert</button>
+<div id="tzResult" style="font-size:28px;font-weight:700;text-align:center;margin-top:20px;color:#2563eb;"></div></div></div></main>
+<script>function convTz(){var t=document.getElementById('time').value;if(!t){document.getElementById('tzResult').innerHTML='Select a time';return;}var parts=t.split(':');var h=+parts[0],m=+parts[1];var f=+document.getElementById('fromTz').value,tTz=+document.getElementById('toTz').value;var totalMin=h*60+m+f*60;totalMin=((totalMin%1440)+1440)%1440;totalMin+=tTz*60;totalMin=((totalMin%1440)+1440)%1440;var nh=Math.floor(totalMin/60),nm=Math.round(totalMin%60);var ampm=nh>=12?'PM':'AM';var nh12=nh%12||12;document.getElementById('tzResult').innerHTML=('0'+nh12).slice(-2)+':'+('0'+nm).slice(-2)+' '+ampm;}convTz();</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul>
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
+                        <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
+                        <li><a href="/tools/budget-planner.html">Budget Planner</a></li>
+                        <li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li>
+                        <li><a href="/tools/loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="/tools/discount-calculator.html">Discount Calculator</a></li>
+                        <li><a href="/tools/debt-calculator.html">Debt Calculator</a></li>
+                        <li><a href="/tools/tax-calculator.html">Tax Calculator</a></li>
+                        <li><a href="/tools/random-password-generator.html">Password Generator</a></li>
+                        <li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li>
+                        <li><a href="/tools/grade-calculator.html">Grade Calculator</a></li>
+                        <li><a href="/tools/timezone-converter.html">Timezone Converter</a></li>
+                    </ul>
+</ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+</body>
+</html>

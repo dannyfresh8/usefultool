@@ -1,30 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Markup Calculator - Calculate Profit Margin</title><meta name="description" content="Free markup calculator for businesses. Calculate selling price, markup percentage, or profit margin."><meta name="robots" content="index, follow">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-179G7PSK2S"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-179G7PSK2S');</script>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Simple Interest Calculator</title><meta name="description" content="Calculate simple interest on loans or investments. Principal, rate, and time calculator."><meta name="robots" content="index, follow">
+<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-179G7PSK2S"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-179G7PSK2S');</script>
 <link rel="stylesheet" href="../css/style.css"></head>
 <body>
 <header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
-<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Markup Calculator</span></div>
-<h1>Markup Calculator</h1>
-<p>Calculate selling price based on cost and markup percentage.</p>
-<div class="tool-box"><div class="form-group"><label>Cost Price ($)</label><input type="number" id="cost" value="50" min="0" step="0.01"></div>
-<div class="form-group"><label>Markup Percentage (%)</label><input type="number" id="markup" value="40" min="0" step="0.5"></div>
-<button class="btn btn-primary" onclick="calcMarkup()">Calculate</button>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Interest Calculator</span></div>
+<h1>Simple Interest Calculator</h1>
+<p>Calculate simple interest on any amount.</p>
+<div class="tool-box"><div class="form-group"><label>Principal ($)</label><input type="number" id="principal" value="10000" min="0"></div>
+<div class="form-group"><label>Annual Interest Rate (%)</label><input type="number" id="rate" value="5" min="0" step="0.1"></div>
+<div class="form-group"><label>Time (years)</label><input type="number" id="years" value="3" min="0.5" step="0.5"></div>
+<button class="btn btn-primary" onclick="calcInterest()">Calculate</button>
 <div id="result" style="font-size:28px;font-weight:700;text-align:center;margin-top:20px;color:#2563eb;"></div>
 <div id="breakdown" style="margin-top:12px;color:#6b7280;text-align:center;"></div></div>
-<p style="margin-top:24px;color:#6b7280;font-size:14px;">💼 Related: <a href="/guides/how-to-start-a-business.html">Start a Business</a></p></div></main>
-<script>
-function calcMarkup(){
- var c=+document.getElementById('cost').value||0,m=+document.getElementById('markup').value||0;
- var sp=c*(1+m/100),profit=sp-c,margin=sp>0?profit/sp*100:0;
- document.getElementById('result').innerHTML='$'+sp.toFixed(2);
- document.getElementById('breakdown').innerHTML='Profit: $'+profit.toFixed(2)+' | Margin: '+margin.toFixed(1)+'%';
-}
-calcMarkup();
-</script>
+<p style="margin-top:24px;color:#6b7280;font-size:14px;">📈 Related: <a href="/tools/compound-interest-calculator.html">Compound Interest Calculator</a></p></div></main>
+<script>function calcInterest(){var p=+document.getElementById('principal').value||0,r=+document.getElementById('rate').value||0,y=+document.getElementById('years').value||1;var i=p*r/100*y,t=p+i;document.getElementById('result').innerHTML='$'+i.toFixed(2)+' interest';document.getElementById('breakdown').innerHTML='Total: $'+t.toFixed(2)+' | Principal: $'+p.toFixed(2)+' | Rate: '+r+'% for '+y+' years';}calcInterest();</script>
 <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul>
                     <h4>Tools</h4>
                     <ul>
