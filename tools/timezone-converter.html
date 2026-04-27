@@ -15,8 +15,6 @@
 <div id="tzResult" style="font-size:28px;font-weight:700;text-align:center;margin-top:20px;color:#2563eb;"></div></div></div></main>
 <script>function convTz(){var t=document.getElementById('time').value;if(!t){document.getElementById('tzResult').innerHTML='Select a time';return;}var parts=t.split(':');var h=+parts[0],m=+parts[1];var f=+document.getElementById('fromTz').value,tTz=+document.getElementById('toTz').value;var totalMin=h*60+m+f*60;totalMin=((totalMin%1440)+1440)%1440;totalMin+=tTz*60;totalMin=((totalMin%1440)+1440)%1440;var nh=Math.floor(totalMin/60),nm=Math.round(totalMin%60);var ampm=nh>=12?'PM':'AM';var nh12=nh%12||12;document.getElementById('tzResult').innerHTML=('0'+nh12).slice(-2)+':'+('0'+nm).slice(-2)+' '+ampm;}convTz();</script>
 <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul>
-                    <h4>Tools</h4>
-                    <ul>
                         <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
                         <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
                         <li><a href="/tools/budget-planner.html">Budget Planner</a></li>
@@ -29,7 +27,6 @@
                         <li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li>
                         <li><a href="/tools/grade-calculator.html">Grade Calculator</a></li>
                         <li><a href="/tools/timezone-converter.html">Timezone Converter</a></li>
-                    </ul>
-</ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+                    </ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
 </body>
 </html>

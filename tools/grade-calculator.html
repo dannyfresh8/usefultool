@@ -17,8 +17,6 @@
 <div id="gradeLetter" style="text-align:center;font-size:18px;color:#6b7280;margin-top:8px;"></div></div></div></main>
 <script>function addGradeRow(){var d=document.createElement('div');d.className='form-group';d.style.cssText='display:grid;grid-template-columns:1fr 1fr 40px;gap:8px;align-items:end;';d.innerHTML='<div><label>Score</label><input type="number" class="g-score" value="0" min="0" style="width:100%;"></div><div><label>Max</label><input type="number" class="g-max" value="100" min="1" style="width:100%;"></div><button onclick="this.parentElement.remove();calcGrade();" style="height:38px;background:#fee2e2;border:none;border-radius:6px;cursor:pointer;">✕</button>';document.getElementById('gradeInputs').appendChild(d);}function calcGrade(){var scores=document.querySelectorAll('.g-score'),maxes=document.querySelectorAll('.g-max');var totalScore=0,totalMax=0;for(var i=0;i<scores.length;i++){totalScore+=+scores[i].value||0;totalMax+=+maxes[i].value||0;}var pct=totalMax>0?totalScore/totalMax*100:0;var letter=pct>=97?'A+':pct>=93?'A':pct>=90?'A-':pct>=87?'B+':pct>=83?'B':pct>=80?'B-':pct>=77?'C+':pct>=73?'C':pct>=70?'C-':pct>=67?'D+':pct>=63?'D':pct>=60?'D-':'F';document.getElementById('gradeResult').innerHTML=pct.toFixed(1)+'% ('+totalScore+'/'+totalMax+')';document.getElementById('gradeLetter').innerHTML='Letter Grade: <strong>'+letter+'</strong>';}calcGrade();</script>
 <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul>
-                    <h4>Tools</h4>
-                    <ul>
                         <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
                         <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
                         <li><a href="/tools/budget-planner.html">Budget Planner</a></li>
@@ -31,7 +29,6 @@
                         <li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li>
                         <li><a href="/tools/grade-calculator.html">Grade Calculator</a></li>
                         <li><a href="/tools/timezone-converter.html">Timezone Converter</a></li>
-                    </ul>
-</ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+                    </ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
 </body>
 </html>

@@ -18,8 +18,6 @@
 <p style="margin-top:24px;color:#6b7280;font-size:14px;">💰 Related: <a href="/guides/debt-payoff-strategies.html">Debt Payoff Strategies</a></p></div></main>
 <script>function calcDebt(){var b=+document.getElementById('balance').value||0,r=+document.getElementById('rate').value||0,p=+document.getElementById('payment').value||1;var mr=r/100/12,bal=b,months=0,totalInt=0;var html='<table style="width:100%;border-collapse:collapse;font-size:13px;"><tr style="background:#f3f4f6;"><th style="padding:6px;text-align:left;">Month</th><th style="padding:6px;text-align:right;">Payment</th><th style="padding:6px;text-align:right;">Interest</th><th style="padding:6px;text-align:right;">Balance</th></tr>';if(p<=bal*mr){document.getElementById('debtResult').innerHTML='Payment too low (not covering interest)';document.getElementById('debtBreakdown').innerHTML='Minimum payment needed: $'+(bal*mr+1).toFixed(2);return;}while(bal>0&&months<600){months++;var intChg=bal*mr;if(p>bal+intChg){totalInt+=intChg;bal=0;if(months<=12||months%12==0)html+='<tr><td style="padding:4px;border-bottom:1px solid #e5e7eb;">'+months+'</td><td style="padding:4px;border-bottom:1px solid #e5e7eb;text-align:right;">$'+(bal+intChg).toFixed(2)+'</td><td style="padding:4px;border-bottom:1px solid #e5e7eb;text-align:right;">$'+intChg.toFixed(2)+'</td><td style="padding:4px;border-bottom:1px solid #e5e7eb;text-align:right;">$0.00</td></tr>';break;}else{totalInt+=intChg;bal=bal+intChg-p;if(months<=12||months%12==0)html+='<tr><td style="padding:4px;border-bottom:1px solid #e5e7eb;">'+months+'</td><td style="padding:4px;border-bottom:1px solid #e5e7eb;text-align:right;">$'+p.toFixed(2)+'</td><td style="padding:4px;border-bottom:1px solid #e5e7eb;text-align:right;">$'+intChg.toFixed(2)+'</td><td style="padding:4px;border-bottom:1px solid #e5e7eb;text-align:right;">$'+bal.toFixed(2)+'</td></tr>';break;}}html+='</table>';document.getElementById('debtResult').innerHTML=months+' months to pay off';document.getElementById('debtBreakdown').innerHTML='Total interest paid: $'+totalInt.toFixed(2)+' | Total paid: $'+(b+totalInt).toFixed(2);document.getElementById('debtTable').innerHTML=html;}calcDebt();</script>
 <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul>
-                    <h4>Tools</h4>
-                    <ul>
                         <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
                         <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
                         <li><a href="/tools/budget-planner.html">Budget Planner</a></li>
@@ -32,7 +30,6 @@
                         <li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li>
                         <li><a href="/tools/grade-calculator.html">Grade Calculator</a></li>
                         <li><a href="/tools/timezone-converter.html">Timezone Converter</a></li>
-                    </ul>
-</ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+                    </ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
 </body>
 </html>

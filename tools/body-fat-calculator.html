@@ -19,8 +19,6 @@
 <p style="margin-top:24px;color:#6b7280;font-size:14px;">🩺 Related: <a href="/tools/bmi-calculator.html">BMI Calculator</a> | <a href="/tools/bmr-calculator.html">BMR Calculator</a></p></div></main>
 <script>function calcBF(){var g=document.getElementById('gender').value,h=+document.getElementById('height').value||170,w=+document.getElementById('waist').value||80,n=+document.getElementById('neck').value||35,hp=+document.getElementById('hip').value||90;var bf;if(g=='male'){bf=495/(1.0324-0.19077*Math.log10(w-n)+0.15456*Math.log10(h))-450;}else{bf=495/(1.29579-0.35004*Math.log10(w+hp-n)+0.22100*Math.log10(h))-450;}bf=Math.max(2,Math.min(bf,60));var cat;if(g=='male'){if(bf<6)cat='Essential fat (2-6%)';else if(bf<14)cat='Athletic (6-14%)';else if(bf<18)cat='Fit (14-18%)';else if(bf<25)cat='Average (18-25%)';else cat='Obese (>25%)';}else{if(bf<10)cat='Essential fat (10-13%)';else if(bf<21)cat='Athletic (14-21%)';else if(bf<25)cat='Fit (21-25%)';else if(bf<32)cat='Average (25-32%)';else cat='Obese (>32%)';}document.getElementById('result').innerHTML=bf.toFixed(1)+'%';document.getElementById('breakdown').innerHTML=cat;}calcBF();</script>
 <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul>
-                    <h4>Tools</h4>
-                    <ul>
                         <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
                         <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
                         <li><a href="/tools/budget-planner.html">Budget Planner</a></li>
@@ -33,7 +31,6 @@
                         <li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li>
                         <li><a href="/tools/grade-calculator.html">Grade Calculator</a></li>
                         <li><a href="/tools/timezone-converter.html">Timezone Converter</a></li>
-                    </ul>
-</ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+                    </ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
 </body>
 </html>

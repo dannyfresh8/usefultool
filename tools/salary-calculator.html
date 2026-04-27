@@ -14,8 +14,6 @@
 <p style="margin-top:24px;color:#6b7280;font-size:14px;">💼 Related: <a href="/tools/hourly-to-salary-converter.html">Hourly to Salary Converter</a></p></div></main>
 <script>function calcSalary(){var s=+document.getElementById('salary').value||0,h=+document.getElementById('hours').value||1;var monthly=s/12,bw=s/26,weekly=s/52,daily=s/260,hourly=s/(h*52);var html='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:15px;">';var items=[['Monthly','$'+monthly.toFixed(2)],['Bi-Weekly','$'+bw.toFixed(2)],['Weekly','$'+weekly.toFixed(2)],['Daily (260 days)','$'+daily.toFixed(2)],['Hourly ('+h+'h/wk)','$'+hourly.toFixed(2)]];for(var i=0;i<items.length;i++){html+='<div style="background:#f9fafb;padding:12px;border-radius:6px;text-align:center;"><div style="color:#6b7280;font-size:13px;">'+items[i][0]+'</div><div style="font-size:20px;font-weight:700;color:#2563eb;">'+items[i][1]+'</div></div>';}html+='</div>';document.getElementById('sbResult').innerHTML=html;}calcSalary();</script>
 <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul>
-                    <h4>Tools</h4>
-                    <ul>
                         <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
                         <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
                         <li><a href="/tools/budget-planner.html">Budget Planner</a></li>
@@ -28,7 +26,6 @@
                         <li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li>
                         <li><a href="/tools/grade-calculator.html">Grade Calculator</a></li>
                         <li><a href="/tools/timezone-converter.html">Timezone Converter</a></li>
-                    </ul>
-</ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+                    </ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
 </body>
 </html>
