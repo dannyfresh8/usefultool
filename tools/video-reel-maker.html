@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Travel Reel Maker - Free Instagram TikTok Reel Creator</title>
+<meta name="description" content="Create stunning travel reels for Instagram and TikTok with scene-by-scene timeline, music suggestions, filter ideas, and shot types. Free AI reel generator.">
+<meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/video-reel-maker.html" />
+<style>
+.tool-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.tool-emoji{font-size:40px;line-height:1}
+.tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tool-actions .btn{min-width:120px;text-align:center}
+.btn{padding:10px 24px;border-radius:8px;font-weight:600;cursor:pointer;border:0;font-size:14px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.result-content{background:white;padding:16px;border-radius:8px;margin-top:8px;border:1px solid #e5e7eb;font-size:14px;white-space:pre-wrap;word-wrap:break-word}
+.tagline{font-size:15px;color:#555;margin-bottom:20px;line-height:1.5}
+.options-grid{display:flex;gap:8px;flex-wrap:wrap}
+.options-grid .option-chip{padding:8px 18px;border:2px solid #e5e7eb;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;transition:all .2s}
+.options-grid .option-chip.selected{background:#0891b2;color:white;border-color:#0891b2}
+.options-grid .option-chip:hover:not(.selected){border-color:#0891b2}
+label.prompt-hint{display:block;margin-bottom:4px;font-size:13px;color:#6b7280;font-weight:500}
+input.ai-input,select.ai-input{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box}
+input.ai-input:focus{outline:0;border-color:#0891b2}
+.custom-checkbox{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+
+.weather-card{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:16px;padding:24px;margin:16px 0;text-align:center}
+.weather-card h2{color:white;margin:0 0 8px;font-size:28px}
+.weather-temp{font-size:56px;font-weight:700;margin:8px 0}
+.weather-icon{font-size:64px}
+.weather-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px;margin-top:16px;background:rgba(255,255,255,0.15);border-radius:12px;padding:16px}
+.weather-detail{text-align:center}
+.weather-detail strong{font-size:18px;display:block}
+.weather-detail span{font-size:12px;opacity:0.8}
+.forecast-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin:12px 0}
+.forecast-day{background:#f8fafc;border-radius:10px;padding:10px;text-align:center;font-size:13px}
+.forecast-day .day-name{font-weight:600;margin-bottom:4px}
+.forecast-day .day-icon{font-size:24px}
+.forecast-day .day-temp{color:#0891b2;font-weight:500;margin-top:4px}
+.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:12px 0}
+.country-btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;background:white;cursor:pointer;font-size:13px;text-align:left;transition:all .2s;text-decoration:none;color:#333;display:block}
+.country-btn:hover{background:#f0fdf4;border-color:#22c55e}
+.weather-input{width:100%;padding:12px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:16px;margin:8px 0;box-sizing:border-box}
+.weather-input:focus{border-color:#667eea;outline:none}
+.loading-spinner{display:inline-block;width:20px;height:20px;border:3px solid #e5e7eb;border-top-color:#667eea;border-radius:50%;animation:spin .6s linear infinite;margin:10px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.weather-tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+</style>
+</head><body>
+affiliate-disclosure" style="background:#fef9c3;padding:10px 20px;text-align:center;font-size:13px;color:#92400e;border-bottom:1px solid #fde68a">
+Some links on this site are affiliate links. We may earn a commission at no extra cost to you. <a href="/recommends.html" style="color:#0891b2;text-decoration:underline">Learn more</a>.
+</div>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a><a href="/recommends.html" class="nav-link">Recommendations</a></nav></div></header>
+<main><div class="container">
+<p class="breadcrumb"><a href="/">Home</a> › <a href="/tools.html">Tools</a> › <a href="/tools/weather.html">Weather</a> › <span>AI Travel Reel Maker - Free Instagram TikTok Reel Creator</span></p>
+<div class="tool-header"><div class="tool-emoji">🎬</div><div><h1 style="margin:0">AI Travel Reel Maker</h1><p style="margin:4px 0 0;color:#555">Create Instagram/TikTok travel reels</p></div></div>
+<div class="tool-box"><div id="app"><div class="tagline">Create stunning travel reels for Instagram & TikTok with scenes, text & music.</div>
+
+<div><label class="prompt-hint">Travel Destination</label>
+<input type="text" id="rlDest" class="ai-input" value="Bali, Indonesia" placeholder="Where did you travel?"></div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div><label class="prompt-hint">Reel Vibe</label>
+<select id="rlVibe" class="ai-input">
+<option value="aesthetic">Aesthetic & Dreamy</option>
+<option value="adventure">Adventure & Action</option>
+<option value="chill">Chill & Relaxing</option>
+<option value="romantic">Romantic & Couple</option>
+<option value="vibrant">Vibrant & Fun</option>
+<option value="cinematic">Cinematic & Epic</option>
+</select></div>
+<div><label class="prompt-hint">Reel Length</label>
+<select id="rlLength" class="ai-input">
+<option value="15">15 sec (Short)</option>
+<option value="30" selected>30 sec (Standard)</option>
+<option value="60">60 sec (Long)</option>
+</select></div>
+</div>
+
+<div class="tool-actions"><button class="btn btn-primary" onclick="genReel()">🎬 Generate Reel Script</button><button class="btn btn-secondary" onclick="previewReel()">👁️ Preview Timeline</button></div>
+<div id="rlResult"></div></div></div>
+<div class="share-bar"><span>Share:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=AI%20Travel%20Reel%20Maker%20-%20Free%20Instagram%20TikTok%20Reel%20Creator&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fvideo-reel-maker.html" target="_blank" rel="noopener">🐦</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fvideo-reel-maker.html" target="_blank" rel="noopener">👥</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=AI%20Travel%20Reel%20Maker%20-%20Free%20Instagram%20TikTok%20Reel%20Creator%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fvideo-reel-maker.html" target="_blank" rel="noopener">📱</a></div>
+<div class="calc-info"><h3>How to Use</h3><p>Enter a city or country name and get real-time weather data. Powered by Open-Meteo API — free, no key needed.</p><h3>Countries Covered</h3><p>All countries worldwide. Just type a city name and get instant weather data.</p><h3>Why This Tool</h3><p>Free, fast, works on mobile & desktop. No sign-ups required.</p></div>
+</div></main>
+<script>
+var vibeColors={aesthetic:"#fce4ec,#f8bbd0",adventure:"#ff5722,#ff7043",chill:"#80deea,#4dd0e1",romantic:"#f48fb1,#ec407a",vibrant:"#ffeb3b,#ff9800",cinematic:"#37474f,#212121"}
+var vibeMusic={aesthetic:"Dreamy lo-fi beat, soft piano",adventure:"Epic orchestral, intense drums",chill:"Acoustic guitar, ambient waves",romantic:"Soft piano, string section",vibrant:"Upbeat pop, electronic dance",cinematic:"Cinematic orchestra, building crescendo"}
+var vibeFilter={aesthetic:"Warm golden + soft glow",adventure:"High contrast + desaturated",chill:"Pastel blue + light leak",romantic:"Warm rose + soft focus",vibrant:"High saturation + contrast boost",cinematic:"Dark moody + teal/orange"}
+
+function genReel(){
+var dest=document.getElementById("rlDest").value.trim()||"your destination"
+var vibe=document.getElementById("rlVibe").value
+var len=parseInt(document.getElementById("rlLength").value)||30
+var scenes=Math.floor(len/5)
+
+var sceneIdeas=["Sunrise/sunset at "+dest,"Walking through local streets","Aerial view of landscapes","Local food & street market","Cultural landmark/temple","Beach/ocean view","Hidden gem discovery","Local people & smiles","Drone footage of scenery","Night life & city lights","Nature & wildlife","Adventure activity","Sunset time-lapse","Waterfall/river view","Mountain viewpoint"]
+
+var r=document.getElementById("rlResult")
+r.style.display="block"
+
+r.innerHTML='<div style="background:linear-gradient(135deg,'+vibeColors[vibe]+');border-radius:16px;padding:24px;text-align:center;color:white;margin-bottom:16px">'
+r.innerHTML+='<div style=font-size:36px>🎬</div><h2 style="color:white;margin:8px 0">'+dest+' Reel</h2>'
+r.innerHTML+='<p style=opacity:0.9>'+vibe.charAt(0).toUpperCase()+vibe.slice(1)+' · '+len+' sec · '+scenes+' scenes</p>'
+r.innerHTML+='</div>'
+
+r.innerHTML+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">'
+r.innerHTML+='<div style="background:#f8fafc;padding:10px;border-radius:8px;font-size:12px"><strong>🎵 Music:</strong><br>'+vibeMusic[vibe]+'</div>'
+r.innerHTML+='<div style="background:#f8fafc;padding:10px;border-radius:8px;font-size:12px"><strong>🎨 Filter:</strong><br>'+vibeFilter[vibe]+'</div>'
+r.innerHTML+='</div>'
+
+r.innerHTML+='<h3>📋 Scene Timeline</h3><div class="weather-details" style="color:#333">'
+
+var time=0
+for(var i=0;i<scenes;i++){
+var seg=Math.floor(len/scenes)
+var startM=Math.floor(time/60)
+var startS=time%60
+time+=seg
+var endM=Math.floor(time/60)
+var endS=time%60
+var idea=sceneIdeas[i%sceneIdeas.length]
+var icons=["🌅","🚶","🏔️","🍜","🏛️","🏖️","💎","👥","🎬","🌃","🌿","🏄","🌇","💧","⛰️"]
+
+r.innerHTML+='<div style="padding:8px;border-left:3px solid #ff6b6b;margin:4px 0;background:white;border-radius:0 8px 8px 0">'
+r.innerHTML+='<div style="display:flex;justify-content:space-between;font-size:12px"><strong>Scene '+(i+1)+'</strong><span style=color:#9ca3af>'+pad(startM)+":"+pad(startS)+' - '+pad(endM)+":"+pad(endS)+'</span></div>'
+r.innerHTML+='<div><span style=font-size:18px>'+icons[i%icons.length]+'</span> '+idea+'</div>'
+r.innerHTML+='<div style="font-size:11px;color:#6b7280;margin-top:2px">🎥 '+getShotType(i)+' · ⏱ '+seg+'s</div>'
+r.innerHTML+='</div>'
+}
+
+r.innerHTML+='</div>'
+
+r.innerHTML+='<div style="background:#fef9c3;border:1px solid #fde68a;border-radius:8px;padding:12px;margin-top:12px"><strong>💡 Pro Tips:</strong> Use '+vibeFilter[vibe]+' filter. Match transitions to music beat. Add text overlays at key moments.</div>'
+}
+
+function pad(n){return n<10?"0"+n:n}
+function getShotType(i){var t=["Wide establishing","Slow motion close-up","Aerial drone","Tracking shot","Panoramic","Timelapse","First person","Overhead","Low angle","POV walkthrough"];return t[i%t.length]}
+
+function previewReel(){
+alert("Reel timeline generated! Use the scene list as your storyboard. Capture screenshots for each scene.")
+}
+
+</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</a></li><li><a href="/tools/discount-calculator.html">Discount Calculator</a></li><li><a href="/tools/investment-calculator.html">Investment Calculator</a></li><li><a href="/tools/tax-calculator.html">Tax Calculator</a></li><li><a href="/tools/random-password-generator.html">Password Generator</a></li><li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li></ul></div><div class="footer-links"><h4>Guides</h4><ul><li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li><li><a href="/guides/budgeting-for-beginners.html">Budgeting</a></li><li><a href="/guides/how-to-start-a-business.html">Start a Business</a></li><li><a href="/guides/freelancing-101.html">Freelancing 101</a></li><li><a href="/guides/investing-for-beginners.html">Investing</a></li><li><a href="/guides/productivity-tips.html">Productivity</a></li><li><a href="/guides/resume-writing-tips.html">Resume Tips</a></li><li><a href="/guides/passive-income-ideas.html">Passive Income</a></li><li><a href="/guides/frugal-living-tips.html">Frugal Living</a></li><li><a href="/guides/digital-minimalism-guide.html">Digital Minimalism</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

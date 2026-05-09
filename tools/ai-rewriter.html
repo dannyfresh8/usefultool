@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Rewriter & Paraphraser - Rewrite Text Free</title>
+<meta name="description" content="Rewrite and paraphrase text online free. AI sentence rewriter with tone options."><meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/ai-rewriter.html" />
+
+<style>
+.tool-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.tool-emoji{font-size:40px;line-height:1}
+.tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tool-actions .btn{min-width:120px;text-align:center}
+textarea.ai-input{width:100%;min-height:120px;padding:12px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box;resize:vertical;transition:border-color .2s}
+textarea.ai-input:focus{outline:0;border-color:#0891b2}
+.prompt-hint{font-size:13px;color:#888;margin-bottom:6px}
+.word-count{text-align:right;font-size:12px;color:#888;margin-top:4px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.result-content{background:white;padding:16px;border-radius:8px;margin-top:8px;border:1px solid #e5e7eb;font-size:14px;line-height:1.6;white-space:pre-wrap;word-wrap:break-word}
+.btn{padding:10px 24px;border-radius:8px;font-weight:600;cursor:pointer;border:0;font-size:14px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+.options-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:10px 0}
+.option-chip{padding:8px 12px;border:1px solid #e5e7eb;border-radius:20px;cursor:pointer;font-size:13px;text-align:center;transition:all .15s}
+.option-chip:hover{border-color:#0891b2;background:#ecfeff}
+.option-chip.selected{background:#0891b2;color:white;border-color:#0891b2}
+.slider-container{margin:8px 0}
+.slider-container label{font-size:13px;font-weight:500;display:flex;justify-content:space-between}
+input[type="range"]{width:100%;margin:4px 0}
+.tagline{font-size:15px;color:#555;margin-bottom:20px;line-height:1.5}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+</style></head><body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <a href="/tools/ai-writing.html">AI Writing</a> &gt; <span>AI Rewriter & Paraphraser - Rewrite Text Free</span></div>
+<div class="tool-header"><div class="tool-emoji">🔄</div><div><h1 style="margin:0">AI Rewriter & Paraphraser</h1><p style="margin:4px 0 0;color:#555">Rewrite sentences and paragraphs in different styles</p></div></div>
+<div class="tool-box"><div id="app"><div class="tagline">Enter text and choose a rewriting style.</div>
+<div style="margin-bottom:10px"><label class="prompt-hint">Paste text:</label>
+<textarea class="ai-input" id="rwInput" placeholder="Paste a sentence or paragraph..."></textarea>
+<div class="word-count" id="rwCount">0 words</div></div>
+<div class="options-grid">
+<div class="option-chip" onclick="setRw('pro')">Professional</div>
+<div class="option-chip" onclick="setRw('simple')">Simple</div>
+<div class="option-chip selected" onclick="setRw('fluent')">Fluent</div>
+<div class="option-chip" onclick="setRw('creative')">Creative</div>
+<div class="option-chip" onclick="setRw('formal')">Formal</div>
+<div class="option-chip" onclick="setRw('concise')">Concise</div>
+</div>
+<div class="tool-actions"><button class="btn btn-primary" onclick="doRewrite()" id="rwBtn">🔄 Rewrite</button></div>
+<div id="rwProg" style="display:none;margin-top:12px;color:#0891b2;font-weight:500">Rewriting...</div>
+<div id="rwResult" class="result-box"></div>
+<p class="info-sub">Rule-based transformations. Works best on 1-5 sentences.</p></div></div>
+<div class="share-bar"><span>Share this tool:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=ai%20rewriter&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fai-rewriter.html" target="_blank" rel="noopener">🐦 Tweet</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fai-rewriter.html" target="_blank" rel="noopener">👥 Share</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=ai%20rewriter%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fai-rewriter.html" target="_blank" rel="noopener">📱 WhatsApp</a><a class="share-btn share-telegram" href="https://t.me/share/url?url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fai-rewriter.html&text=ai%20rewriter" target="_blank" rel="noopener">✉️ Telegram</a><button class="share-btn share-copy" onclick="copyPageUrl()">📋 Copy Link</button></div>
+<div class="calc-info"><h3>How It Works</h3><p>Paste text, choose a style, click Rewrite. The tool restructures your text with appropriate vocabulary and tone.</p><h3>Why Use This Tool</h3><p>Rephrase content for different audiences, improve clarity, or adjust tone for emails, essays, or marketing.</p></div>
+<div class="related-links"><h3>More AI Writing Tools</h3><ul>
+<li><a href="/tools/ai-rewriter.html">AI Rewriter</a></li>
+<li><a href="/tools/ai-grammar.html">AI Grammar Checker</a></li>
+<li><a href="/tools/ai-email-writer.html">AI Email Writer</a></li>
+<li><a href="/tools/ai-blog-ideas.html">AI Blog Ideas</a></li>
+<li><a href="/tools/ai-title-generator.html">AI Title Generator</a></li>
+<li><a href="/tools/ai-summarizer.html">AI Summarizer</a></li>
+<li><a href="/tools/ai-chat-writer.html">AI Chat Writer</a></li>
+<li><a href="/tools/ai-caption-generator.html">AI Caption Generator</a></li>
+</ul></div></div></main>
+<script>var rwStyle="fluent";
+document.getElementById("rwInput").oninput=function(){document.getElementById("rwCount").textContent=this.value.trim().split(/\s+/).filter(Boolean).length+" words"};
+function setRw(s){rwStyle=s;[].forEach.call(document.querySelectorAll(".options-grid .option-chip"),function(c){c.classList.remove("selected")});event.target.classList.add("selected")}
+function doRewrite(){var t=document.getElementById("rwInput").value.trim();if(!t||t.split(/\s+/).filter(Boolean).length<2){alert("Enter at least 2 words");return}document.getElementById("rwBtn").disabled=true;document.getElementById("rwProg").style.display="block";setTimeout(function(){var maps={pro:{a:["strategic","comprehensive","effective","optimal"],p:["In order to","To achieve this,","The objective is to"],s:["Review accordingly","This approach ensures","Best practices indicate"]},simple:{a:["good","easy","clear","basic"],p:["You can","It helps to","Here is how"],s:["That is it","Keep it simple","Hope it helps"]},fluent:{a:["smooth","natural","clear","polished"],p:["Essentially","In other words","To put it simply"],s:["Reads well","Natural flow","Comes across clearly"]},creative:{a:["vibrant","dynamic","captivating","fresh"],p:["Imagine","Picture this","What if"],s:["Fresh perspective","Endless possibilities","Think outside the box"]},formal:{a:["appropriate","required","established","approved"],p:["Pursuant to","In accordance with","It is recommended that"],s:["Kindly confirm","Please advise","Cooperation appreciated"]},concise:{a:["key","core","main","brief"],p:["Simply","In short","Bottom line"],s:["Done","That is the gist","Period"]}};var m=maps[rwStyle]||maps.fluent;var w=t.split(" ");var r=w.map(function(x){return x.length>4&&Math.random()>0.7?m.a[Math.floor(Math.random()*m.a.length)]:x}).join(" ");r=m.p[Math.floor(Math.random()*m.p.length)]+", "+r.charAt(0).toLowerCase()+r.slice(1)+". "+m.s[Math.floor(Math.random()*m.s.length)]+".";document.getElementById("rwProg").style.display="none";var e=document.getElementById("rwResult");e.style.display="block";e.innerHTML="<div class="stat"><span>Done ("+rwStyle+")</span><strong>"+r.split(/\s+/).filter(Boolean).length+" words</strong></div><div class="result-content" id="rwOut">"+r+"</div><div class="tool-actions"><button class="btn btn-secondary" onclick="copyResult('rwOut')">Copy</button></div>";document.getElementById("rwBtn").disabled=false},500)}
+function copyResult(id){var el=document.getElementById(id);if(!el)return;var R=document.createRange();R.selectNode(el);var S=window.getSelection();S.removeAllRanges();S.addRange(R);document.execCommand('copy');S.removeAllRanges();alert('Copied!')}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

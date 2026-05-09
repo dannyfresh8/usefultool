@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Classic memory card game. Match pairs of emojis to train your brain.">
+<link rel="canonical" href="https://usefultoolkit.org/tools/mini-memory-match.html">
+<title>Memory Match - Brain Training Game</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg,#0f172a);color:var(--text,#f1f5f9);min-height:100vh}
+:root{--bg:#0f172a;--bg2:#1e293b;--text:#f1f5f9;--text2:#94a3b8;--card:#1e293b;--border:#334155;--accent:#8b5cf6}
+body.light-mode{--bg:#f8fafc;--bg2:#f1f5f9;--text:#1e293b;--text2:#64748b;--card:#fff;--border:#e5e7eb}
+.dark-toggle{position:fixed;top:12px;right:12px;z-index:9998;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px}
+.header{background:linear-gradient(135deg,#8b5cf6,#6366f1,#4f46e5);padding:20px 16px;text-align:center}
+.header h1{color:#fff;font-size:22px;margin-bottom:2px}.header p{color:rgba(255,255,255,.8);font-size:13px}
+.container{max-width:700px;margin:0 auto;padding:12px}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--text2)}
+.game-area{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin:12px 0;text-align:center}
+.btn{display:inline-block;padding:10px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff}
+.btn-primary:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(139,92,246,.4)}
+.btn-sm{padding:6px 14px;font-size:12px}.stat{font-size:13px;color:var(--text2)}
+.stat span{color:var(--accent);font-weight:700}
+.grid{display:grid;gap:8px;justify-content:center}.grid-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:400px){.grid-4{grid-template-columns:repeat(3,1fr)}}
+.card-cell{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;transition:all .2s;border:2px solid var(--border);font-weight:700}
+.card-cell.flipped{background:var(--accent);color:#fff;border-color:var(--accent)}
+.card-cell.matched{background:#22c55e;color:#fff;border-color:#22c55e;cursor:default;opacity:.7}
+.card-cell.default{background:var(--bg2);color:transparent}.card-cell.default:hover{border-color:var(--accent)}
+.back-link{display:inline-block;margin-bottom:10px;color:var(--accent);font-size:13px;text-decoration:none}
+.back-link:hover{text-decoration:underline}
+</style></head><body>
+<div class="dark-toggle" onclick="var b=document.body;b.classList.toggle('light-mode');localStorage.setItem('light',b.classList.contains('light-mode')?'1':'')">&#127769;</div>
+<div class="header"><h1>&#129504; Memory Match</h1><p>Match pairs of emojis. Train your brain!</p></div>
+<div class="container"><a href="/tools/mini-games.html" class="back-link">&larr; Back to Mini Games</a>
+<div class="game-area"><div id="mem-grid" class="grid grid-4" style="max-width:320px;margin:0 auto"></div>
+<div class="stat" style="margin-top:12px">Moves: <span id="mem-moves">0</span> &bull; Pairs: <span id="mem-pairs">0</span></div>
+<div id="mem-status" style="font-size:12px;color:var(--text2);margin-top:6px"></div>
+<button class="btn btn-primary btn-sm" style="margin-top:10px" onclick="mInit()">New Game</button>
+</div></div>
+<footer>&copy; 2025 UseToolKit &bull; Free browser games</footer>
+<script>if(localStorage.getItem('light')==='1')document.body.classList.add('light-mode')</script>
+<div id="gt" style="position:fixed;bottom:16px;right:16px;z-index:9999"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"gt")}</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+var mE=["&#127796;","&#129665;","&#127797;","&#129510;","&#128153;","&#10084;&#65039;","&#128162;","&#128480;"];
+var mCards=[],mFirst=null,mLock=false,mPairs=0,mMoves=0;
+function mInit(){mCards=[];mPairs=0;mMoves=0;mFirst=null;mLock=false;
+var all=[];mE.forEach(function(e,i){all.push({i:i,e:e});all.push({i:i,e:e})});
+for(var i=all.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=all[i];all[i]=all[j];all[j]=t}mCards=all;mRender()}
+function mRender(){var g=document.getElementById("mem-grid");var h="";
+mCards.forEach(function(c,idx){var cls="card-cell default";if(c.flipped||c.matched)cls=(c.matched?"card-cell matched":"card-cell flipped");
+h+='<div class="'+cls+'" data-idx="'+idx+'">'+(c.flipped||c.matched?c.e:"?")+'</div>'});g.innerHTML=h;
+document.getElementById("mem-moves").textContent=mMoves;document.getElementById("mem-pairs").textContent=mPairs;
+if(mPairs===mE.length){setTimeout(function(){document.getElementById("mem-status").textContent="All matched in "+mMoves+" moves!"},300)}}
+document.addEventListener("DOMContentLoaded",function(){mInit();
+document.getElementById("mem-grid").addEventListener("click",function(e){var el=e.target.closest(".card-cell");if(!el||mLock)return;
+var idx=parseInt(el.dataset.idx);var c=mCards[idx];if(c.flipped||c.matched)return;c.flipped=true;mMoves++;mRender();
+if(mFirst===null){mFirst=idx;return}
+if(c.i===mCards[mFirst].i){mCards[idx].matched=true;mCards[mFirst].matched=true;mPairs++;mFirst=null;mRender()}
+else{mLock=true;var fi=mFirst;setTimeout(function(){mCards[idx].flipped=false;mCards[fi].flipped=false;mFirst=null;mLock=false;mRender()},800)}})});
+</script></body></html>

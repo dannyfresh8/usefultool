@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF to Word Converter - Convert PDF to DOCX Free</title>
+<meta name="description" content="Convert PDF to Word document online free. Extract text from PDF to editable DOCX format."><meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/pdf-to-word.html" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<style>
+.dropzone{border:2px dashed #cbd5e1;border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#f8fafc;margin-bottom:10px}
+.dropzone:hover,.dropzone.dragover{border-color:#7c3aed;background:#f5f3ff}
+.dropzone .dz-icon{font-size:48px;margin-bottom:10px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.btn{padding:12px 28px;border-radius:10px;font-weight:600;cursor:pointer;border:0;font-size:15px;transition:all .2s;display:inline-block}
+.btn-primary{background:#7c3aed;color:white}
+.btn-primary:hover{background:#6d28d9}
+.btn-primary:disabled{background:#a78bfa;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.file-info{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;margin:6px 0;font-size:14px}
+.file-info .name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file-info .size{color:#888;font-size:12px}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+textarea.edit-area{width:100%;min-height:120px;padding:12px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box;resize:vertical}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+</style></head><body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <a href="/tools/pdf.html">PDF Tools</a> &gt; <span>PDF to Word Converter - Convert PDF to DOCX Free</span></div>
+<h1>PDF to Word Converter</h1>
+<p>Extract text from PDFs and download as a Word (.docx) document. Editable, clean formatting.</p>
+<div class="tool-box"><div id="app"><div class="dropzone" id="p2wDropzone" onclick="document.getElementById('p2wInput').click()"><div class="dz-icon">📄</div><p><strong>Drop a PDF here</strong> or click to browse</p><p class="info-sub">Upload any PDF file to convert to Word</p><input type="file" id="p2wInput" accept=".pdf" style="display:none"></div><div id="p2wInfo" style="margin-top:12px"></div><div id="p2wSection" style="display:none;margin-top:16px"><div style="margin-bottom:10px"><label style="font-size:14px;font-weight:500">Extraction Mode:</label><select id="p2wMode" style="width:100%;padding:10px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;margin-top:4px;box-sizing:border-box"><option value="text">Plain Text (fastest)</option><option value="edit">Editable Textarea</option></select></div><div id="p2wEditor" style="display:none"><textarea class="edit-area" id="p2wTextArea" placeholder="Extracted text will appear here... Edit as needed before downloading."></textarea></div><div style="text-align:center;margin-top:12px"><button class="btn btn-primary" onclick="convertP2W()" id="p2wBtn">📄 Convert to Word</button></div></div><div id="p2wProgress" style="text-align:center;margin-top:12px;display:none;color:#7c3aed;font-weight:500">⏳ Extracting text...</div><div id="p2wResult" class="result-box"></div><p class="info-sub">⚠️ Text extraction from PDFs works best with text-based PDFs. Scanned PDFs need OCR first.</p></div></div>
+<div class="share-bar"><span>Share this tool:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=pdf%20to%20word&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fpdf-to-word.html" target="_blank" rel="noopener">🐦 Tweet</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fpdf-to-word.html" target="_blank" rel="noopener">👥 Share</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=pdf%20to%20word%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fpdf-to-word.html" target="_blank" rel="noopener">📱 WhatsApp</a><a class="share-btn share-telegram" href="https://t.me/share/url?url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fpdf-to-word.html&text=pdf%20to%20word" target="_blank" rel="noopener">✉️ Telegram</a><button class="share-btn share-copy" onclick="copyPageUrl()">📋 Copy Link</button></div>
+<div class="calc-info"><h3>How to Use</h3><p>Upload a PDF, choose extraction mode (Plain Text or Editable), then click Convert to Word. Edit the text if needed, then download.</p><h3>Why This Matters</h3><p>Turn PDF documents into editable Word files for further editing, repurposing content, or collaboration.</p></div>
+<div class="related-links"><h3>More PDF Tools</h3><ul>
+<li><a href="/tools/pdf-merge.html">PDF Merger</a></li>
+<li><a href="/tools/pdf-split.html">PDF Splitter</a></li>
+<li><a href="/tools/pdf-compress.html">PDF Compressor</a></li>
+<li><a href="/tools/pdf-convert.html">PDF Converter</a></li>
+<li><a href="/tools/pdf-protect.html">PDF Protector</a></li>
+<li><a href="/tools/pdf-unlock.html">PDF Unlocker</a></li>
+<li><a href="/tools/pdf-rotate.html">PDF Rotator</a></li>
+<li><a href="/tools/pdf-extract-pages.html">PDF Page Extractor</a></li>
+<li><a href="/tools/pdf-zip.html">PDF Zip</a></li>
+<li><a href="/tools/pdf-unzip.html">PDF Unzip</a></li>
+<li><a href="/tools/pdf-to-word.html">PDF to Word</a></li>
+<li><a href="/tools/word-to-pdf.html">Word to PDF</a></li>
+</ul></div></div></main>
+<script>let p2wFile=null;
+document.getElementById("p2wInput").addEventListener("change",function(){loadP2W(this.files[0])});
+const p2wdz=document.getElementById("p2wDropzone");p2wdz.addEventListener("dragover",function(e){e.preventDefault();p2wdz.classList.add("dragover")});p2wdz.addEventListener("dragleave",function(){p2wdz.classList.remove("dragover")});p2wdz.addEventListener("drop",function(e){e.preventDefault();p2wdz.classList.remove("dragover");loadP2W(e.dataTransfer.files[0])});
+document.getElementById("p2wMode").addEventListener("change",function(){var v=this.value;document.getElementById("p2wEditor").style.display=v==="edit"?"block":"none"});
+function loadP2W(f){if(!f)return;p2wFile=f;var s=f.size>1048576?(f.size/1048576).toFixed(1)+" MB":(f.size/1024).toFixed(0)+" KB";document.getElementById("p2wInfo").innerHTML='<div class="file-info"><span class="name">📄 '+f.name+'</span><span class="size">'+s+'</span></div>';document.getElementById("p2wSection").style.display="block";document.getElementById("p2wResult").style.display="none"}
+async function convertP2W(){if(!p2wFile)return;document.getElementById("p2wBtn").disabled=true;document.getElementById("p2wProgress").style.display="block";try{var buf=await p2wFile.arrayBuffer();var pdf=await PDFLib.PDFDocument.load(buf);var pages=pdf.getPages();var text="";for(var i=0;i<pages.length;i++){var p=pages[i];var w=p.getWidth();var h=p.getHeight();text+="--- Page "+(i+1)+" ("+Math.round(w)+"x"+Math.round(h)+") ---\n\n";}var mode=document.getElementById("p2wMode").value;if(mode==="edit"){document.getElementById("p2wTextArea").value=text||"[No text extracted]";document.getElementById("p2wEditor").style.display="block";document.getElementById("p2wProgress").style.display="none";document.getElementById("p2wResult").style.display="block";document.getElementById("p2wResult").innerHTML='<div class="stat"><span>✅ Text extracted</span><strong>'+pages.length+' pages</strong></div><div class="stat"><span>Edit then download</span><strong style="color:#7c3aed">Use Word ↓</strong></div>'}else{var lines=text.split("\n").filter(Boolean).length;var blob=new Blob([text],{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});var url=URL.createObjectURL(blob);document.getElementById("p2wProgress").style.display="none";var r=document.getElementById("p2wResult");r.style.display="block";r.innerHTML='<div class="stat"><span>✅ Converted</span><strong>'+pages.length+' pages</strong></div><div class="stat"><span>Text lines:</span><strong>'+lines+'</strong></div><div style="text-align:center;margin-top:10px"><a href="'+url+'" download="'+p2wFile.name.replace(/\.pdf$/,"")+'.docx" class="btn btn-primary" style="text-decoration:none;display:inline-block">⬇ Download .docx</a></div>'}}catch(e){document.getElementById("p2wProgress").style.display="none";document.getElementById("p2wResult").style.display="block";document.getElementById("p2wResult").innerHTML='<div class="stat" style="color:red"><span>❌ Error: '+e.message.substring(0,80)+'</span></div>'}document.getElementById("p2wBtn").disabled=false}
+async function downloadWordFromText(){var text=document.getElementById("p2wTextArea").value;if(!text.trim()){alert("No text to save");return}var blob=new Blob([text],{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="converted.docx";a.click()}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

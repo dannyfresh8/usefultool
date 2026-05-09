@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Title Generator - Catchy Headline Generator Free</title>
+<meta name="description" content="Generate catchy titles online free. AI headline generator for blogs and videos."><meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/ai-title-generator.html" />
+<style>
+.tool-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.tool-emoji{font-size:40px;line-height:1}
+.tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tool-actions .btn{min-width:120px;text-align:center}
+textarea.ai-input{width:100%;min-height:120px;padding:12px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box;resize:vertical;transition:border-color .2s}
+textarea.ai-input:focus{outline:0;border-color:#0891b2}
+.prompt-hint{font-size:13px;color:#888;margin-bottom:6px}
+.word-count{text-align:right;font-size:12px;color:#888;margin-top:4px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.result-content{background:white;padding:16px;border-radius:8px;margin-top:8px;border:1px solid #e5e7eb;font-size:14px;line-height:1.6;white-space:pre-wrap;word-wrap:break-word}
+.btn{padding:10px 24px;border-radius:8px;font-weight:600;cursor:pointer;border:0;font-size:14px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+.options-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:10px 0}
+.option-chip{padding:8px 12px;border:1px solid #e5e7eb;border-radius:20px;cursor:pointer;font-size:13px;text-align:center;transition:all .15s}
+.option-chip:hover{border-color:#0891b2;background:#ecfeff}
+.option-chip.selected{background:#0891b2;color:white;border-color:#0891b2}
+.slider-container{margin:8px 0}
+.slider-container label{font-size:13px;font-weight:500;display:flex;justify-content:space-between}
+input[type="range"]{width:100%;margin:4px 0}
+.tagline{font-size:15px;color:#555;margin-bottom:20px;line-height:1.5}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+</style></head><body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <a href="/tools/ai-writing.html">AI Writing</a> &gt; <span>AI Title Generator - Catchy Headline Generator Free</span></div>
+<div class="tool-header"><div class="tool-emoji">🏆</div><div><h1 style="margin:0">AI Title Generator</h1><p style="margin:4px 0 0;color:#555">Generate attention-grabbing titles for any content</p></div></div>
+<div class="tool-box"><div id="app"><div class="tagline">Enter topic and style. Get catchy title options.</div>
+<div style="margin-bottom:10px"><label class="prompt-hint">Your topic:</label>
+<textarea class="ai-input" id="tiInput" placeholder="e.g. how to save money" style="min-height:50px"></textarea></div>
+<div class="options-grid">
+<div class="option-chip selected" onclick="setTi('catchy')">Catchy</div>
+<div class="option-chip" onclick="setTi('howto')">How-to</div>
+<div class="option-chip" onclick="setTi('question')">Question</div>
+<div class="option-chip" onclick="setTi('listicle')">Listicle</div>
+</div>
+<div class="tool-actions"><button class="btn btn-primary" onclick="doTitles()" id="tiBtn">Generate Titles</button></div>
+<div id="tiProg" style="display:none;margin-top:12px;color:#0891b2;font-weight:500">Creating...</div>
+<div id="tiResult" class="result-box"></div>
+<p class="info-sub">10 unique titles per style.</p></div></div>
+<div class="share-bar"><span>Share this tool:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=ai%20title%20generator&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fai-title-generator.html" target="_blank" rel="noopener">🐦 Tweet</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fai-title-generator.html" target="_blank" rel="noopener">👥 Share</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=ai%20title%20generator%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fai-title-generator.html" target="_blank" rel="noopener">📱 WhatsApp</a><a class="share-btn share-telegram" href="https://t.me/share/url?url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fai-title-generator.html&text=ai%20title%20generator" target="_blank" rel="noopener">✉️ Telegram</a><button class="share-btn share-copy" onclick="copyPageUrl()">📋 Copy Link</button></div>
+<div class="calc-info"><h3>How It Works</h3><p>Enter topic, choose style, click Generate. 10 headline options appear.</p><h3>Why Use This Tool</h3><p>A great title dramatically increases clicks and engagement.</p></div>
+<div class="related-links"><h3>More AI Writing Tools</h3><ul>
+<li><a href="/tools/ai-rewriter.html">AI Rewriter</a></li>
+<li><a href="/tools/ai-grammar.html">AI Grammar Checker</a></li>
+<li><a href="/tools/ai-email-writer.html">AI Email Writer</a></li>
+<li><a href="/tools/ai-blog-ideas.html">AI Blog Ideas</a></li>
+<li><a href="/tools/ai-title-generator.html">AI Title Generator</a></li>
+<li><a href="/tools/ai-summarizer.html">AI Summarizer</a></li>
+<li><a href="/tools/ai-chat-writer.html">AI Chat Writer</a></li>
+<li><a href="/tools/ai-caption-generator.html">AI Caption Generator</a></li>
+</ul></div></div></main>
+<script>var tiStyle="catchy";
+function setTi(s){tiStyle=s;[].forEach.call(document.querySelectorAll(".options-grid .option-chip"),function(c){c.classList.remove("selected")});event.target.classList.add("selected")}
+function doTitles(){var t=document.getElementById("tiInput").value.trim();if(!t){alert("Enter a topic");return}document.getElementById("tiBtn").disabled=true;document.getElementById("tiProg").style.display="block";setTimeout(function(){var temps={catchy:["The Secret [T] Everyone Ignores","[T]: The Ultimate Game-Changer","Why [T] Is the Key to Success","Unlock [T] With These Tricks","Master [T] Without Breaking a Sweat","The [T] Cheat Code You Need","[T] Made Ridiculously Easy","Stop Wasting Time on [T]","The [T] Shortcut Experts Use","Transform Your [T] Today"],howto:["How to Master [T] in 7 Days","Getting Started With [T]","The Complete Guide to [T]","How to [T] Like a Pro","Step-by-Step [T] Guide","How to [T] for Beginners","How to [T] Without Experience","The Right Way to [T]","How to [T] on a Budget","[T] 101: A Beginner Roadmap"],question:["Is [T] Worth It?","Can You Really [T]?","What Happens When You [T]?","Why [T] Matters","Are You Making [T] Mistakes?","Who Wants to Master [T]?","What Is Holding You Back?","Do You Need [T]?","How Much Does [T] Cost?","Why Isnt Everyone [T]?"],listicle:["10 Proven [T] Strategies","7 Life-Changing [T] Hacks","5 [T] Mistakes to Avoid","15 [T] Tips for Beginners","Top 10 [T] Tools You Need","8 [T] Secrets Experts Know","3 Simple Ways to [T]","20 [T] Ideas You Need","9 [T] Trends for 2026","12 [T] Questions Answered"]};var ts=temps[tiStyle]||temps.catchy;var items=ts.map(function(x){return x.replace(/\[T\]/g,t)});document.getElementById("tiProg").style.display="none";var r=document.getElementById("tiResult");r.style.display="block";r.innerHTML="<div class="stat"><span>10 titles</span><strong>"+tiStyle+"</strong></div><div class="result-content" id="tiOut">"+items.map(function(it,i){return '<div style="padding:4px 0;border-bottom:1px solid #f0f0f0">'+(i+1)+'. '+it+'</div>'}).join("")+"</div><div class="tool-actions"><button class="btn btn-secondary" onclick="copyResult('tiOut')">Copy All</button></div>";document.getElementById("tiBtn").disabled=false},400)}
+function copyResult(id){var el=document.getElementById(id);if(!el)return;var R=document.createRange();R.selectNode(el);var S=window.getSelection();S.removeAllRanges();S.addRange(R);document.execCommand('copy');S.removeAllRanges();alert('Copied!')}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

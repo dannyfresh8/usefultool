@@ -1,133 +1,33 @@
+@"
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Age Calculator (Exact Years/Months/Days)</title><meta name="description" content="Calculate your exact age in years, months, days, hours, minutes, and seconds. Find out how old you are down to the second."><meta name="robots" content="index, follow">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-179G7PSK2S"></script>
-<script>
- window.dataLayer = window.dataLayer || [];
- function gtag(){dataLayer.push(arguments);}
- gtag('js', new Date());
- gtag('config', 'G-179G7PSK2S');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Calculator - Free Exact Age Calculator</title>
-    <meta name="description" content="Free age calculator. Calculate your exact age in years, months, days, hours, minutes, and seconds instantly.">
-    <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="../css/style.css">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-179G7PSK2S');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">  <link rel="canonical" href="https://usefultoolkit.org/tools/age-calculator.html" />
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a>
-            <nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav>
-        </div>
-    </header>
-    <main>
-        <div class="container">
-            <div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Age Calculator</span></div>
-            <h1 style="font-size:36px;font-weight:700;margin-bottom:12px;">Age Calculator</h1>
-            <p style="font-size:18px;color:#4b5563;margin-bottom:32px;">Find your exact age down to the second. Perfect for birthdays, milestones, and fun facts.</p>
-            <div class="tool-container" style="max-width:500px;">
-                <div style="margin-bottom:20px;"><label class="tool-label">📅 Date of Birth</label>
-                    <div style="display:flex;gap:8px;">
-                        <select id="birthMonth" class="tool-input" style="flex:1;">
-                            <option value="0">Jan</option><option value="1">Feb</option><option value="2">Mar</option><option value="3">Apr</option><option value="4">May</option><option value="5">Jun</option>
-                            <option value="6">Jul</option><option value="7">Aug</option><option value="8">Sep</option><option value="9">Oct</option><option value="10">Nov</option><option value="11">Dec</option>
-                        </select>
-                        <select id="birthDay" class="tool-input" style="flex:0.7;">
-                            <script>for(let i=1;i<=31;i++) document.write('<option value="'+i+'">'+i+'</option>');</script>
-                        </select>
-                        <select id="birthYear" class="tool-input" style="flex:0.8;">
-                            <script>const y=new Date().getFullYear();for(let i=y;i>=1900;i--) document.write('<option value="'+i+'">'+i+'</option>');</script>
-                        </select>
-                    </div>
-                </div>
-                <div class="tool-result">
-                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center;">
-                        <div style="padding:16px;"><div style="font-size:36px;font-weight:800;color:#2563eb;" id="ageYears">--</div><div style="font-size:13px;color:#6b7280;">Years</div></div>
-                        <div style="padding:16px;"><div style="font-size:36px;font-weight:800;color:#059669;" id="ageMonths">--</div><div style="font-size:13px;color:#6b7280;">Months</div></div>
-                        <div style="padding:16px;"><div style="font-size:36px;font-weight:800;color:#d97706;" id="ageDays">--</div><div style="font-size:13px;color:#6b7280;">Days</div></div>
-                    </div>
-                    <div style="border-top:1px solid #e5e7eb;padding-top:16px;text-align:center;font-size:15px;color:#6b7280;">
-                        <span id="ageHours">--</span> hours &bull; <span id="ageMinutes">--</span> minutes &bull; <span id="ageSeconds">--</span> seconds
-                    </div>
-                </div>
-                <div style="text-align:center;margin-top:12px;">🎂 <span id="nextBirthday">Next birthday in -- days</span></div>
-            </div>
-        </div>
-    </main>
-    <script>
-        function calcAge() {
-            const m = parseInt(document.getElementById('birthMonth').value);
-            const d = parseInt(document.getElementById('birthDay').value);
-            const y = parseInt(document.getElementById('birthYear').value);
-            const birth = new Date(y, m, d);
-            const now = new Date();
-            let diff = now - birth;
-            if (diff < 0) { document.getElementById('ageYears').textContent = '0'; return; }
-            const years = now.getFullYear() - birth.getFullYear() - (now.getMonth() < birth.getMonth() || (now.getMonth() === birth.getMonth() && now.getDate() < birth.getDate()) ? 1 : 0);
-            let monthDiff = now.getMonth() - birth.getMonth();
-            if (now.getDate() < birth.getDate()) monthDiff--;
-            if (monthDiff < 0) monthDiff += 12;
-            const msInDay = 86400000;
-            const days = Math.floor(diff / msInDay);
-            const hours = Math.floor(diff / 3600000);
-            const minutes = Math.floor(diff / 60000);
-            const seconds = Math.floor(diff / 1000);
-            document.getElementById('ageYears').textContent = years;
-            document.getElementById('ageMonths').textContent = monthDiff;
-            document.getElementById('ageDays').textContent = days;
-            document.getElementById('ageHours').textContent = hours.toLocaleString();
-            document.getElementById('ageMinutes').textContent = minutes.toLocaleString();
-            document.getElementById('ageSeconds').textContent = seconds.toLocaleString();
-            const nextBday = new Date(now.getFullYear(), m, d);
-            if (nextBday < now) nextBday.setFullYear(nextBday.getFullYear() + 1);
-            const daysToBday = Math.ceil((nextBday - now) / msInDay);
-            document.getElementById('nextBirthday').textContent = 'Next birthday in ' + daysToBday + ' days';
-        }
-        document.querySelectorAll('#birthMonth, #birthDay, #birthYear').forEach(el => el.addEventListener('change', calcAge));
-        setTimeout(calcAge, 100);
-        setInterval(calcAge, 1000);
-    </script>
-    <style>
-        .guide-tip { background:#fef3c7;border-left:4px solid #f59e0b;padding:16px;border-radius:8px;margin:24px auto; }
-    </style>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand"><p>100+ free tools and guides to help you save money, boost productivity, and build better habits.</p></div>
-                <div class="footer-links"><h4>Tools</h4><ul>
-                        <li><a href="/tools/tip-calculator.html">Tip Calculator</a></li>
-                        <li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li>
-                        <li><a href="/tools/budget-planner.html">Budget Planner</a></li>
-                        <li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li>
-                        <li><a href="/tools/loan-calculator.html">Loan Calculator</a></li>
-                        <li><a href="/tools/discount-calculator.html">Discount Calculator</a></li>
-                        <li><a href="/tools/debt-calculator.html">Debt Calculator</a></li>
-                        <li><a href="/tools/tax-calculator.html">Tax Calculator</a></li>
-                        <li><a href="/tools/random-password-generator.html">Password Generator</a></li>
-                        <li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li>
-                        <li><a href="/tools/grade-calculator.html">Grade Calculator</a></li>
-                        <li><a href="/tools/timezone-converter.html">Timezone Converter</a></li>
-                    </ul></div>
-                <div class="footer-links"><h4>Guides</h4><ul>
-                        <li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li>
-                        <li><a href="/guides/budgeting-for-beginners.html">Budgeting</a></li>
-                        <li><a href="/guides/how-to-start-a-business.html">Start a Business</a></li>
-                        <li><a href="/guides/freelancing-101.html">Freelancing 101</a></li>
-                        <li><a href="/guides/investing-for-beginners.html">Investing</a></li>
-                        <li><a href="/guides/productivity-tips.html">Productivity</a></li>
-                        <li><a href="/guides/resume-writing-tips.html">Resume Tips</a></li>
-                        <li><a href="/guides/habits-of-successful-people.html">Success Habits</a></li>
-                        <li><a href="/guides/passive-income-ideas.html">Passive Income</a></li>
-                        <li><a href="/guides/frugal-living-tips.html">Frugal Living</a></li>
-                        <li><a href="/guides/self-care-routine.html">Self-Care</a></li>
-                        <li><a href="/guides/cryptocurrency-for-beginners.html">Crypto Basics</a></li>
-                    </ul></div>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2026 ProductivityTools. All rights reserved.</p></div>
-        </div>
-    </footer>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Age Calculator</span></div>
+<h1>Age Calculator (Exact Years/Months/Days)</h1>
+<p>Calculate your exact age in years, months, days, hours, minutes, and seconds. Find out how old you are down to the second.</p>
+<div class="tool-box"><div style=display:grid;gap:8px;><label>Date of Birth:<br><input type=date id=birthDate style=width:100%;></label></div><button onclick=calcExactAge()>Calculate Age</button><div id=ageResult></div><script>function calcExactAge(){var b=new Date(birthDate.value);if(isNaN(b.getTime())){ageResult.innerHTML='<div style=color:#dc2626;>Please select your birth date.</div>';return}var now=new Date();var diff=now-b;var ms=diff%1000;var sec=Math.floor(diff/1000)%60;var min=Math.floor(diff/60000)%60;var hr=Math.floor(diff/3600000)%24;var days=Math.floor(diff/86400000);var yrs=now.getFullYear()-b.getFullYear();var m=now.getMonth()-b.getMonth();if(m<0||(m===0&&now.getDate()<b.getDate()))yrs--;if(m<0)m+=12;var d=now.getDate()-b.getDate();if(d<0){var pm=new Date(now.getFullYear(),now.getMonth(),0);d+=pm.getDate();m--}ageResult.innerHTML='<div style=background:#f0f0ff;padding:16px;border-radius:8px;margin-top:12px;text-align:center;><b>Your Exact Age</b><hr><div style=font-size:36px;font-weight:700;color:#7c3aed;>'+yrs+' years '+m+' months</div><div style=font-size:18px;color:#2563eb;>'+d+' days</div><hr><div style=color:#6b7280;font-size:14px;>'+days+' total days<br>'+hr+'h '+min+'m '+sec+'.'+ms+'s</div></div>';}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script></div>
+<div class="related-links"><p style="text-align:center;"><a href="/tools.html" style="color:#2563eb;">← Back to All Tools</a></p></div>
+</div></main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+"@

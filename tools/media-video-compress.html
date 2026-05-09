@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Compressor - Reduce Video Size Online Free</title>
+<meta name="description" content="Compress video files online free. Reduce MP4 file size while maintaining quality."><meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/media-video-compress.html" />
+<script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/ffmpeg.min.js"></script>
+<style>
+.dropzone{border:2px dashed #cbd5e1;border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#f8fafc;margin-bottom:10px}
+.dropzone:hover,.dropzone.dragover{border-color:#0891b2;background:#ecfeff}
+.dropzone .dz-icon{font-size:48px;margin-bottom:10px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.btn{padding:12px 28px;border-radius:10px;font-weight:600;cursor:pointer;border:0;font-size:15px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.file-info{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;margin:4px 0;font-size:14px}
+.file-info .remove{cursor:pointer;color:#ef4444;font-weight:bold;margin-left:auto}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+textarea.edit-area{width:100%;min-height:120px;padding:12px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box;resize:vertical}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+</style></head><body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Video Compressor</span></div>
+<h1>Video Compressor</h1>
+<p>Reduce video file sizes while keeping acceptable quality. High/Medium/Low compression options.</p>
+<div class="tool-box"><div id="app">
+<div class="dropzone" id="vcDropzone" onclick="document.getElementById('vcInput').click()">
+  <div class="dz-icon">🎞️</div>
+  <p><strong>Drop a video here</strong> or click to browse</p>
+  <p class="info-sub">Reduces video file size by adjusting quality</p>
+  <input type="file" id="vcInput" accept="video/*" style="display:none">
+</div>
+<div id="vcInfo" style="margin-top:12px"></div>
+<div id="vcConfig" style="display:none;margin-top:16px">
+  <div style="margin-bottom:10px">
+    <label style="font-size:14px;font-weight:500;display:flex;justify-content:space-between">
+      <span>Quality: <span id="vcQualityVal">Medium</span></span>
+    </label>
+    <select id="vcQuality" style="width:100%;padding:10px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;margin-top:4px;box-sizing:border-box" onchange="document.getElementById('vcQualityVal').textContent=this.options[this.selectedIndex].text">
+      <option value="high">High (Larger file, best quality)</option>
+      <option value="medium" selected>Medium (Balanced)</option>
+      <option value="low">Low (Smallest file, reduced quality)</option>
+    </select>
+  </div>
+  <div style="text-align:center"><button class="btn btn-primary" id="vcBtn" onclick="compressVideo()">🎞️ Compress Video</button></div>
+  <div id="vcProgress" style="text-align:center;margin-top:12px;display:none;color:#0891b2;font-weight:500">⏳ This may take a while...</div>
+</div>
+<div id="vcResult" class="result-box"></div>
+<p class="info-sub">⚠️ Large video files may take significant processing time in-browser. For best results, keep videos under 100MB.</p>
+</div></div>
+<div class="share-bar"><span>Share this tool:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=media%20video%20compress&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-video-compress.html" target="_blank" rel="noopener">🐦 Tweet</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-video-compress.html" target="_blank" rel="noopener">👥 Share</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=media%20video%20compress%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-video-compress.html" target="_blank" rel="noopener">📱 WhatsApp</a><a class="share-btn share-telegram" href="https://t.me/share/url?url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-video-compress.html&text=media%20video%20compress" target="_blank" rel="noopener">✉️ Telegram</a><button class="share-btn share-copy" onclick="copyPageUrl()">📋 Copy Link</button></div>
+<div class="calc-info"><h3>How to Use</h3><p>Upload a video file, choose a quality level (Low saves most space), and click Compress. Download the smaller version.</p><h3>Why This Matters</h3><p>Smaller videos upload faster to social media, use less bandwidth, and save storage space.</p></div>
+<div class="related-links"><h3>More Tools</h3><ul>
+<li><a href="/tools/media-video-to-audio.html">Video to Audio</a></li>
+<li><a href="/tools/media-audio-to-text.html">Audio to Text</a></li>
+<li><a href="/tools/media-image-compress.html">Image Compressor</a></li>
+<li><a href="/tools/media-fill-sign.html">Fill & Sign</a></li>
+<li><a href="/tools/media-edit-text.html">Edit Documents</a></li>
+<li><a href="/tools/media-image-to-text.html">Image to Text</a></li>
+<li><a href="/tools/media-video-compress.html">Video Compressor</a></li>
+<li><a href="/tools/pdf-merge.html">PDF Merger</a></li>
+<li><a href="/tools/pdf-split.html">PDF Splitter</a></li>
+<li><a href="/tools/pdf-protect.html">PDF Protector</a></li>
+</ul></div></div></main>
+<script>let vcFile=null;let vcFfmpeg=null;
+document.getElementById("vcInput").addEventListener("change",function(){loadVC(this.files[0])});
+const vdz=document.getElementById("vcDropzone");vdz.addEventListener("dragover",function(e){e.preventDefault();vdz.classList.add("dragover")});vdz.addEventListener("dragleave",function(){vdz.classList.remove("dragover")});vdz.addEventListener("drop",function(e){e.preventDefault();vdz.classList.remove("dragover");loadVC(e.dataTransfer.files[0])});
+function loadVC(f){if(!f||!f.type.startsWith("video/"))return;vcFile=f;var s=f.size>1048576?(f.size/1048576).toFixed(1)+" MB":(f.size/1024).toFixed(0)+" KB";document.getElementById("vcInfo").innerHTML='<div class="file-info">🎞️ '+f.name+' <span style="color:#888;font-size:12px">('+s+')</span></div>';document.getElementById("vcConfig").style.display="block";var b=document.getElementById("vcBtn");if(!vcFfmpeg)b.textContent="⏳ Loading FFmpeg...";else b.textContent="🎞️ Compress Video"}
+async function ensureVCFFmpeg(){if(vcFfmpeg)return vcFfmpeg;const{FFmpeg}=await import("https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/esm/ffmpeg.min.js");vcFfmpeg=new FFmpeg();await vcFfmpeg.load();if(vcFile)document.getElementById("vcBtn").textContent="🎞️ Compress Video";return vcFfmpeg}
+async function compressVideo(){if(!vcFile)return;document.getElementById("vcBtn").disabled=true;document.getElementById("vcProgress").style.display="block";try{var ff=await ensureVCFFmpeg();var q=document.getElementById("vcQuality").value;var crf=q==="low"?40:q==="medium"?28:23;var ext=vcFile.name.match(/\.([^.]+)$/)?vcFile.name.match(/\.([^.]+)$/)[1]:"mp4";var inN="input."+ext;var outN="compressed.mp4";var buf=await vcFile.arrayBuffer();ff.writeFile(inN,new Uint8Array(buf));await ff.exec(["-i",inN,"-vcodec","libx264","-crf",String(crf),"-preset","fast",outN]);var od=ff.readFile(outN);var blob=new Blob([od.buffer],{type:"video/mp4"});var saved=((1-blob.size/vcFile.size)*100).toFixed(1);document.getElementById("vcProgress").style.display="none";var r=document.getElementById("vcResult");r.style.display="block";r.innerHTML='<div class="stat"><span>Original:</span><strong>'+(vcFile.size/1048576).toFixed(1)+' MB</strong></div><div class="stat"><span>Compressed:</span><strong>'+(blob.size/1048576).toFixed(1)+' MB</strong></div><div class="stat"><span>Saved:</span><strong style="color:#16a34a">'+saved+'%</strong></div><div style="text-align:center;margin-top:10px"><a href="'+URL.createObjectURL(blob)+'" download="compressed.mp4" style="color:#0891b2;font-weight:600">⬇ Download Compressed</a></div>';ff.deleteFile(inN);ff.deleteFile(outN)}catch(e){document.getElementById("vcProgress").style.display="none";document.getElementById("vcResult").style.display="block";document.getElementById("vcResult").innerHTML='<div class="stat" style="color:red"><span>❌ Error: '+e.message.substring(0,80)+'</span></div>'}document.getElementById("vcBtn").disabled=false}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

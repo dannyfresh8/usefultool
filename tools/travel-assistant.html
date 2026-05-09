@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Travel Assistant - Free Travel Tips Budget Planner Chatbot</title>
+<meta name="description" content="AI-powered travel assistant chatbot. Get destination tips, budget advice, packing lists, visa info, and hidden gems for any country.">
+<meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/travel-assistant.html" />
+<style>
+.tool-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.tool-emoji{font-size:40px;line-height:1}
+.tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tool-actions .btn{min-width:120px;text-align:center}
+.btn{padding:10px 24px;border-radius:8px;font-weight:600;cursor:pointer;border:0;font-size:14px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.result-content{background:white;padding:16px;border-radius:8px;margin-top:8px;border:1px solid #e5e7eb;font-size:14px;white-space:pre-wrap;word-wrap:break-word}
+.tagline{font-size:15px;color:#555;margin-bottom:20px;line-height:1.5}
+.options-grid{display:flex;gap:8px;flex-wrap:wrap}
+.options-grid .option-chip{padding:8px 18px;border:2px solid #e5e7eb;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;transition:all .2s}
+.options-grid .option-chip.selected{background:#0891b2;color:white;border-color:#0891b2}
+.options-grid .option-chip:hover:not(.selected){border-color:#0891b2}
+label.prompt-hint{display:block;margin-bottom:4px;font-size:13px;color:#6b7280;font-weight:500}
+input.ai-input,select.ai-input{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box}
+input.ai-input:focus{outline:0;border-color:#0891b2}
+.custom-checkbox{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+
+.weather-card{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:16px;padding:24px;margin:16px 0;text-align:center}
+.weather-card h2{color:white;margin:0 0 8px;font-size:28px}
+.weather-temp{font-size:56px;font-weight:700;margin:8px 0}
+.weather-icon{font-size:64px}
+.weather-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px;margin-top:16px;background:rgba(255,255,255,0.15);border-radius:12px;padding:16px}
+.weather-detail{text-align:center}
+.weather-detail strong{font-size:18px;display:block}
+.weather-detail span{font-size:12px;opacity:0.8}
+.forecast-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin:12px 0}
+.forecast-day{background:#f8fafc;border-radius:10px;padding:10px;text-align:center;font-size:13px}
+.forecast-day .day-name{font-weight:600;margin-bottom:4px}
+.forecast-day .day-icon{font-size:24px}
+.forecast-day .day-temp{color:#0891b2;font-weight:500;margin-top:4px}
+.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:12px 0}
+.country-btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;background:white;cursor:pointer;font-size:13px;text-align:left;transition:all .2s;text-decoration:none;color:#333;display:block}
+.country-btn:hover{background:#f0fdf4;border-color:#22c55e}
+.weather-input{width:100%;padding:12px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:16px;margin:8px 0;box-sizing:border-box}
+.weather-input:focus{border-color:#667eea;outline:none}
+.loading-spinner{display:inline-block;width:20px;height:20px;border:3px solid #e5e7eb;border-top-color:#667eea;border-radius:50%;animation:spin .6s linear infinite;margin:10px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.weather-tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+</style>
+</head><body>
+affiliate-disclosure" style="background:#fef9c3;padding:10px 20px;text-align:center;font-size:13px;color:#92400e;border-bottom:1px solid #fde68a">
+Some links on this site are affiliate links. We may earn a commission at no extra cost to you. <a href="/recommends.html" style="color:#0891b2;text-decoration:underline">Learn more</a>.
+</div>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a><a href="/recommends.html" class="nav-link">Recommendations</a></nav></div></header>
+<main><div class="container">
+<p class="breadcrumb"><a href="/">Home</a> › <a href="/tools.html">Tools</a> › <a href="/tools/weather.html">Weather</a> › <span>AI Travel Assistant - Free Travel Tips Budget Planner Chatbot</span></p>
+<div class="tool-header"><div class="tool-emoji">🤖</div><div><h1 style="margin:0">AI Travel Assistant</h1><p style="margin:4px 0 0;color:#555">Chatbot for destinations, budgets & tips</p></div></div>
+<div class="tool-box"><div id="app"><div class="tagline">Your AI travel companion — ask about destinations, budgets, tips & more!</div>
+
+<div id="taChat" style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;height:400px;overflow-y:auto;padding:16px;margin-bottom:12px;display:flex;flex-direction:column;gap:8px">
+<div class="ta-msg ta-bot" style="background:#667eea;color:white;padding:10px 14px;border-radius:12px 12px 12px 4px;max-width:80%;align-self:flex-start;font-size:14px">
+👋 Hi! I'm your AI Travel Assistant. Ask me anything about travel!<br><br>
+<strong>Try asking:</strong><br>
+• "Best time to visit Bali?"<br>
+• "Travel budget for Thailand"<br>
+• "What to pack for Japan?"<br>
+• "Cheapest countries to visit"<br>
+• "Hidden gems in Europe"<br>
+• "Visa requirements for Dubai"<br>
+• "Solo travel safety tips"<br>
+• "Best street food in Vietnam"<br>
+• "Budget for 7 days in Turkey"</div>
+</div>
+
+<div style="display:flex;gap:8px">
+<input type="text" id="taInput" class="ai-input" placeholder="Ask your travel question..." style="flex:1" onkeydown="if(event.key==='Enter')sendTaMsg()">
+<button class="btn btn-primary" onclick="sendTaMsg()" style="white-space:nowrap">Send ✈️</button>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px">
+<button class="btn-chat" onclick="quickTaAsk('Best time to visit Bali?')">🌴 Bali</button>
+<button class="btn-chat" onclick="quickTaAsk('Travel budget for 7 days in Japan')">🗾 Japan</button>
+<button class="btn-chat" onclick="quickTaAsk('What to pack for Thailand?')">🧳 Packing</button>
+<button class="btn-chat" onclick="quickTaAsk('Solo travel safety tips')">🔒 Safety</button>
+<button class="btn-chat" onclick="quickTaAsk('Cheapest countries to visit')">💰 Budget</button>
+<button class="btn-chat" onclick="clearTaChat()">🗑️ Clear</button>
+</div></div></div>
+<div class="share-bar"><span>Share:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=AI%20Travel%20Assistant%20-%20Free%20Travel%20Tips%20Budget%20Planner%20Chatbot&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Ftravel-assistant.html" target="_blank" rel="noopener">🐦</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Ftravel-assistant.html" target="_blank" rel="noopener">👥</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=AI%20Travel%20Assistant%20-%20Free%20Travel%20Tips%20Budget%20Planner%20Chatbot%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Ftravel-assistant.html" target="_blank" rel="noopener">📱</a></div>
+<div class="calc-info"><h3>How to Use</h3><p>Enter a city or country name and get real-time weather data. Powered by Open-Meteo API — free, no key needed.</p><h3>Countries Covered</h3><p>All countries worldwide. Just type a city name and get instant weather data.</p><h3>Why This Tool</h3><p>Free, fast, works on mobile & desktop. No sign-ups required.</p></div>
+</div></main>
+<script>
+var taKnowledge={
+"bali":["🌴 **Best time to visit Bali**: April-October (dry season).","🌡️ Temp: 27-32°C year-round.","💰 Budget: $40-80/day mid-range.","🏖️ Top spots: Ubud, Seminyak, Uluwatu, Nusa Penida.","🍜 Must-try: Nasi Goreng, Satay, Babi Guling."],
+"japan":["🗾 **Japan Travel Tips**: Best seasons: March-May (cherry blossom) & Oct-Nov (fall colors).","💰 Budget: $100-200/day mid-range.","🗼 Must-visit: Tokyo, Kyoto, Osaka, Hakone.","🍜 Food: Ramen, Sushi, Takoyaki, Matcha.","🚄 Get Japan Rail Pass before arrival ($260/7 days)."],
+"thailand":["🇹🇭 **Thailand Guide**: Best Nov-Feb (cool season).","💰 Budget: $30-60/day mid-range.","🏝️ Top: Bangkok, Chiang Mai, Phuket, Krabi, Koh Samui.","🍜 Street food: Pad Thai ($1-2), Mango Sticky Rice.","🚕 Use Grab app for taxis, avoid tuk-tuk scams."],
+"packing":["🧳 **Universal Packing List**: Passport/visas, travel insurance, universal adapter, portable charger, first aid kit, reusable water bottle, microfiber towel, packing cubes, flip-flops, rain jacket."],
+"solo":["🔒 **Solo Travel Safety**: Share itinerary with someone, download offline maps, keep digital copies of documents, use hostel lockers, stay in well-reviewed areas, trust your gut, learn basic local phrases."],
+"budget":["💰 **Cheapest Countries**: Vietnam ($20-35/day), Cambodia ($25-40/day), India ($20-30/day), Indonesia ($25-50/day), Mexico ($35-55/day), Turkey ($35-60/day), Portugal ($50-80/day)."],
+"europe":["🌍 **Hidden Gems in Europe**: Ljubljana (Slovenia), Mostar (Bosnia), Kotor (Montenegro), Rovinj (Croatia), Ghent (Belgium), Sintra (Portugal), Hallstatt (Austria), Matera (Italy)."],
+"visa":["🛂 **Visa Tips**: Check entry requirements 3 months before travel. Many countries offer e-visas (Turkey, India, Vietnam, Cambodia). Schengen visa needed for EU travel. Passport must be valid 6+ months."],
+"turkey":["🇹🇷 **7 Days in Turkey Budget**: Istanbul (3 days) + Cappadocia (2) + Pamukkale (1) + Antalya (1).","💰 Budget: $50-80/day mid-range.","🍜 Must-try: Kebab, Baklava, Turkish tea, Döner.","🏛️ Top: Hagia Sophia, Blue Mosque, Grand Bazaar, Hot air balloons."],
+"vietnam":["🇻🇳 **Street Food in Vietnam**: Pho ($2), Banh Mi ($1.50), Bun Cha ($3), Spring rolls, Egg coffee.","🏍️ Rent scooter ($5/day) in cities.","💰 Budget: $25-40/day. Top: Hanoi, Ha Long Bay, HCMC, Hoi An."],
+"dubai":["🇦🇪 **Dubai Tips**: Visit Nov-March (25°C).","💰 Budget: $100-250/day.","✨ Top: Burj Khalifa ($40), Dubai Mall, Desert safari, Palm Jumeirah.","🛂 Visa: Many countries get visa-on-arrival or e-visa."],
+"paris":["🇫🇷 **Paris Guide**: Best April-June or Sept-Oct.","💰 Budget: $100-200/day.","🗼 Top: Eiffel Tower, Louvre, Montmartre, Seine cruise.","🥐 Must-try: Croissant, Macarons, Escargot, French wine."],
+"london":["🇬🇧 **London Tips**: Best May-Sept.","💰 Budget: $120-250/day.","🎭 Top: Big Ben, London Eye, Tower of London, British Museum, West End shows.","🚇 Get Oyster card for cheaper tube fares."],
+"switzerland":["🇨🇭 **Switzerland**: Best June-Aug or Dec-Feb for skiing.","💰 Budget: $200-400/day (expensive!).","🏔️ Top: Interlaken, Zermatt, Lucerne, Jungfraujoch.","🚂 Swiss Travel Pass ($232/3 days) covers trains."],
+"morocco":["🇲🇦 **Morocco Guide**: Best March-May or Sept-Nov.","💰 Budget: $30-60/day.","🏛️ Top: Marrakech, Fes, Chefchaouen, Sahara Desert.","🍜 Must-try: Tagine, Couscous, Mint tea."]
+}
+
+function sendTaMsg(){
+var input=document.getElementById("taInput")
+var msg=input.value.trim()
+if(!msg)return
+input.value=""
+addTaMsg("user",msg)
+processTaMsg(msg)
+}
+
+function quickTaAsk(q){
+document.getElementById("taInput").value=q
+sendTaMsg()
+}
+
+function addTaMsg(type,text){
+var chat=document.getElementById("taChat")
+var div=document.createElement("div")
+div.className="ta-msg ta-"+(type==="user"?"user":"bot")
+div.style.cssText="padding:10px 14px;border-radius:12px;max-width:80%;font-size:14px;animation:fadeIn 0.3s ease;"+(type==="user"?"background:#e5e7eb;color:#1e293b;align-self:flex-end;border-radius:12px 12px 4px 12px":"background:#667eea;color:white;align-self:flex-start;border-radius:12px 12px 12px 4px")
+div.innerHTML=text
+chat.appendChild(div)
+chat.scrollTop=chat.scrollHeight
+}
+
+function processTaMsg(msg){
+var lower=msg.toLowerCase()
+var reply=""
+
+// Search knowledge
+var found=false
+for(var key in taKnowledge){
+if(lower.indexOf(key)>=0){
+reply=taKnowledge[key].join("<br>")
+found=true
+break
+}
+}
+
+if(!found){
+// Smart fallbacks
+if(lower.indexOf("hello")>=0||lower.indexOf("hi")>=0||lower.indexOf("hey")>=0)reply="👋 Hey there! Where are you planning to travel? I can help with destinations, budgets, packing, and tips!"
+else if(lower.indexOf("thank")>=0)reply="😊 You're welcome! Happy travels! Anything else you want to know?"
+else if(lower.indexOf("cheap")>=0||lower.indexOf("affordable")>=0)reply="💰 **Budget-friendly destinations**: Vietnam ($25-40/day), Thailand ($30-60/day), Turkey ($35-60/day), Portugal ($50-80/day), Mexico ($35-55/day). Tell me which one interests you!"
+else if(lower.indexOf("hotel")>=0||lower.indexOf("hostel")>=0||lower.indexOf("accommodation")>=0)reply="🏨 **Accommodation Tips**: Use Booking.com for hotels, Hostelworld for hostels, Airbnb for apartments. Book 2-4 weeks ahead for best prices. Hostels average $10-30/night, budget hotels $30-80/night."
+else if(lower.indexOf("flight")>=0||lower.indexOf("plane")>=0)reply="✈️ **Flight Tips**: Book 6-8 weeks ahead for best prices. Use Skyscanner or Google Flights. Tuesday/Wednesday are cheapest days to fly. Consider nearby airports for savings."
+else if(lower.indexOf("weather")>=0||lower.indexOf("climate")>=0)reply="🌡️ **Weather Tips**: Check Open-Meteo for accurate forecasts. Pack layers for unpredictable destinations. Rainy season varies by country — always check seasonal patterns."
+else{reply="🤔 I don't have specific info about that yet. Try asking about: Bali, Japan, Thailand, Turkey, Vietnam, Dubai, Paris, London, Switzerland, Morocco, solo travel, packing, budget travel, or visa tips!"}
+}
+
+setTimeout(function(){addTaMsg("bot",reply)},500)
+}
+
+// Add fadeIn animation
+var style=document.createElement("style")
+style.textContent="@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.ta-msg{line-height:1.5}"
+document.head.appendChild(style)
+
+function clearTaChat(){
+var chat=document.getElementById("taChat")
+chat.innerHTML='<div class="ta-msg ta-bot" style="background:#667eea;color:white;padding:10px 14px;border-radius:12px 12px 12px 4px;max-width:80%;align-self:flex-start;font-size:14px">👋 Chat cleared! Ask me anything about travel.</div>'
+}
+
+</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</a></li><li><a href="/tools/discount-calculator.html">Discount Calculator</a></li><li><a href="/tools/investment-calculator.html">Investment Calculator</a></li><li><a href="/tools/tax-calculator.html">Tax Calculator</a></li><li><a href="/tools/random-password-generator.html">Password Generator</a></li><li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li></ul></div><div class="footer-links"><h4>Guides</h4><ul><li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li><li><a href="/guides/budgeting-for-beginners.html">Budgeting</a></li><li><a href="/guides/how-to-start-a-business.html">Start a Business</a></li><li><a href="/guides/freelancing-101.html">Freelancing 101</a></li><li><a href="/guides/investing-for-beginners.html">Investing</a></li><li><a href="/guides/productivity-tips.html">Productivity</a></li><li><a href="/guides/resume-writing-tips.html">Resume Tips</a></li><li><a href="/guides/passive-income-ideas.html">Passive Income</a></li><li><a href="/guides/frugal-living-tips.html">Frugal Living</a></li><li><a href="/guides/digital-minimalism-guide.html">Digital Minimalism</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

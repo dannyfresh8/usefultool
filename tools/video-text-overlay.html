@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Text Overlay Animator - Free Animated Text Video Title Creator</title>
+<meta name="description" content="Create animated text overlays, titles, lower thirds and intro text for your videos. Multiple animation styles: fade, slide, typewriter, wave, glow.">
+<meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/video-text-overlay.html" />
+<style>
+.tool-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.tool-emoji{font-size:40px;line-height:1}
+.tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tool-actions .btn{min-width:120px;text-align:center}
+.btn{padding:10px 24px;border-radius:8px;font-weight:600;cursor:pointer;border:0;font-size:14px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.result-content{background:white;padding:16px;border-radius:8px;margin-top:8px;border:1px solid #e5e7eb;font-size:14px;white-space:pre-wrap;word-wrap:break-word}
+.tagline{font-size:15px;color:#555;margin-bottom:20px;line-height:1.5}
+.options-grid{display:flex;gap:8px;flex-wrap:wrap}
+.options-grid .option-chip{padding:8px 18px;border:2px solid #e5e7eb;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;transition:all .2s}
+.options-grid .option-chip.selected{background:#0891b2;color:white;border-color:#0891b2}
+.options-grid .option-chip:hover:not(.selected){border-color:#0891b2}
+label.prompt-hint{display:block;margin-bottom:4px;font-size:13px;color:#6b7280;font-weight:500}
+input.ai-input,select.ai-input{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box}
+input.ai-input:focus{outline:0;border-color:#0891b2}
+.custom-checkbox{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+
+.weather-card{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:16px;padding:24px;margin:16px 0;text-align:center}
+.weather-card h2{color:white;margin:0 0 8px;font-size:28px}
+.weather-temp{font-size:56px;font-weight:700;margin:8px 0}
+.weather-icon{font-size:64px}
+.weather-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px;margin-top:16px;background:rgba(255,255,255,0.15);border-radius:12px;padding:16px}
+.weather-detail{text-align:center}
+.weather-detail strong{font-size:18px;display:block}
+.weather-detail span{font-size:12px;opacity:0.8}
+.forecast-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin:12px 0}
+.forecast-day{background:#f8fafc;border-radius:10px;padding:10px;text-align:center;font-size:13px}
+.forecast-day .day-name{font-weight:600;margin-bottom:4px}
+.forecast-day .day-icon{font-size:24px}
+.forecast-day .day-temp{color:#0891b2;font-weight:500;margin-top:4px}
+.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:12px 0}
+.country-btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;background:white;cursor:pointer;font-size:13px;text-align:left;transition:all .2s;text-decoration:none;color:#333;display:block}
+.country-btn:hover{background:#f0fdf4;border-color:#22c55e}
+.weather-input{width:100%;padding:12px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:16px;margin:8px 0;box-sizing:border-box}
+.weather-input:focus{border-color:#667eea;outline:none}
+.loading-spinner{display:inline-block;width:20px;height:20px;border:3px solid #e5e7eb;border-top-color:#667eea;border-radius:50%;animation:spin .6s linear infinite;margin:10px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.weather-tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+</style>
+</head><body>
+affiliate-disclosure" style="background:#fef9c3;padding:10px 20px;text-align:center;font-size:13px;color:#92400e;border-bottom:1px solid #fde68a">
+Some links on this site are affiliate links. We may earn a commission at no extra cost to you. <a href="/recommends.html" style="color:#0891b2;text-decoration:underline">Learn more</a>.
+</div>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a><a href="/recommends.html" class="nav-link">Recommendations</a></nav></div></header>
+<main><div class="container">
+<p class="breadcrumb"><a href="/">Home</a> › <a href="/tools.html">Tools</a> › <a href="/tools/weather.html">Weather</a> › <span>AI Text Overlay Animator - Free Animated Text Video Title Creator</span></p>
+<div class="tool-header"><div class="tool-emoji">📝</div><div><h1 style="margin:0">AI Text Overlay Animator</h1><p style="margin:4px 0 0;color:#555">Animated text & lower thirds for videos</p></div></div>
+<div class="tool-box"><div id="app"><div class="tagline">Animated text, titles, lower thirds & intro frames for your videos.</div>
+
+<div><label class="prompt-hint">Text Content</label>
+<input type="text" id="ovText" class="ai-input" value="Welcome to Bali" placeholder="Your text here"></div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0">
+<div><label class="prompt-hint">Animation Style</label>
+<select id="ovStyle" class="ai-input" onchange="previewTextOverlay()">
+<option value="fadeUp">Fade Up</option>
+<option value="slideIn">Slide In Left</option>
+<option value="scaleIn">Scale In</option>
+<option value="bounce">Bounce In</option>
+<option value="letterByLetter">Letter by Letter</option>
+<option value="glowPulse">Glow Pulse</option>
+<option value="typewriter">Typewriter</option>
+<option value="wave">Wave Text</option>
+</select></div>
+<div><label class="prompt-hint">Text Position</label>
+<select id="ovPos" class="ai-input" onchange="previewTextOverlay()">
+<option value="center">Center</option>
+<option value="top">Top</option>
+<option value="bottom">Bottom (Lower Third)</option>
+<option value="left">Left Aligned</option>
+<option value="right">Right Aligned</option>
+</select></div>
+<div><label class="prompt-hint">Text Size</label>
+<select id="ovSize" class="ai-input" onchange="previewTextOverlay()">
+<option value="24">Small (Lower Third)</option>
+<option value="36">Medium</option>
+<option value="48" selected>Large (Title)</option>
+<option value="64">Extra Large</option>
+</select></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+<div><label class="prompt-hint">Background Color</label>
+<input type="color" id="ovBg" class="ai-input" value="#1e293b" onchange="previewTextOverlay()"></div>
+<div><label class="prompt-hint">Text Color</label>
+<input type="color" id="ovColor" class="ai-input" value="#ffffff" onchange="previewTextOverlay()"></div>
+</div>
+
+<div class="tool-actions"><button class="btn btn-primary" onclick="previewTextOverlay()">📝 Preview Text Overlay</button></div>
+
+<div id="ovPreview" style="background:#000;border-radius:12px;margin-top:16px;min-height:200px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative">
+<div id="ovTextEl" style="font-weight:700;font-family:sans-serif;transition:all 0.5s ease">Click Preview</div>
+</div>
+
+<p class="info-sub">Screenshot this preview to use as text overlay in CapCut, Premiere Pro, or any video editor.</p></div></div>
+<div class="share-bar"><span>Share:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=AI%20Text%20Overlay%20Animator%20-%20Free%20Animated%20Text%20Video%20Title%20Creator&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fvideo-text-overlay.html" target="_blank" rel="noopener">🐦</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fvideo-text-overlay.html" target="_blank" rel="noopener">👥</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=AI%20Text%20Overlay%20Animator%20-%20Free%20Animated%20Text%20Video%20Title%20Creator%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fvideo-text-overlay.html" target="_blank" rel="noopener">📱</a></div>
+<div class="calc-info"><h3>How to Use</h3><p>Enter a city or country name and get real-time weather data. Powered by Open-Meteo API — free, no key needed.</p><h3>Countries Covered</h3><p>All countries worldwide. Just type a city name and get instant weather data.</p><h3>Why This Tool</h3><p>Free, fast, works on mobile & desktop. No sign-ups required.</p></div>
+</div></main>
+<script>
+function previewTextOverlay(){
+var txt=document.getElementById("ovText").value.trim()||"Your Text"
+var style=document.getElementById("ovStyle").value
+var pos=document.getElementById("ovPos").value
+var size=parseInt(document.getElementById("ovSize").value)||48
+var bg=document.getElementById("ovBg").value
+var color=document.getElementById("ovColor").value
+
+var el=document.getElementById("ovTextEl")
+var preview=document.getElementById("ovPreview")
+
+// Reset
+el.style=""
+el.textContent=txt
+el.style.fontWeight="700"
+el.style.fontFamily="sans-serif"
+el.style.fontSize=size+"px"
+el.style.color=color
+el.style.padding="16px 32px"
+el.style.borderRadius="8px"
+el.style.position="relative"
+el.style.transition="all 0.6s cubic-bezier(0.22, 1, 0.36, 1)"
+
+// Position
+var posStyles={center:"center",top:"flex-start",bottom:"flex-end",left:"center",right:"center"}
+var alignStyles={center:"center",top:"center",bottom:"center",left:"flex-start",right:"flex-end"}
+preview.style.alignItems=posStyles[pos]||"center"
+preview.style.justifyContent=alignStyles[pos]||"center"
+preview.style.background=bg
+
+// Animation
+el.style.opacity="0"
+el.style.transform="translateY(20px) scale(0.8)"
+
+setTimeout(function(){
+if(style==="fadeUp"){el.style.opacity="1";el.style.transform="translateY(0)"}
+else if(style==="slideIn"){el.style.transform="translateX(0)";el.style.opacity="1"}
+else if(style==="scaleIn"){el.style.transform="scale(1)";el.style.opacity="1"}
+else if(style==="bounce"){el.style.transform="scale(1)";el.style.opacity="1"}
+else if(style==="letterByLetter"){
+el.innerHTML=""
+el.style.opacity="1"
+el.style.transform="none"
+for(var i=0;i<txt.length;i++){
+var sp=document.createElement("span")
+sp.textContent=txt[i]===" "?" ":txt[i]
+sp.style.display="inline-block"
+sp.style.animation="letterPop 0.3s ease forwards"
+sp.style.animationDelay=(i*0.08)+"s"
+sp.style.opacity="0"
+el.appendChild(sp)
+}
+}
+else if(style==="glowPulse"){el.style.opacity="1";el.style.transform="none";el.style.animation="glowPulse 1.5s ease-in-out infinite"}
+else if(style==="typewriter"){
+el.innerHTML=""
+el.style.opacity="1"
+el.style.transform="none"
+el.style.borderRight="2px solid "+color
+el.style.whiteSpace="nowrap"
+el.style.overflow="hidden"
+var i=0;var interval=setInterval(function(){if(i<txt.length){el.textContent+=txt[i];i++}else{clearInterval(interval);el.style.borderRight="none"}},80)
+}
+else if(style==="wave"){
+el.innerHTML=""
+el.style.opacity="1"
+el.style.transform="none"
+for(var i=0;i<txt.length;i++){
+var sp=document.createElement("span")
+sp.textContent=txt[i]===" "?" ":txt[i]
+sp.style.display="inline-block"
+sp.style.animation="waveAnim 1.5s ease-in-out infinite"
+sp.style.animationDelay=(i*0.1)+"s"
+el.appendChild(sp)
+}
+}
+},100)
+}
+
+// Add animation keyframes
+var sty=document.createElement("style")
+sty.textContent="@keyframes letterPop{0%{opacity:0;transform:scale(0.3) translateY(20px)}100%{opacity:1;transform:scale(1) translateY(0)}}@keyframes glowPulse{0%,100%{text-shadow:0 0 10px currentColor}50%{text-shadow:0 0 30px currentColor,0 0 60px currentColor}}@keyframes waveAnim{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}"
+document.head.appendChild(sty)
+
+// Initial preview
+setTimeout(previewTextOverlay,200)
+
+</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</a></li><li><a href="/tools/discount-calculator.html">Discount Calculator</a></li><li><a href="/tools/investment-calculator.html">Investment Calculator</a></li><li><a href="/tools/tax-calculator.html">Tax Calculator</a></li><li><a href="/tools/random-password-generator.html">Password Generator</a></li><li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li></ul></div><div class="footer-links"><h4>Guides</h4><ul><li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li><li><a href="/guides/budgeting-for-beginners.html">Budgeting</a></li><li><a href="/guides/how-to-start-a-business.html">Start a Business</a></li><li><a href="/guides/freelancing-101.html">Freelancing 101</a></li><li><a href="/guides/investing-for-beginners.html">Investing</a></li><li><a href="/guides/productivity-tips.html">Productivity</a></li><li><a href="/guides/resume-writing-tips.html">Resume Tips</a></li><li><a href="/guides/passive-income-ideas.html">Passive Income</a></li><li><a href="/guides/frugal-living-tips.html">Frugal Living</a></li><li><a href="/guides/digital-minimalism-guide.html">Digital Minimalism</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

@@ -1,0 +1,40 @@
+@"
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GPA Calculator - ProductivityTools</title><meta name="description" content="Calculate your cumulative GPA from course grades and credit hours. Add multiple courses for your semester total."><meta name="robots" content="index, follow">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-179G7PSK2S"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-179G7PSK2S');</script>
+<link rel="stylesheet" href="../css/style.css"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+  <link rel="canonical" href="https://usefultoolkit.org/tools/gpa-calculator.html" />
+</head>
+<body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>GPA</span></div>
+<h1>GPA Calculator</h1>
+<p>Calculate GPA from percentages.</p>
+<div class="tool-box"><div class=tool-box><label>Grade %:</label><input type=number id=g1 value=85><label>Credits:</label><input type=number id=g2 value=3><button onclick=ad()>Add Course</button><div id=gL style="font-size:13px;padding:8px;background:#f5f5f5;border-radius:6px;min-height:20px;margin:6px 0">No courses</div><button onclick=ca() style=margin-right:6px>Calculate GPA</button><button onclick=cl()>Clear</button><div id=gR class=result-box></div></div><script>var gC=[];function ad(){var p=+g1.value,c=+g2.value;if(!p||!c){alert("Enter grade and credits");return}var g=p>=93?4:p>=90?3.7:p>=87?3.3:p>=83?3:p>=80?2.7:p>=77?2.3:p>=73?2:p>=70?1.7:p>=67?1.3:p>=63?1:0;gC.push({p:p,c:c,g:g});rd()}function ca(){if(!gC.length){gR.innerHTML="Add courses";return}var tp=0,tc=0;for(var i=0;i<gC.length;i++){tp+=gC[i].g*gC[i].c;tc+=gC[i].c}gR.innerHTML="<strong>GPA: "+(tp/tc).toFixed(2)+"</strong><br>Courses: "+gC.length+"<br>Credits: "+tc}function cl(){gC=[];rd();gR.innerHTML=""}function rd(){if(!gC.length){document.getElementById("gL").innerHTML="No courses";return}var o="";for(var i=0;i<gC.length;i++){o+=(i+1)+". "+gC[i].p+"% (GPA "+gC[i].g.toFixed(1)+") x "+gC[i].c+"cr<br>"}document.getElementById("gL").innerHTML=o}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script></div>
+<div class=related-tools><h3>More</h3><ul><li><a href=grade-calculator.html>Grade</a></li><li><a href=quiz-score.html>Quiz</a></li><li><a href=percentage-calculator.html>Percentage</a></li><li><a href=stats.html>Stats</a></li></ul></div>
+</div>
+<div class="tool-content">
+  <section>
+    <h2>How to Use This Gpa Calculator Tool</h2>
+    <p>Enter your values in the fields above and click calculate. The tool handles the math instantly so you can focus on decisions, not formulas.</p>
+    <h2>Why Gpa Calculator Matters</h2>
+    <p>Quick, accurate calculations save time and help you make informed decisions. Whether for finance, health, or business, having reliable numbers at your fingertips eliminates guesswork.</p>
+  </section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+"@

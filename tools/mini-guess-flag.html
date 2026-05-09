@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Type the country name for each flag shown. Flag identification game.">
+<link rel="canonical" href="https://usefultoolkit.org/tools/mini-guess-flag.html">
+<title>Guess the Flag - Type the Country</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg,#0f172a);color:var(--tx,#f1f5f9);min-height:100vh}
+:root{--bg:#0f172a;--bg2:#1e293b;--tx:#f1f5f9;--t2:#94a3b8;--cd:#1e293b;--bd:#334155;--ac:#8b5cf6}
+body.light-mode{--bg:#f8fafc;--bg2:#f1f5f9;--tx:#1e293b;--t2:#64748b;--cd:#fff;--bd:#e5e7eb}
+.dm{position:fixed;top:12px;right:12px;z-index:9998;background:var(--cd);border:1px solid var(--bd);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px}
+.hd{background:linear-gradient(135deg,#8b5cf6,#6366f1,#4f46e5);padding:20px 16px;text-align:center}
+.hd h1{color:#fff;font-size:22px;margin-bottom:2px}.hd p{color:rgba(255,255,255,.8);font-size:13px}
+.c{max-width:700px;margin:0 auto;padding:12px}
+.fo{text-align:center;padding:20px;font-size:12px;color:var(--t2)}
+.ga{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:16px;margin:12px 0;text-align:center}
+.btn{display:inline-block;padding:10px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.bp{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff}.bp:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(139,92,246,.4)}
+.bs{padding:6px 14px;font-size:12px}.st{font-size:13px;color:var(--t2)}.st span{color:var(--ac);font-weight:700}
+.bk{display:inline-block;margin-bottom:10px;color:var(--ac);font-size:13px;text-decoration:none}.bk:hover{text-decoration:underline}
+.qc{background:var(--bg2);border:1px solid var(--bd);border-radius:12px;padding:14px;text-align:center;margin-bottom:8px}
+.qc img{width:80px;height:50px;object-fit:cover;border-radius:6px;border:1px solid var(--bd)}
+.inp{width:100%;padding:10px;border-radius:10px;border:1px solid var(--bd);background:var(--bg2);color:var(--tx);font-size:14px;text-align:center}
+.inp:focus{outline:2px solid var(--ac);border-color:transparent}
+</style></head><body>
+<div class="dm" onclick="var b=document.body;b.classList.toggle('light-mode');localStorage.setItem('light',b.classList.contains('light-mode')?'1':'')">&#127769;</div>
+<div class="hd"><h1>Guess the Flag</h1><p>Type the country name for each flag</p></div>
+<div class="c"><a href="/tools/mini-games.html" class="bk">&larr; Back to Mini Games</a>
+<div class="ga"><div id="gf-area" style="min-height:200px"><p style="color:var(--t2)">Loading flags...</p></div>
+<div class="st" style="margin-top:10px">Score: <span id="gf-score">0</span> / 30 &bull; Streak: <span id="gf-streak">0</span></div>
+<div id="gf-feedback" style="font-size:12px;margin-top:6px;min-height:18px"></div></div></div>
+<div class="fo">&copy; 2025 UseToolKit &bull; Free browser games</div>
+<script>if(localStorage.getItem('light')==='1')document.body.classList.add('light-mode')</script>
+<div id="gt" style="position:fixed;bottom:16px;right:16px;z-index:9999"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"gt")}</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+var gf=[{n:"United States",f:"https://flagcdn.com/w160/us.png",h:"Stars and stripes"},{n:"United Kingdom",f:"https://flagcdn.com/w160/gb.png",h:"Union Jack"},{n:"France",f:"https://flagcdn.com/w160/fr.png",h:"Blue, white, red"},{n:"Germany",f:"https://flagcdn.com/w160/de.png",h:"Black, red, gold"},{n:"Japan",f:"https://flagcdn.com/w160/jp.png",h:"Rising sun"},{n:"Brazil",f:"https://flagcdn.com/w160/br.png",h:"Green and yellow"},{n:"India",f:"https://flagcdn.com/w160/in.png",h:"Saffron, white, green"},{n:"Australia",f:"https://flagcdn.com/w160/au.png",h:"Southern Cross"},{n:"Italy",f:"https://flagcdn.com/w160/it.png",h:"Green, white, red"},{n:"Spain",f:"https://flagcdn.com/w160/es.png",h:"Red and yellow stripes"},{n:"Canada",f:"https://flagcdn.com/w160/ca.png",h:"Maple leaf"},{n:"Mexico",f:"https://flagcdn.com/w160/mx.png",h:"Eagle on cactus"},{n:"China",f:"https://flagcdn.com/w160/cn.png",h:"Red with gold stars"},{n:"South Korea",f:"https://flagcdn.com/w160/kr.png",h:"Yin-yang symbol"},{n:"Turkey",f:"https://flagcdn.com/w160/tr.png",h:"Red with crescent"},{n:"Russia",f:"https://flagcdn.com/w160/ru.png",h:"White, blue, red"},{n:"Egypt",f:"https://flagcdn.com/w160/eg.png",h:"Eagle"},{n:"South Africa",f:"https://flagcdn.com/w160/za.png",h:"Rainbow nation"},{n:"Argentina",f:"https://flagcdn.com/w160/ar.png",h:"Sun of May"},{n:"Sweden",f:"https://flagcdn.com/w160/se.png",h:"Scandinavian cross"},{n:"Netherlands",f:"https://flagcdn.com/w160/nl.png",h:"Orange"},{n:"Switzerland",f:"https://flagcdn.com/w160/ch.png",h:"White cross"},{n:"Norway",f:"https://flagcdn.com/w160/no.png",h:"Blue cross"},{n:"Greece",f:"https://flagcdn.com/w160/gr.png",h:"Blue and white stripes"},{n:"Portugal",f:"https://flagcdn.com/w160/pt.png",h:"Green and red"},{n:"Thailand",f:"https://flagcdn.com/w160/th.png",h:"Blue, white, red"},{n:"Vietnam",f:"https://flagcdn.com/w160/vn.png",h:"Gold star on red"},{n:"Chile",f:"https://flagcdn.com/w160/cl.png",h:"White star on blue"},{n:"New Zealand",f:"https://flagcdn.com/w160/nz.png",h:"Red stars"},{n:"Kenya",f:"https://flagcdn.com/w160/ke.png",h:"Maasai shield"}];
+var gfi=0,gfs=0,gfStr=0;
+function gfS(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+gfS(gf);
+function gfShow(){
+  if(gfi>=gf.length){
+    document.getElementById("gf-area").innerHTML="<h2>Done!</h2><p>Final score: "+gfs+"/"+gf.length+"</p><button class='btn bp' onclick='gfi=0;gfs=0;gfStr=0;gfS(gf);gfShow()'>Play Again</button>";
+    return;
+  }
+  var c=gf[gfi];
+  document.getElementById("gf-area").innerHTML='<div class="qc"><img src="'+c.f+'" alt="flag"><p style="font-size:12px;color:var(--t2);margin-bottom:8px">Hint: '+c.h+'</p><input id="gf-inp" class="inp" type="text" placeholder="Type country name..." autocomplete="off" onkeydown="if(event.key===\'Enter\')gfCheck()" style="max-width:300px;margin:0 auto"><button class="btn bp bs" style="margin-top:8px" onclick="gfCheck()">Submit</button></div>';
+  setTimeout(function(){document.getElementById("gf-inp").focus()},100);
+}
+function gfCheck(){
+  var el=document.getElementById("gf-inp");
+  var a=el.value.trim().toLowerCase();
+  var c=gf[gfi].n.toLowerCase();
+  if(a===c){
+    gfs++;gfStr++;
+    document.getElementById("gf-feedback").innerHTML="<span style='color:#22c55e'>Correct!</span> "+(gfStr>=3?"Streak x"+gfStr+"!":"");
+    gfi++;setTimeout(gfShow,600);
+  } else {
+    document.getElementById("gf-feedback").innerHTML="<span style='color:#ef4444'>Incorrect! Answer: "+gf[gfi].n+"</span>";
+    gfStr=0;gfi++;setTimeout(gfShow,800);
+  }
+  document.getElementById("gf-score").textContent=gfs;
+  document.getElementById("gf-streak").textContent=gfStr;
+}
+gfShow();
+</script></body></html>

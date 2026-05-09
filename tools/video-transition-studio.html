@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Transition Effect Studio - Free Video Transitions Preview</title>
+<meta name="description" content="Preview 10 animated transitions for your videos: slide, fade, zoom, wipe, blur, glitch, bounce and more. Free transition effect studio.">
+<meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/video-transition-studio.html" />
+<style>
+.tool-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.tool-emoji{font-size:40px;line-height:1}
+.tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tool-actions .btn{min-width:120px;text-align:center}
+.btn{padding:10px 24px;border-radius:8px;font-weight:600;cursor:pointer;border:0;font-size:14px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.result-content{background:white;padding:16px;border-radius:8px;margin-top:8px;border:1px solid #e5e7eb;font-size:14px;white-space:pre-wrap;word-wrap:break-word}
+.tagline{font-size:15px;color:#555;margin-bottom:20px;line-height:1.5}
+.options-grid{display:flex;gap:8px;flex-wrap:wrap}
+.options-grid .option-chip{padding:8px 18px;border:2px solid #e5e7eb;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;transition:all .2s}
+.options-grid .option-chip.selected{background:#0891b2;color:white;border-color:#0891b2}
+.options-grid .option-chip:hover:not(.selected){border-color:#0891b2}
+label.prompt-hint{display:block;margin-bottom:4px;font-size:13px;color:#6b7280;font-weight:500}
+input.ai-input,select.ai-input{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box}
+input.ai-input:focus{outline:0;border-color:#0891b2}
+.custom-checkbox{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+
+.weather-card{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:16px;padding:24px;margin:16px 0;text-align:center}
+.weather-card h2{color:white;margin:0 0 8px;font-size:28px}
+.weather-temp{font-size:56px;font-weight:700;margin:8px 0}
+.weather-icon{font-size:64px}
+.weather-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px;margin-top:16px;background:rgba(255,255,255,0.15);border-radius:12px;padding:16px}
+.weather-detail{text-align:center}
+.weather-detail strong{font-size:18px;display:block}
+.weather-detail span{font-size:12px;opacity:0.8}
+.forecast-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin:12px 0}
+.forecast-day{background:#f8fafc;border-radius:10px;padding:10px;text-align:center;font-size:13px}
+.forecast-day .day-name{font-weight:600;margin-bottom:4px}
+.forecast-day .day-icon{font-size:24px}
+.forecast-day .day-temp{color:#0891b2;font-weight:500;margin-top:4px}
+.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:12px 0}
+.country-btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;background:white;cursor:pointer;font-size:13px;text-align:left;transition:all .2s;text-decoration:none;color:#333;display:block}
+.country-btn:hover{background:#f0fdf4;border-color:#22c55e}
+.weather-input{width:100%;padding:12px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:16px;margin:8px 0;box-sizing:border-box}
+.weather-input:focus{border-color:#667eea;outline:none}
+.loading-spinner{display:inline-block;width:20px;height:20px;border:3px solid #e5e7eb;border-top-color:#667eea;border-radius:50%;animation:spin .6s linear infinite;margin:10px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.weather-tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+</style>
+</head><body>
+affiliate-disclosure" style="background:#fef9c3;padding:10px 20px;text-align:center;font-size:13px;color:#92400e;border-bottom:1px solid #fde68a">
+Some links on this site are affiliate links. We may earn a commission at no extra cost to you. <a href="/recommends.html" style="color:#0891b2;text-decoration:underline">Learn more</a>.
+</div>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a><a href="/recommends.html" class="nav-link">Recommendations</a></nav></div></header>
+<main><div class="container">
+<p class="breadcrumb"><a href="/">Home</a> › <a href="/tools.html">Tools</a> › <a href="/tools/weather.html">Weather</a> › <span>AI Transition Effect Studio - Free Video Transitions Preview</span></p>
+<div class="tool-header"><div class="tool-emoji">✨</div><div><h1 style="margin:0">AI Transition & Effect Studio</h1><p style="margin:4px 0 0;color:#555">Animated transitions & visual effects</p></div></div>
+<div class="tool-box"><div id="app"><div class="tagline">Preview animated transitions, filters & visual effects for your videos.</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+<div><label class="prompt-hint">Transition Style</label>
+<select id="trType" class="ai-input" onchange="previewTransition()">
+<option value="slide">Slide Left</option>
+<option value="slide-right">Slide Right</option>
+<option value="fade">Fade</option>
+<option value="zoom">Zoom In</option>
+<option value="wipe">Wipe Left</option>
+<option value="blur">Blur Transition</option>
+<option value="scale">Scale Down</option>
+<option value="rotate">Rotate & Slide</option>
+<option value="glitch">Glitch Effect</option>
+<option value="bounce">Bounce In</option>
+</select></div>
+<div><label class="prompt-hint">Duration</label>
+<select id="trDuration" class="ai-input" onchange="previewTransition()">
+<option value="0.3">0.3s (Fast)</option>
+<option value="0.5" selected>0.5s (Normal)</option>
+<option value="0.8">0.8s (Slow)</option>
+<option value="1.5">1.5s (Dramatic)</option>
+</select></div>
+</div>
+
+<div><label class="prompt-hint">Accent Color</label>
+<input type="color" id="trColor" class="ai-input" value="#ff6b6b" onchange="previewTransition()"></div>
+
+<div class="tool-actions" style="margin:12px 0"><button class="btn btn-primary" onclick="previewTransition()">✨ Preview Transition</button></div>
+
+<div id="trPreview" style="display:flex;gap:12px;align-items:center;justify-content:center;min-height:140px">
+<div id="trBox1" style="flex:1;background:#ff6b6b;color:white;border-radius:12px;padding:20px;text-align:center;font-weight:700;max-width:200px">Scene A</div>
+<div id="trBox2" style="flex:1;background:#a855f7;color:white;border-radius:12px;padding:20px;text-align:center;font-weight:700;max-width:200px">Scene B</div>
+</div>
+
+<div id="trInfo" style="margin-top:16px;display:none">
+<h3>✨ All Available Transitions</h3>
+<div class="weather-details" style="color:#333"></div>
+</div></div></div>
+<div class="share-bar"><span>Share:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=AI%20Transition%20Effect%20Studio%20-%20Free%20Video%20Transitions%20Preview&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fvideo-transition-studio.html" target="_blank" rel="noopener">🐦</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fvideo-transition-studio.html" target="_blank" rel="noopener">👥</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=AI%20Transition%20Effect%20Studio%20-%20Free%20Video%20Transitions%20Preview%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fvideo-transition-studio.html" target="_blank" rel="noopener">📱</a></div>
+<div class="calc-info"><h3>How to Use</h3><p>Enter a city or country name and get real-time weather data. Powered by Open-Meteo API — free, no key needed.</p><h3>Countries Covered</h3><p>All countries worldwide. Just type a city name and get instant weather data.</p><h3>Why This Tool</h3><p>Free, fast, works on mobile & desktop. No sign-ups required.</p></div>
+</div></main>
+<script>
+var transAll=[{name:"Slide Left",css:"translateX(-100%)",use:"Scene changes, fast cuts"},{name:"Slide Right",css:"translateX(100%)",use:"Revealing new location"},{name:"Fade",css:"opacity(0)",use:"Slow emotional moments"},{name:"Zoom In",css:"scale(1.5)",use:"Emphasis, dramatic reveal"},{name:"Wipe Left",css:"translateX(-100%) skewX(10deg)",use:"Creative scene changes"},{name:"Blur Transition",css:"blur(10px)",use:"Flashbacks, time skips"},{name:"Scale Down",css:"scale(0.3)",use:"End of section, outro"},{name:"Rotate & Slide",css:"rotate(15deg) translateX(100%)",use:"Energetic, fun content"},{name:"Glitch Effect",css:"skewX(5deg) translateX(5px)",use:"Tech, gaming, fast edits"},{name:"Bounce In",css:"scale(0.8) translateY(20px)",use:"Playful, light-hearted"}]
+
+function previewTransition(){
+var type=document.getElementById("trType").value
+var dur=document.getElementById("trDuration").value
+var col=document.getElementById("trColor").value
+
+var b1=document.getElementById("trBox1")
+var b2=document.getElementById("trBox2")
+
+b1.style.transition="all "+dur+"s ease"
+b2.style.transition="all "+dur+"s ease"
+
+var transMap={slide:"translateX(-100%)","slide-right":"translateX(100%)",fade:"opacity(0.3)",zoom:"scale(1.4)",wipe:"translateX(-100%) skewX(8deg)",blur:"filter blur(8px)",scale:"scale(0.2)",rotate:"rotate(20deg) translateX(100%)",glitch:"skewX(6deg) translateX(6px)",bounce:"scale(0.7) translateY(30px)"}
+
+var tr=transMap[type]||"translateX(-100%)"
+
+// Animate Scene A out, Scene B in
+b1.style.transform=tr
+b1.style.opacity="0"
+b2.style.transform="none"
+b2.style.opacity="1"
+b2.style.background=col
+
+setTimeout(function(){
+b1.style.transform="none"
+b1.style.opacity="1"
+b1.style.background=col
+},2000)
+
+// Show info panel
+var info=document.getElementById("trInfo")
+info.style.display="block"
+var div=info.querySelector(".weather-details")
+div.innerHTML=""
+transAll.forEach(function(t){
+div.innerHTML+='<div style="padding:6px 0;border-bottom:1px solid #f3f4f6"><strong>✨ '+t.name+'</strong> — '+t.use+'</div>'
+})
+}
+
+// Preview on load
+setTimeout(previewTransition,200)
+
+</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</a></li><li><a href="/tools/discount-calculator.html">Discount Calculator</a></li><li><a href="/tools/investment-calculator.html">Investment Calculator</a></li><li><a href="/tools/tax-calculator.html">Tax Calculator</a></li><li><a href="/tools/random-password-generator.html">Password Generator</a></li><li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li></ul></div><div class="footer-links"><h4>Guides</h4><ul><li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li><li><a href="/guides/budgeting-for-beginners.html">Budgeting</a></li><li><a href="/guides/how-to-start-a-business.html">Start a Business</a></li><li><a href="/guides/freelancing-101.html">Freelancing 101</a></li><li><a href="/guides/investing-for-beginners.html">Investing</a></li><li><a href="/guides/productivity-tips.html">Productivity</a></li><li><a href="/guides/resume-writing-tips.html">Resume Tips</a></li><li><a href="/guides/passive-income-ideas.html">Passive Income</a></li><li><a href="/guides/frugal-living-tips.html">Frugal Living</a></li><li><a href="/guides/digital-minimalism-guide.html">Digital Minimalism</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

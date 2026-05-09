@@ -1,0 +1,40 @@
+@"
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Supplier Pricing Calculator - ProductivityTools</title><meta name="description" content="Work backwards from your target selling price to find the maximum price you can pay a supplier and still make profit. Set your sourcing budget.""><meta name="robots" content="index, follow">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-179G7PSK2S"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-179G7PSK2S');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/style.css">  <link rel="canonical" href="https://usefultoolkit.org/tools/supplier-pricing.html" />
+</head>
+<body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Supplier Pricing</span></div>
+<h1>Supplier Pricing Calculator</h1>
+<p>Work backwards from your target price to find what to pay the supplier.</p>
+<div class="tool-box"><div class=tool-box><label>Target selling price ($):</label><input type=number id=sp1 value=39.99 step=.01><label>Target margin %:</label><input type=number id=sp2 value=40><label>Shipping ($):</label><input type=number id=sp3 value=5><label>Fees %:</label><input type=number id=sp4 value=15><label>Ad cost ($):</label><input type=number id=sp5 value=5><button onclick=sp()>Calculate</button><div id=spR class=result-box></div></div><script>function sp(){var sel=+sp1.value,mar=+sp2.value/100,sh=+sp3.value,pf=+sp4.value/100,ad=+sp5.value;if(!sel||!mar){spR.innerHTML="Enter selling price and margin";return}var fees=sel*pf,overhead=sh+ad+fees,allowable=sel*(1-mar),maxSupplier=allowable-overhead;spR.innerHTML="<strong>Selling price:</strong> $"+sel.toFixed(2)+"<br><strong>Target margin:</strong> "+(mar*100)+"%<br><strong>After fees+ship+ads:</strong> $"+overhead.toFixed(2)+"<hr><strong>Max supplier price: $"+maxSupplier.toFixed(2)+"</strong><br>"+(maxSupplier>0?"✅ Find suppliers under this":"❌ Need higher price or lower costs")}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script></div>
+<div class=related-tools><h3>💰 Dropshipping Tools</h3><ul><li><a href=dropship-profit.html>Dropship Profit</a></li><li><a href=profit-margin.html>Profit Margin</a></li><li><a href=markup-calculator.html>Markup</a></li><li><a href=shipping-calculator.html>Shipping</a></li></ul></div>
+</div>
+<div class="tool-content">
+  <section>
+    <h2>How to Use This Supplier Pricing Tool</h2>
+    <p>Enter your values in the fields above and click calculate. The tool handles the math instantly so you can focus on decisions, not formulas.</p>
+    <h2>Why Supplier Pricing Matters</h2>
+    <p>Quick, accurate calculations save time and help you make informed decisions. Whether for finance, health, or business, having reliable numbers at your fingertips eliminates guesswork.</p>
+  </section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+"@

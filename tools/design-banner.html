@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Banner Designer - Free YouTube Banner Social Cover Creator</title>
+<meta name="description" content="Create YouTube banners, Facebook covers, LinkedIn headers, Twitter banners and website headers. Free online banner designer with download.">
+<meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/design-banner.html" />
+<style>
+.tool-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.tool-emoji{font-size:40px;line-height:1}
+.tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tool-actions .btn{min-width:120px;text-align:center}
+.btn{padding:10px 24px;border-radius:8px;font-weight:600;cursor:pointer;border:0;font-size:14px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.result-content{background:white;padding:16px;border-radius:8px;margin-top:8px;border:1px solid #e5e7eb;font-size:14px;white-space:pre-wrap;word-wrap:break-word}
+.tagline{font-size:15px;color:#555;margin-bottom:20px;line-height:1.5}
+.options-grid{display:flex;gap:8px;flex-wrap:wrap}
+.options-grid .option-chip{padding:8px 18px;border:2px solid #e5e7eb;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;transition:all .2s}
+.options-grid .option-chip.selected{background:#0891b2;color:white;border-color:#0891b2}
+.options-grid .option-chip:hover:not(.selected){border-color:#0891b2}
+label.prompt-hint{display:block;margin-bottom:4px;font-size:13px;color:#6b7280;font-weight:500}
+input.ai-input,select.ai-input{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box}
+input.ai-input:focus{outline:0;border-color:#0891b2}
+.custom-checkbox{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+
+.weather-card{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:16px;padding:24px;margin:16px 0;text-align:center}
+.weather-card h2{color:white;margin:0 0 8px;font-size:28px}
+.weather-temp{font-size:56px;font-weight:700;margin:8px 0}
+.weather-icon{font-size:64px}
+.weather-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px;margin-top:16px;background:rgba(255,255,255,0.15);border-radius:12px;padding:16px}
+.weather-detail{text-align:center}
+.weather-detail strong{font-size:18px;display:block}
+.weather-detail span{font-size:12px;opacity:0.8}
+.forecast-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin:12px 0}
+.forecast-day{background:#f8fafc;border-radius:10px;padding:10px;text-align:center;font-size:13px}
+.forecast-day .day-name{font-weight:600;margin-bottom:4px}
+.forecast-day .day-icon{font-size:24px}
+.forecast-day .day-temp{color:#0891b2;font-weight:500;margin-top:4px}
+.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:12px 0}
+.country-btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;background:white;cursor:pointer;font-size:13px;text-align:left;transition:all .2s;text-decoration:none;color:#333;display:block}
+.country-btn:hover{background:#f0fdf4;border-color:#22c55e}
+.weather-input{width:100%;padding:12px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:16px;margin:8px 0;box-sizing:border-box}
+.weather-input:focus{border-color:#667eea;outline:none}
+.loading-spinner{display:inline-block;width:20px;height:20px;border:3px solid #e5e7eb;border-top-color:#667eea;border-radius:50%;animation:spin .6s linear infinite;margin:10px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.weather-tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+</style>
+</head><body>
+affiliate-disclosure" style="background:#fef9c3;padding:10px 20px;text-align:center;font-size:13px;color:#92400e;border-bottom:1px solid #fde68a">
+Some links on this site are affiliate links. We may earn a commission at no extra cost to you. <a href="/recommends.html" style="color:#0891b2;text-decoration:underline">Learn more</a>.
+</div>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a><a href="/recommends.html" class="nav-link">Recommendations</a></nav></div></header>
+<main><div class="container">
+<p class="breadcrumb"><a href="/">Home</a> › <a href="/tools.html">Tools</a> › <a href="/tools/weather.html">Weather</a> › <span>AI Banner Designer - Free YouTube Banner Social Cover Creator</span></p>
+<div class="tool-header"><div class="tool-emoji">🖼️</div><div><h1 style="margin:0">AI Banner Designer</h1><p style="margin:4px 0 0;color:#555">Create banners, headers & social covers</p></div></div>
+<div class="tool-box"><div id="app"><div class="tagline">Create YouTube banners, website headers & social media covers.</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px">
+<div><label class="prompt-hint">Banner Type</label>
+<select id="bnType" class="ai-input">
+<option value="youtube">YouTube Banner (2560×1440)</option>
+<option value="facebook">Facebook Cover (1640×624)</option>
+<option value="linkedin">LinkedIn Banner (1584×396)</option>
+<option value="twitter">Twitter Header (1500×500)</option>
+<option value="website">Website Header (1920×600)</option>
+</select></div>
+<div><label class="prompt-hint">Brand Color</label>
+<input type="color" id="bnColor" class="ai-input" value="#8b5cf6"></div>
+<div><label class="prompt-hint">Accent Color</label>
+<input type="color" id="bnAccent" class="ai-input" value="#f59e0b"></div>
+</div>
+
+<div><label class="prompt-hint">Headline Text</label>
+<input type="text" id="bnHeadline" class="ai-input" value="Create Amazing Designs" placeholder="Main headline"></div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div><label class="prompt-hint">Subtext</label>
+<input type="text" id="bnSubtext" class="ai-input" value="AI-powered tools for everyone" placeholder="Subtext or tagline"></div>
+<div><label class="prompt-hint">CTA Button Text</label>
+<input type="text" id="bnCta" class="ai-input" value="Get Started →" placeholder="Call to action"></div>
+</div>
+
+<div class="tool-actions"><button class="btn btn-primary" onclick="genBanner()">🖼️ Generate Banner</button><button class="btn btn-secondary" onclick="downloadBanner()">💾 Download</button></div>
+
+<div id="bnPreview" style="display:none;margin-top:16px">
+<div id="bannerCanvas" style="background:white;border:2px dashed #e5e7eb;border-radius:12px;overflow:hidden;cursor:pointer;position:relative"></div>
+</div></div></div>
+<div class="share-bar"><span>Share:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=AI%20Banner%20Designer%20-%20Free%20YouTube%20Banner%20Social%20Cover%20Creator&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fdesign-banner.html" target="_blank" rel="noopener">🐦</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fdesign-banner.html" target="_blank" rel="noopener">👥</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=AI%20Banner%20Designer%20-%20Free%20YouTube%20Banner%20Social%20Cover%20Creator%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fdesign-banner.html" target="_blank" rel="noopener">📱</a></div>
+<div class="calc-info"><h3>How to Use</h3><p>Enter a city or country name and get real-time weather data. Powered by Open-Meteo API — free, no key needed.</p><h3>Countries Covered</h3><p>All countries worldwide. Just type a city name and get instant weather data.</p><h3>Why This Tool</h3><p>Free, fast, works on mobile & desktop. No sign-ups required.</p></div>
+</div></main>
+<script>
+function genBanner(){
+var type=document.getElementById("bnType").value
+var c=document.getElementById("bnColor").value
+var a=document.getElementById("bnAccent").value
+var head=document.getElementById("bnHeadline").value.trim()||"Your Headline"
+var sub=document.getElementById("bnSubtext").value.trim()
+var cta=document.getElementById("bnCta").value.trim()
+
+var sizes={youtube:{w:"100%",h:"auto",ar:"2560/1440",label:"YouTube"},facebook:{w:"100%",h:"auto",ar:"1640/624",label:"Facebook"},linkedin:{w:"100%",h:"auto",ar:"1584/396",label:"LinkedIn"},twitter:{w:"100%",h:"auto",ar:"1500/500",label:"Twitter"},website:{w:"100%",h:"auto",ar:"1920/600",label:"Website"}}
+
+var sz=sizes[type]||sizes.youtube
+
+var html="<div style='background:linear-gradient(135deg,"+c+","+a+");padding:40px 60px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:200px;position:relative'>"
+html+="<div style='position:absolute;top:20px;right:20px;font-size:10px;color:rgba(255,255,255,0.4)'>"+sz.label+" Banner</div>"
+html+="<div style='font-size:36px;font-weight:800;color:white;margin-bottom:8px;text-shadow:2px 2px 8px rgba(0,0,0,0.2)'>"+head+"</div>"
+if(sub)html+="<div style='font-size:18px;color:rgba(255,255,255,0.85);margin-bottom:16px'>"+sub+"</div>"
+if(cta)html+="<div style='background:white;color:"+c+";padding:10px 28px;border-radius:50px;font-weight:600;display:inline-block;font-size:16px'>"+cta+"</div>"
+html+="<div style='position:absolute;bottom:10px;left:10px;font-size:8px;color:rgba(255,255,255,0.2)'>Created with AI Design Tools</div>"
+html+="</div>"
+
+var preview=document.getElementById("bannerCanvas")
+document.getElementById("bnPreview").style.display="block"
+preview.innerHTML=html
+window._bannerHTML=html
+}
+
+function downloadBanner(){
+var el=document.getElementById("bannerCanvas")
+html2canvas(el).then(function(canvas){
+var link=document.createElement("a")
+link.download="banner.png"
+link.href=canvas.toDataURL()
+link.click()
+})
+}
+
+var sc=document.createElement("script")
+sc.src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+document.body.appendChild(sc)
+
+</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</a></li><li><a href="/tools/discount-calculator.html">Discount Calculator</a></li><li><a href="/tools/investment-calculator.html">Investment Calculator</a></li><li><a href="/tools/tax-calculator.html">Tax Calculator</a></li><li><a href="/tools/random-password-generator.html">Password Generator</a></li><li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li></ul></div><div class="footer-links"><h4>Guides</h4><ul><li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li><li><a href="/guides/budgeting-for-beginners.html">Budgeting</a></li><li><a href="/guides/how-to-start-a-business.html">Start a Business</a></li><li><a href="/guides/freelancing-101.html">Freelancing 101</a></li><li><a href="/guides/investing-for-beginners.html">Investing</a></li><li><a href="/guides/productivity-tips.html">Productivity</a></li><li><a href="/guides/resume-writing-tips.html">Resume Tips</a></li><li><a href="/guides/passive-income-ideas.html">Passive Income</a></li><li><a href="/guides/frugal-living-tips.html">Frugal Living</a></li><li><a href="/guides/digital-minimalism-guide.html">Digital Minimalism</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

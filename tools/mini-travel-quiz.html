@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Travel quiz game. Guess countries from famous landmarks and destinations.">
+<link rel="canonical" href="https://usefultoolkit.org/tools/mini-travel-quiz.html">
+<title>Travel Quiz - Guess Landmarks</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg,#0f172a);color:var(--text,#f1f5f9);min-height:100vh}
+:root{--bg:#0f172a;--bg2:#1e293b;--text:#f1f5f9;--text2:#94a3b8;--card:#1e293b;--border:#334155;--accent:#8b5cf6}
+body.light-mode{--bg:#f8fafc;--bg2:#f1f5f9;--text:#1e293b;--text2:#64748b;--card:#fff;--border:#e5e7eb}
+.dark-toggle{position:fixed;top:12px;right:12px;z-index:9998;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px}
+.header{background:linear-gradient(135deg,#8b5cf6,#6366f1,#4f46e5);padding:20px 16px;text-align:center}
+.header h1{color:#fff;font-size:22px;margin-bottom:2px}.header p{color:rgba(255,255,255,.8);font-size:13px}
+.container{max-width:700px;margin:0 auto;padding:12px}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--text2)}
+.game-area{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin:12px 0;text-align:center}
+.btn{display:inline-block;padding:10px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff}
+.btn-primary:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(139,92,246,.4)}
+.stat{font-size:13px;color:var(--text2)}.stat span{color:var(--accent);font-weight:700}
+.quiz-opt{display:block;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin:6px 0;cursor:pointer;text-align:left;font-size:14px;transition:all .2s}
+.quiz-opt:hover{border-color:var(--accent)}.quiz-opt.correct{border-color:#22c55e;background:rgba(34,197,94,.15)}
+.quiz-opt.wrong{border-color:#ef4444;background:rgba(239,68,68,.15)}
+.back-link{display:inline-block;margin-bottom:10px;color:var(--accent);font-size:13px;text-decoration:none}
+.back-link:hover{text-decoration:underline}
+</style></head><body>
+<div class="dark-toggle" onclick="var b=document.body;b.classList.toggle('light-mode');localStorage.setItem('light',b.classList.contains('light-mode')?'1':'')">&#127769;</div>
+<div class="header"><h1>&#128506; Travel Quiz</h1><p>Guess countries from famous landmarks</p></div>
+<div class="container"><a href="/tools/mini-games.html" class="back-link">&larr; Back to Mini Games</a>
+<div class="game-area"><div id="tq-area" style="min-height:200px"><p style="color:var(--text2)">Loading...</p></div>
+<div class="stat" style="margin-top:12px">Score: <span id="tq-score">0</span> / 14 questions</div></div></div>
+<footer>&copy; 2025 UseToolKit &bull; Free browser games</footer>
+<script>if(localStorage.getItem('light')==='1')document.body.classList.add('light-mode')</script>
+<div id="gt" style="position:fixed;bottom:16px;right:16px;z-index:9999"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"gt")}</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+var tq=[{q:"Which country has the Great Wall?",a:"China",o:["China","India","Japan","Korea"]},{q:"Eiffel Tower is in which city?",a:"Paris",o:["Paris","London","Rome","Berlin"]},{q:"Which country has the most pyramids?",a:"Sudan",o:["Egypt","Sudan","Mexico","Peru"]},{q:"Where is the Grand Canyon?",a:"USA",o:["USA","Canada","Australia","Brazil"]},{q:"Where is the Taj Mahal?",a:"India",o:["India","Pakistan","Nepal","Bangladesh"]},{q:"Colosseum is in which country?",a:"Italy",o:["Italy","Greece","Spain","Turkey"]},{q:"Which country has Machu Picchu?",a:"Peru",o:["Peru","Chile","Bolivia","Colombia"]},{q:"Where is Petra?",a:"Jordan",o:["Jordan","Egypt","Israel","Saudi Arabia"]},{q:"Sydney Opera House is where?",a:"Australia",o:["Australia","New Zealand","UK","South Africa"]},{q:"Angkor Wat is in which country?",a:"Cambodia",o:["Cambodia","Thailand","Vietnam","Laos"]},{q:"Mount Fuji is in which country?",a:"Japan",o:["Japan","China","Taiwan","Philippines"]},{q:"Christ the Redeemer is where?",a:"Brazil",o:["Brazil","Argentina","Chile","Peru"]},{q:"Amazon River flows through which country?",a:"Brazil",o:["Brazil","Peru","Colombia","Venezuela"]},{q:"Most UNESCO sites?",a:"Italy",o:["Italy","China","Spain","France"]}];
+var tqi=0,tqs=0;
+function tqS(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function tqShow(i){
+  var d=tq[i];if(!d){document.getElementById("tq-area").innerHTML='<h2>Done!</h2><p>Score: '+tqs+'/'+tq.length+'</p><button class="btn btn-primary" onclick="tqi=0;tqs=0;tqShow(0)">Play Again</button>';return}
+  var h='<h2 style="font-size:15px;margin-bottom:12px">Question '+(i+1)+'/'+tq.length+'</h2><p style="font-size:18px;margin-bottom:16px">'+d.q+'</p>';
+  var opts=tqS(d.o.slice());
+  for(var k=0;k<opts.length;k++){
+    h+='<div class="quiz-opt" data-correct="'+(opts[k]===d.a)+'" onclick="var el=this;if(el.classList.contains(\'clicked\'))return;el.classList.add(\'clicked\');if(el.dataset.correct===\'true\'){el.classList.add(\'correct\');tqs++;document.getElementById(\'tq-score\').textContent=tqs}else{el.classList.add(\'wrong\')}tqi++;setTimeout(function(){tqShow(tqi)},600)">'+opts[k]+'</div>';
+  }
+  document.getElementById("tq-area").innerHTML=h;
+}
+tqShow(0);
+</script></body></html>

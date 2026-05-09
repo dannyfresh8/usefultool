@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Mockup Generator - Free Device Billboard T-Shirt Mockup Creator</title>
+<meta name="description" content="Preview your designs on laptop screens, phones, tablets, billboards, t-shirts, and business cards. Free online mockup generator with download.">
+<meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/design-mockup.html" />
+<style>
+.tool-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.tool-emoji{font-size:40px;line-height:1}
+.tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tool-actions .btn{min-width:120px;text-align:center}
+.btn{padding:10px 24px;border-radius:8px;font-weight:600;cursor:pointer;border:0;font-size:14px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.result-content{background:white;padding:16px;border-radius:8px;margin-top:8px;border:1px solid #e5e7eb;font-size:14px;white-space:pre-wrap;word-wrap:break-word}
+.tagline{font-size:15px;color:#555;margin-bottom:20px;line-height:1.5}
+.options-grid{display:flex;gap:8px;flex-wrap:wrap}
+.options-grid .option-chip{padding:8px 18px;border:2px solid #e5e7eb;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;transition:all .2s}
+.options-grid .option-chip.selected{background:#0891b2;color:white;border-color:#0891b2}
+.options-grid .option-chip:hover:not(.selected){border-color:#0891b2}
+label.prompt-hint{display:block;margin-bottom:4px;font-size:13px;color:#6b7280;font-weight:500}
+input.ai-input,select.ai-input{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box}
+input.ai-input:focus{outline:0;border-color:#0891b2}
+.custom-checkbox{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+
+.weather-card{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:16px;padding:24px;margin:16px 0;text-align:center}
+.weather-card h2{color:white;margin:0 0 8px;font-size:28px}
+.weather-temp{font-size:56px;font-weight:700;margin:8px 0}
+.weather-icon{font-size:64px}
+.weather-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px;margin-top:16px;background:rgba(255,255,255,0.15);border-radius:12px;padding:16px}
+.weather-detail{text-align:center}
+.weather-detail strong{font-size:18px;display:block}
+.weather-detail span{font-size:12px;opacity:0.8}
+.forecast-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin:12px 0}
+.forecast-day{background:#f8fafc;border-radius:10px;padding:10px;text-align:center;font-size:13px}
+.forecast-day .day-name{font-weight:600;margin-bottom:4px}
+.forecast-day .day-icon{font-size:24px}
+.forecast-day .day-temp{color:#0891b2;font-weight:500;margin-top:4px}
+.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:12px 0}
+.country-btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;background:white;cursor:pointer;font-size:13px;text-align:left;transition:all .2s;text-decoration:none;color:#333;display:block}
+.country-btn:hover{background:#f0fdf4;border-color:#22c55e}
+.weather-input{width:100%;padding:12px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:16px;margin:8px 0;box-sizing:border-box}
+.weather-input:focus{border-color:#667eea;outline:none}
+.loading-spinner{display:inline-block;width:20px;height:20px;border:3px solid #e5e7eb;border-top-color:#667eea;border-radius:50%;animation:spin .6s linear infinite;margin:10px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.weather-tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+</style>
+</head><body>
+affiliate-disclosure" style="background:#fef9c3;padding:10px 20px;text-align:center;font-size:13px;color:#92400e;border-bottom:1px solid #fde68a">
+Some links on this site are affiliate links. We may earn a commission at no extra cost to you. <a href="/recommends.html" style="color:#0891b2;text-decoration:underline">Learn more</a>.
+</div>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a><a href="/recommends.html" class="nav-link">Recommendations</a></nav></div></header>
+<main><div class="container">
+<p class="breadcrumb"><a href="/">Home</a> › <a href="/tools.html">Tools</a> › <a href="/tools/weather.html">Weather</a> › <span>AI Mockup Generator - Free Device Billboard T-Shirt Mockup Creator</span></p>
+<div class="tool-header"><div class="tool-emoji">🖥️</div><div><h1 style="margin:0">AI Mockup Generator</h1><p style="margin:4px 0 0;color:#555">Preview designs on devices & products</p></div></div>
+<div class="tool-box"><div id="app"><div class="tagline">Preview your designs on devices, billboards & product mockups.</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+<div><label class="prompt-hint">Mockup Type</label>
+<select id="mkType" class="ai-input" onchange="updateMockupFields()">
+<option value="laptop">💻 Laptop Screen</option>
+<option value="phone">📱 Phone Screen</option>
+<option value="tablet">📟 Tablet Screen</option>
+<option value="billboard">🪧 Billboard / Banner</option>
+<option value="tshirt">👕 T-Shirt Print</option>
+<option value="business-card">💳 Business Card</option>
+</select></div>
+<div><label class="prompt-hint">Background</label>
+<input type="color" id="mkBg" class="ai-input" value="#f0f0f0"></div>
+</div>
+
+<div><label class="prompt-hint">Your Design Content</label>
+<textarea id="mkContent" class="ai-input" rows="3" placeholder="Enter your design text or brand name">Your Brand Here</textarea></div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0">
+<div><label class="prompt-hint">Brand Color</label>
+<input type="color" id="mkColor" class="ai-input" value="#8b5cf6"></div>
+<div><label class="prompt-hint">Text Color</label>
+<input type="color" id="mkTextColor" class="ai-input" value="#ffffff"></div>
+</div>
+
+<div class="tool-actions"><button class="btn btn-primary" onclick="genMockup()">🖥️ Generate Mockup</button><button class="btn btn-secondary" onclick="downloadMockup()">💾 Download</button></div>
+
+<div id="mkPreview" style="display:none;margin-top:16px">
+<div id="mockupCanvas" style="background:white;border:2px dashed #e5e7eb;border-radius:12px;overflow:hidden;cursor:pointer;display:flex;justify-content:center;padding:20px"></div>
+</div></div></div>
+<div class="share-bar"><span>Share:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=AI%20Mockup%20Generator%20-%20Free%20Device%20Billboard%20T-Shirt%20Mockup%20Creator&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fdesign-mockup.html" target="_blank" rel="noopener">🐦</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fdesign-mockup.html" target="_blank" rel="noopener">👥</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=AI%20Mockup%20Generator%20-%20Free%20Device%20Billboard%20T-Shirt%20Mockup%20Creator%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fdesign-mockup.html" target="_blank" rel="noopener">📱</a></div>
+<div class="calc-info"><h3>How to Use</h3><p>Enter a city or country name and get real-time weather data. Powered by Open-Meteo API — free, no key needed.</p><h3>Countries Covered</h3><p>All countries worldwide. Just type a city name and get instant weather data.</p><h3>Why This Tool</h3><p>Free, fast, works on mobile & desktop. No sign-ups required.</p></div>
+</div></main>
+<script>
+function updateMockupFields(){}
+
+function genMockup(){
+var type=document.getElementById("mkType").value
+var bg=document.getElementById("mkBg").value
+var content=document.getElementById("mkContent").value.trim()||"Your Design"
+var c1=document.getElementById("mkColor").value
+var tc=document.getElementById("mkTextColor").value
+
+var mockups={laptop:{w:"320px",h:"200px",frame:"laptop",label:"Laptop Screen"},phone:{w:"120px",h:"240px",frame:"phone",label:"Phone Screen"},tablet:{w:"200px",h:"260px",frame:"tablet",label:"Tablet Screen"},billboard:{w:"340px",h:"120px",frame:"billboard",label:"Billboard"},tshirt:{w:"180px",h:"200px",frame:"tshirt",label:"T-Shirt"},businessCard:{w:"240px",h:"140px",frame:"businessCard",label:"Business Card"}}
+
+var mk=mockups[type]||mockups.laptop
+var preview=document.getElementById("mockupCanvas")
+document.getElementById("mkPreview").style.display="block"
+
+// Build outer device frame
+var outerPadding="16px"
+var outerBg="#e5e7eb"
+var outerRadius="12px"
+var extra=""
+var deviceFrame=""
+
+if(type==="laptop"){
+outerPadding="20px 20px 30px 20px"
+outerBg="#cbd5e1"
+outerRadius="12px 12px 0 0"
+deviceFrame='<div style="background:#94a3b8;height:12px;width:40%;margin:0 auto;border-radius:0 0 12px 12px"></div>'
+}else if(type==="phone"){
+outerPadding="24px 8px"
+outerBg="#1e293b"
+outerRadius="20px"
+deviceFrame='<div style="background:#334155;height:6px;width:60px;margin:0 auto;border-radius:4px"></div>'
+}else if(type==="tablet"){
+outerPadding="20px 12px"
+outerBg="#1e293b"
+outerRadius="16px"
+deviceFrame=''
+}else if(type==="billboard"){
+outerPadding="8px"
+outerBg="#cbd5e1"
+outerRadius="4px"
+deviceFrame='<div style="display:flex;gap:4px;justify-content:center;margin-top:4px"><div style="width:4px;height:20px;background:#94a3b8"></div><div style="width:4px;height:20px;background:#94a3b8"></div><div style="width:4px;height:20px;background:#94a3b8"></div></div>'
+}else if(type==="tshirt"){
+outerPadding="0"
+outerBg="transparent"
+outerRadius="0"
+deviceFrame=''
+}else if(type==="businessCard"){
+outerPadding="0"
+outerBg="transparent"
+outerRadius="0"
+deviceFrame=''
+}
+
+html="<div style='text-align:center'>"
+
+if(type==="tshirt"){
+html+="<div style='font-size:60px;line-height:1;margin-bottom:-10px;color:"+bg+"'>⤵</div>"
+html+="<div style='background:"+bg+";border-radius:30px 30px 12px 12px;padding:20px;width:"+mk.w+";margin:0 auto'>"
+html+="<div style='background:white;border-radius:50%;width:40px;height:40px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:20px'>🖨️</div>"
+html+="<div style='background:"+c1+";color:"+tc+";padding:20px;border-radius:8px;font-weight:700;font-size:18px'>"+content+"</div>"
+html+="</div>"
+}else if(type==="businessCard"){
+html+="<div style='width:"+mk.w+";background:linear-gradient(135deg,"+c1+",#1e1b4b);border-radius:10px;padding:28px;text-align:center;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,0.15)'>"
+html+="<div style='color:white;font-size:22px;font-weight:700;margin-bottom:4px'>"+content+"</div>"
+html+="<div style='color:rgba(255,255,255,0.6);font-size:11px'>Creative Designer</div>"
+html+="<div style='width:40px;height:2px;background:rgba(255,255,255,0.3);margin:12px auto'></div>"
+html+="<div style='color:rgba(255,255,255,0.5);font-size:9px'>hello@"+content.toLowerCase().replace(/\s/g,"")+".com</div>"
+html+="</div>"
+}else{
+html+="<div style='background:"+outerBg+";padding:"+outerPadding+";border-radius:"+outerRadius+";display:inline-block'>"
+html+="<div style='width:"+mk.w+";height:"+mk.h+";background:"+bg+";border-radius:4px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:16px;overflow:hidden'>"
+html+="<div style='background:"+c1+";color:"+tc+";padding:12px 16px;border-radius:6px;font-weight:600;font-size:"+(type==="phone"?"12":"16")+"px;text-align:center'>"+content+"</div>"
+html+="</div>"
+html+=deviceFrame||""
+html+="</div>"
+}
+
+html+="<div style='margin-top:8px;font-size:11px;color:#9ca3af'>"+mk.label+"</div>"
+html+="</div>"
+
+preview.innerHTML=html
+window._mockupHTML=html
+}
+
+function downloadMockup(){
+var el=document.getElementById("mockupCanvas")
+html2canvas(el).then(function(canvas){
+var link=document.createElement("a")
+link.download="mockup.png"
+link.href=canvas.toDataURL()
+link.click()
+})
+}
+
+var sc=document.createElement("script")
+sc.src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+document.body.appendChild(sc)
+
+</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</a></li><li><a href="/tools/discount-calculator.html">Discount Calculator</a></li><li><a href="/tools/investment-calculator.html">Investment Calculator</a></li><li><a href="/tools/tax-calculator.html">Tax Calculator</a></li><li><a href="/tools/random-password-generator.html">Password Generator</a></li><li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li></ul></div><div class="footer-links"><h4>Guides</h4><ul><li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li><li><a href="/guides/budgeting-for-beginners.html">Budgeting</a></li><li><a href="/guides/how-to-start-a-business.html">Start a Business</a></li><li><a href="/guides/freelancing-101.html">Freelancing 101</a></li><li><a href="/guides/investing-for-beginners.html">Investing</a></li><li><a href="/guides/productivity-tips.html">Productivity</a></li><li><a href="/guides/resume-writing-tips.html">Resume Tips</a></li><li><a href="/guides/passive-income-ideas.html">Passive Income</a></li><li><a href="/guides/frugal-living-tips.html">Frugal Living</a></li><li><a href="/guides/digital-minimalism-guide.html">Digital Minimalism</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

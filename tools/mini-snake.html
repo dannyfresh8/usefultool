@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Classic Snake game. Eat food, grow longer, avoid walls and yourself. Browser snake game.">
+<link rel="canonical" href="https://usefultoolkit.org/tools/mini-snake.html">
+<title>Snake Game - Play Classic Snake</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg,#0f172a);color:var(--text,#f1f5f9);min-height:100vh}
+:root{--bg:#0f172a;--bg2:#1e293b;--text:#f1f5f9;--text2:#94a3b8;--card:#1e293b;--border:#334155;--accent:#8b5cf6}
+body.light-mode{--bg:#f8fafc;--bg2:#f1f5f9;--text:#1e293b;--text2:#64748b;--card:#fff;--border:#e5e7eb}
+.dark-toggle{position:fixed;top:12px;right:12px;z-index:9998;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px}
+.header{background:linear-gradient(135deg,#8b5cf6,#6366f1,#4f46e5);padding:20px 16px;text-align:center}
+.header h1{color:#fff;font-size:22px;margin-bottom:2px}.header p{color:rgba(255,255,255,.8);font-size:13px}
+.container{max-width:700px;margin:0 auto;padding:12px}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--text2)}
+.game-area{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin:12px 0;text-align:center}
+.btn{display:inline-block;padding:10px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff}
+.btn-primary:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(139,92,246,.4)}
+.btn-sm{padding:6px 14px;font-size:12px}.stat{font-size:13px;color:var(--text2)}
+.stat span{color:var(--accent);font-weight:700}
+.snake-cell{aspect-ratio:1;background:var(--bg);border-radius:2px}
+.snake-cell.head{background:var(--accent);border-radius:4px}
+.snake-cell.body{background:#6366f1;border-radius:3px}
+.snake-cell.food{background:#22c55e;border-radius:50%}
+.back-link{display:inline-block;margin-bottom:10px;color:var(--accent);font-size:13px;text-decoration:none}
+.back-link:hover{text-decoration:underline}
+</style></head><body>
+<div class="dark-toggle" onclick="var b=document.body;b.classList.toggle('light-mode');localStorage.setItem('light',b.classList.contains('light-mode')?'1':'')">&#127769;</div>
+<div class="header"><h1>&#128013; Snake</h1><p>Classic Snake game. Arrow keys to move.</p></div>
+<div class="container"><a href="/tools/mini-games.html" class="back-link">&larr; Back to Mini Games</a>
+<div class="game-area">
+<div id="s-grid" style="max-width:320px;margin:0 auto"></div>
+<div class="stat" style="margin-top:10px">Score: <span id="s-score">0</span></div>
+<div id="s-status" style="font-size:12px;color:var(--text2)">Press arrow keys to start</div>
+<button class="btn btn-primary btn-sm" style="margin-top:10px" onclick="sInit()">New Game</button>
+</div></div>
+<footer>&copy; 2025 UseToolKit &bull; Free browser games</footer>
+<script>if(localStorage.getItem('light')==='1')document.body.classList.add('light-mode')</script>
+<div id="gt" style="position:fixed;bottom:16px;right:16px;z-index:9999"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"gt")}</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+var sG=15,sN=225,sDir="right",sSnake=[112,113,114],sFood=-1,sScore=0,sRun=false,sInt=null,sSpeed=200;
+function sInit(){sSnake=[112,113,114];sDir="right";sScore=0;sRun=false;if(sInt)clearInterval(sInt);
+document.getElementById("s-score").textContent="0";document.getElementById("s-status").innerHTML="Press arrow keys to start";
+document.getElementById("s-status").style.color="var(--text2)";spawn();render()}
+function spawn(){var o={};sSnake.forEach(function(c){o[c]=true});var f=[];for(var i=0;i<sN;i++){if(!o[i])f.push(i)};if(f.length)sFood=f[Math.floor(Math.random()*f.length)]}
+function render(){var g=document.getElementById("s-grid");var h="";g.style.display="grid";g.style.gridTemplateColumns="repeat("+sG+",1fr)";g.style.gap="1px";g.style.background="var(--border)";g.style.border="2px solid var(--accent)";g.style.borderRadius="8px";
+for(var i=0;i<sN;i++){var c="snake-cell";if(i===sSnake[0])c+=" head";else if(sSnake.indexOf(i)>=0)c+=" body";if(i===sFood)c+=" food";h+='<div class="'+c+'"></div>'}g.innerHTML=h;document.getElementById("s-score").textContent=sScore}
+function step(){var h=sSnake[0];var r=Math.floor(h/sG),c=h%sG;
+switch(sDir){case"right":c++;break;case"left":c--;break;case"up":r--;break;case"down":r++}
+if(r<0||r>=sG||c<0||c>=sG){over("Hit wall!");return}
+var ni=r*sG+c;if(sSnake.indexOf(ni)>=0&&ni!==sSnake[sSnake.length-1]){over("Crashed!");return}
+sSnake.unshift(ni);if(ni===sFood){sScore++;spawn();if(sSpeed>80)sSpeed-=5;if(sInt){clearInterval(sInt);sInt=setInterval(step,sSpeed)}}else sSnake.pop();render()}
+function over(r){sRun=false;if(sInt)clearInterval(sInt);document.getElementById("s-status").innerHTML=r+" Score: "+sScore;document.getElementById("s-status").style.color="#ef4444"}
+document.addEventListener("DOMContentLoaded",function(){sInit();
+document.addEventListener("keydown",function(e){var d={ArrowRight:"right",ArrowLeft:"left",ArrowUp:"up",ArrowDown:"down"};var nd=d[e.key];if(!nd)return;e.preventDefault();
+if(!sRun){sRun=true;sDir=nd;if(sInt)clearInterval(sInt);sInt=setInterval(step,sSpeed);document.getElementById("s-status").innerHTML="Playing...";document.getElementById("s-status").style.color="var(--text)";return}
+var op={right:"left",left:"right",up:"down",down:"up"};if(nd!==op[sDir])sDir=nd})});
+</script></body></html>

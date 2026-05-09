@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Flag guessing game. Identify countries from their flags.">
+<link rel="canonical" href="https://usefultoolkit.org/tools/mini-country-guess.html">
+<title>Country Guessing - Flag Quiz</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg,#0f172a);color:var(--text,#f1f5f9);min-height:100vh}
+:root{--bg:#0f172a;--bg2:#1e293b;--text:#f1f5f9;--text2:#94a3b8;--card:#1e293b;--border:#334155;--accent:#8b5cf6}
+body.light-mode{--bg:#f8fafc;--bg2:#f1f5f9;--text:#1e293b;--text2:#64748b;--card:#fff;--border:#e5e7eb}
+.dark-toggle{position:fixed;top:12px;right:12px;z-index:9998;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px}
+.header{background:linear-gradient(135deg,#8b5cf6,#6366f1,#4f46e5);padding:20px 16px;text-align:center}
+.header h1{color:#fff;font-size:22px;margin-bottom:2px}.header p{color:rgba(255,255,255,.8);font-size:13px}
+.container{max-width:700px;margin:0 auto;padding:12px}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--text2)}
+.game-area{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin:12px 0;text-align:center}
+.btn{display:inline-block;padding:10px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff}
+.btn-primary:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(139,92,246,.4)}
+.stat{font-size:13px;color:var(--text2)}.stat span{color:var(--accent);font-weight:700}
+.quiz-opt{display:block;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin:6px 0;cursor:pointer;text-align:left;font-size:14px;transition:all .2s}
+.quiz-opt:hover{border-color:var(--accent)}.quiz-opt.correct{border-color:#22c55e;background:rgba(34,197,94,.15)}
+.quiz-opt.wrong{border-color:#ef4444;background:rgba(239,68,68,.15)}
+.country-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;margin-bottom:8px}
+.country-card img{width:80px;height:50px;object-fit:cover;border-radius:6px;border:1px solid var(--border)}
+.back-link{display:inline-block;margin-bottom:10px;color:var(--accent);font-size:13px;text-decoration:none}
+.back-link:hover{text-decoration:underline}
+</style></head><body>
+<div class="dark-toggle" onclick="var b=document.body;b.classList.toggle('light-mode');localStorage.setItem('light',b.classList.contains('light-mode')?'1':'')">&#127769;</div>
+<div class="header"><h1>&#127757; Country Guessing</h1><p>Identify flags from around the world</p></div>
+<div class="container"><a href="/tools/mini-games.html" class="back-link">&larr; Back to Mini Games</a>
+<div class="game-area"><div id="cg-area" style="min-height:250px"><p style="color:var(--text2)">Loading flags...</p></div>
+<div class="stat" style="margin-top:12px">Score: <span id="cg-score">0</span> / 20 countries</div></div></div>
+<footer>&copy; 2025 UseToolKit &bull; Free browser games</footer>
+<script>if(localStorage.getItem('light')==='1')document.body.classList.add('light-mode')</script>
+<div id="gt" style="position:fixed;bottom:16px;right:16px;z-index:9999"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"gt")}</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+var cg=[{n:"United States",f:"https://flagcdn.com/w160/us.png"},{n:"United Kingdom",f:"https://flagcdn.com/w160/gb.png"},{n:"France",f:"https://flagcdn.com/w160/fr.png"},{n:"Germany",f:"https://flagcdn.com/w160/de.png"},{n:"Japan",f:"https://flagcdn.com/w160/jp.png"},{n:"Brazil",f:"https://flagcdn.com/w160/br.png"},{n:"India",f:"https://flagcdn.com/w160/in.png"},{n:"Australia",f:"https://flagcdn.com/w160/au.png"},{n:"Italy",f:"https://flagcdn.com/w160/it.png"},{n:"Spain",f:"https://flagcdn.com/w160/es.png"},{n:"Canada",f:"https://flagcdn.com/w160/ca.png"},{n:"Mexico",f:"https://flagcdn.com/w160/mx.png"},{n:"China",f:"https://flagcdn.com/w160/cn.png"},{n:"South Korea",f:"https://flagcdn.com/w160/kr.png"},{n:"Turkey",f:"https://flagcdn.com/w160/tr.png"},{n:"Russia",f:"https://flagcdn.com/w160/ru.png"},{n:"Egypt",f:"https://flagcdn.com/w160/eg.png"},{n:"South Africa",f:"https://flagcdn.com/w160/za.png"},{n:"Argentina",f:"https://flagcdn.com/w160/ar.png"},{n:"Sweden",f:"https://flagcdn.com/w160/se.png"}];
+var cgi=0,cgs=0,cgAll=JSON.parse(JSON.stringify(cg));
+function cgS(){cg=JSON.parse(JSON.stringify(cgAll));for(var i=cg.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=cg[i];cg[i]=cg[j];cg[j]=t}}
+function cgShow(){
+  if(cgi>=cg.length){document.getElementById("cg-area").innerHTML='<h2>Done!</h2><p>Score: '+cgs+'/'+cg.length+'</p><button class="btn btn-primary" onclick="cgi=0;cgs=0;cgS();cgShow()">Play Again</button>';return}
+  var c=cg[cgi];var o=[c.n];for(var i=0;i<cgAll.length&&o.length<4;i++){if(cgAll[i].n!==c.n&&o.indexOf(cgAll[i].n)<0)o.push(cgAll[i].n)}
+  var h='<div class="country-card"><img src="'+c.f+'" alt="flag"><p style="margin-bottom:10px">Which country does this flag belong to?</p>';
+  for(var k=0;k<o.length;k++){
+    h+='<div class="quiz-opt" data-correct="'+(o[k]===c.n)+'" onclick="var el=this;if(el.classList.contains(\'clicked\'))return;el.classList.add(\'clicked\');if(el.dataset.correct===\'true\'){el.classList.add(\'correct\');cgs++;document.getElementById(\'cg-score\').textContent=cgs}else{el.classList.add(\'wrong\')}cgi++;setTimeout(cgShow,600)">'+o[k]+'</div>';
+  }
+  document.getElementById("cg-area").innerHTML=h;
+}
+cgS();cgShow();
+</script></body></html>

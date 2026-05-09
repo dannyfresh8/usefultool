@@ -1,0 +1,40 @@
+@"
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Scarcity Timer Generator - ProductivityTools</title><meta name="description" content="Generate urgency countdown timers for your ecommerce product pages. Create stock scarcity alerts that convert visitors into buyers.""><meta name="robots" content="index, follow">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-179G7PSK2S"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-179G7PSK2S');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/style.css">  <link rel="canonical" href="https://usefultoolkit.org/tools/scarcity-timer.html" />
+</head>
+<body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Scarcity Timer</span></div>
+<h1>Scarcity Timer Generator</h1>
+<p>Generate fake urgency timers with countdown for your store.</p>
+<div class="tool-box"><div class=tool-box><label>Hours:</label><input type=number id=st1 value=24 min=1><label>Minutes:</label><input type=number id=st2 value=0 min=0><label>Product name:</label><input type=text id=st3 value="Limited Edition"><button onclick=st()>Generate Timer Text</button><div id=stR class=result-box></div></div><script>function st(){var h=+st1.value||24,m=+st2.value||0,prod=st3.value||"This item";var total=h*60+m;var end=new Date(Date.now()+total*60000);var opts={hour:"2-digit",minute:"2-digit",hour12:true,timeZoneName:"short"};var time=end.toLocaleTimeString("en-US",opts);var d=end.toLocaleDateString("en-US",{weekday:"long",month:"short",day:"numeric"});stR.innerHTML="<strong>Timer snippet (copy & paste):</strong><br><textarea rows=5 style=width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;box-sizing:border-box readonly onclick=this.select()>⏰ Sale ends "+d+" at "+time+"<br>🔥 Only "+Math.floor(Math.random()*50+5)+" left in stock<br>⚡ "+Math.floor(total/60)+"h "+total%60+"m remaining</textarea><br><small>Refresh for new stock numbers</small>"}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script></div>
+<div class=related-tools><h3>💰 Dropshipping Tools</h3><ul><li><a href=dropship-profit.html>Profit</a></li><li><a href=supplier-pricing.html>Supplier</a></li><li><a href=ad-roi.html>Ad ROI</a></li><li><a href=shipping-calculator.html>Shipping</a></li></ul></div>
+</div>
+<div class="tool-content">
+  <section>
+    <h2>How to Use This Scarcity Timer Tool</h2>
+    <p>Enter your values in the fields above and click calculate. The tool handles the math instantly so you can focus on decisions, not formulas.</p>
+    <h2>Why Scarcity Timer Matters</h2>
+    <p>Quick, accurate calculations save time and help you make informed decisions. Whether for finance, health, or business, having reliable numbers at your fingertips eliminates guesswork.</p>
+  </section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+"@

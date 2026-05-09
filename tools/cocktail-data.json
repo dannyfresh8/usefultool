@@ -1,0 +1,102 @@
+[
+  {"cat":"Classic Cocktails","ic":"\u2b50","list":[
+    {"n":"Old Fashioned","ing":"2 oz Bourbon/Rye, 1 sugar cube, 2 dashes Angostura bitters, Orange peel, Ice","rec":"Muddle sugar cube with bitters. Add bourbon and ice. Stir well. Express orange peel over glass and drop in.","garn":"Orange peel","glass":"Old Fashioned / Rocks"},
+    {"n":"Martini","ing":"2.5 oz Gin, 0.5 oz Dry Vermouth, Lemon twist or olive","rec":"Fill mixing glass with ice. Add gin and vermouth. Stir 30 seconds. Strain into chilled glass. Garnish.","garn":"Lemon twist or olive","glass":"Martini / Coupe"},
+    {"n":"Manhattan","ing":"2 oz Rye Whiskey, 1 oz Sweet Vermouth, 2 dashes Angostura bitters, Cherry","rec":"Stir all ingredients with ice. Strain into chilled glass. Garnish with cherry.","garn":"Maraschino cherry","glass":"Coupe / Nick & Nora"},
+    {"n":"Negroni","ing":"1 oz Gin, 1 oz Campari, 1 oz Sweet Vermouth, Orange peel","rec":"Build in glass over ice. Stir briefly. Garnish with orange peel.","garn":"Orange peel","glass":"Rocks / Old Fashioned"},
+    {"n":"Daiquiri","ing":"2 oz White Rum, 1 oz Lime juice, 0.75 oz Simple syrup","rec":"Shake all ingredients vigorously with ice. Strain into chilled coupe.","garn":"Lime wheel","glass":"Coupe"},
+    {"n":"Margarita","ing":"2 oz Tequila, 1 oz Lime juice, 1 oz Triple Sec, Salt rim","rec":"Rim glass with salt. Shake all ingredients with ice. Strain into glass.","garn":"Lime wheel","glass":"Margarita / Rocks"},
+    {"n":"Whiskey Sour","ing":"2 oz Whiskey, 0.75 oz Lemon juice, 0.5 oz Simple syrup, Egg white","rec":"Dry shake egg white 10 sec. Add other ingredients. Shake with ice. Strain.","garn":"Cherry + orange slice","glass":"Sour / Rocks"},
+    {"n":"Sidecar","ing":"2 oz Cognac, 1 oz Cointreau, 0.75 oz Lemon juice, Sugar rim","rec":"Rim glass with sugar. Shake all ingredients with ice. Strain into glass.","garn":"Lemon twist","glass":"Coupe"},
+    {"n":"Moscow Mule","ing":"2 oz Vodka, 0.5 oz Lime juice, 4 oz Ginger beer, Mint","rec":"Fill copper mug with ice. Add vodka and lime. Top with ginger beer. Stir.","garn":"Lime wedge + mint","glass":"Copper mug"},
+    {"n":"French 75","ing":"1.5 oz Gin, 0.75 oz Lemon juice, 0.5 oz Simple syrup, 3 oz Champagne","rec":"Shake gin, lemon, syrup with ice. Strain into flute. Top with Champagne.","garn":"Lemon twist","glass":"Champagne flute"}
+  ]},
+  {"cat":"Tiki & Tropical","ic":"\ud83c\udf34","list":[
+    {"n":"Mai Tai","ing":"2 oz Aged Rum, 0.75 oz Lime juice, 0.5 oz Orange Curacao, 0.5 oz Orgeat, Mint","rec":"Shake all with ice. Strain over crushed ice. Garnish with mint and lime.","garn":"Mint sprig + lime","glass":"Tiki / Double rocks"},
+    {"n":"Pina Colada","ing":"2 oz White Rum, 1.5 oz Pineapple juice, 1.5 oz Coconut cream, Pineapple","rec":"Blend all with crushed ice until smooth. Pour into glass. Garnish.","garn":"Pineapple wedge + cherry","glass":"Hurricane / Collins"},
+    {"n":"Blue Lagoon","ing":"1.5 oz Vodka, 1 oz Blue Curacao, 4 oz Lemonade, Cherry","rec":"Fill glass with ice. Add vodka and Blue Curacao. Top with lemonade. Stir.","garn":"Lemon slice + cherry","glass":"Highball"},
+    {"n":"Zombie","ing":"1.5 oz Light Rum, 1.5 oz Dark Rum, 1 oz Apricot brandy, 1 oz Lime, 0.5 oz Grenadine","rec":"Shake all with ice. Strain over crushed ice. Top with dark rum float.","garn":"Mint + fruit skewer","glass":"Tiki"},
+    {"n":"Hurricane","ing":"2 oz Light Rum, 2 oz Dark Rum, 2 oz Passion fruit juice, 1 oz Orange juice, 1 oz Lime","rec":"Shake all with ice. Strain into glass over fresh ice.","garn":"Orange slice + cherry","glass":"Hurricane"}
+  ]},
+  {"cat":"Highballs &amp; Long Drinks","ic":"\ud83e\udd64","list":[
+    {"n":"Gin &amp; Tonic","ing":"2 oz Gin, 4 oz Tonic water, Lime wedge","rec":"Fill glass with ice. Add gin. Top with tonic. Squeeze lime wedge and drop in.","garn":"Lime wedge","glass":"Highball"},
+    {"n":"Rum &amp; Coke","ing":"2 oz Rum, 4 oz Cola, Lime wedge","rec":"Fill glass with ice. Add rum. Top with cola. Garnish with lime.","garn":"Lime wedge","glass":"Highball"},
+    {"n":"Vodka Soda","ing":"2 oz Vodka, 4 oz Soda water, Lime wedge","rec":"Fill glass with ice. Add vodka. Top with soda. Squeeze lime.","garn":"Lime wedge","glass":"Highball"},
+    {"n":"Paloma","ing":"2 oz Tequila, 4 oz Grapefruit soda, 0.5 oz Lime, Salt rim","rec":"Salt rim. Fill glass with ice. Add tequila and lime. Top with grapefruit soda.","garn":"Grapefruit wedge","glass":"Highball"},
+    {"n":"Dark &amp; Stormy","ing":"2 oz Dark Rum, 4 oz Ginger beer, Lime wedge","rec":"Fill glass with ice. Add ginger beer. Float dark rum on top.","garn":"Lime wedge","glass":"Highball"},
+    {"n":"Cuba Libre","ing":"2 oz Light Rum, 4 oz Cola, 0.5 oz Lime juice","rec":"Fill glass with ice. Add rum and lime. Top with cola.","garn":"Lime wedge","glass":"Highball"},
+    {"n":"Long Island Iced Tea","ing":"0.5 oz each: Vodka, Gin, Rum, Tequila, Triple Sec, 1 oz Lemon, 2 oz Cola","rec":"Shake spirits and lemon with ice. Pour into Collins glass. Top with cola.","garn":"Lemon wheel","glass":"Collins"}
+  ]},
+  {"cat":"Shots &amp; Shooters","ic":"\ud83c\udf7a","list":[
+    {"n":"B-52","ing":"0.5 oz Kahlua, 0.5 oz Baileys, 0.5 oz Grand Marnier","rec":"Layer in order: Kahlua, Baileys (pour over spoon), Grand Marnier.","garn":"None","glass":"Shot"},
+    {"n":"Jagermeister","ing":"1.5 oz Jagermeister, Ice cold","rec":"Serve well chilled. Shoot straight.","garn":"None","glass":"Shot"},
+    {"n":"Kamikaze","ing":"1 oz Vodka, 1 oz Triple Sec, 1 oz Lime juice","rec":"Shake with ice. Strain into shot glasses.","garn":"None","glass":"Shot"},
+    {"n":"Tequila Shot","ing":"1.5 oz Tequila, Salt wedge, Lime wedge","rec":"Lick salt. Shoot tequila. Bite lime.","garn":"Salt + lime","glass":"Shot"},
+    {"n":"Green Tea Shot","ing":"0.75 oz Irish Whiskey, 0.75 oz Peach Schnapps, 0.75 oz Sour mix, Sprite","rec":"Shake all with ice. Strain into shot glass.","garn":"None","glass":"Shot"},
+    {"n":"Lemon Drop","ing":"1.5 oz Vodka, 0.5 oz Cointreau, 0.5 oz Lemon, Sugar rim","rec":"Shake with ice. Strain into sugar-rimmed shot.","garn":"Sugar rim","glass":"Shot"}
+  ]},
+  {"cat":"Vodka Cocktails","ic":"\ud83e\udd43","list":[
+    {"n":"Cosmopolitan","ing":"1.5 oz Vodka, 1 oz Cranberry, 0.5 oz Triple Sec, 0.5 oz Lime","rec":"Shake all with ice. Strain into chilled martini glass.","garn":"Lime wheel","glass":"Martini"},
+    {"n":"Bloody Mary","ing":"2 oz Vodka, 4 oz Tomato juice, 0.5 oz Lemon, Worcestershire, Tabasco, Salt, Pepper","rec":"Shake all with ice. Strain into highball. Garnish with celery and olives.","garn":"Celery + olives","glass":"Highball"},
+    {"n":"White Russian","ing":"2 oz Vodka, 1 oz Kahlua, 2 oz Heavy cream","rec":"Build over ice in rocks glass. Pour cream slowly. Stir.","garn":"None","glass":"Rocks"},
+    {"n":"Espresso Martini","ing":"1.5 oz Vodka, 1 oz Kahlua, 1 oz Espresso, 0.5 oz Simple syrup","rec":"Shake vigorously with ice. Double strain into chilled martini glass.","garn":"3 coffee beans","glass":"Martini"},
+    {"n":"Screwdriver","ing":"2 oz Vodka, 5 oz Orange juice","rec":"Build in highball over ice. Stir gently.","garn":"Orange slice","glass":"Highball"},
+    {"n":"Sea Breeze","ing":"1.5 oz Vodka, 3 oz Cranberry, 1 oz Grapefruit","rec":"Build over ice in highball. Stir.","garn":"Lime wedge","glass":"Highball"}
+  ]},
+  {"cat":"Tequila Cocktails","ic":"\ud83c\udf77","list":[
+    {"n":"Tequila Sunrise","ing":"2 oz Tequila, 4 oz Orange juice, 0.5 oz Grenadine","rec":"Build over ice. Add grenadine slowly. It sinks. DO NOT stir.","garn":"Orange + cherry","glass":"Highball"},
+    {"n":"Mexican Mule","ing":"2 oz Tequila, 0.5 oz Lime, 4 oz Ginger beer, Mint","rec":"Build in copper mug. Stir gently.","garn":"Lime + mint","glass":"Copper mug"},
+    {"n":"El Diablo","ing":"2 oz Reposado Tequila, 0.5 oz Cassis, 0.5 oz Lime, 3 oz Ginger beer","rec":"Shake tequila, cassis, lime with ice. Strain over fresh ice. Top ginger beer.","garn":"Lime wheel","glass":"Rocks"}
+  ]},
+  {"cat":"Gin Cocktails","ic":"\ud83c\udf78","list":[
+    {"n":"Gimlet","ing":"2 oz Gin, 0.75 oz Lime juice, 0.5 oz Simple syrup","rec":"Shake with ice. Strain into chilled coupe.","garn":"Lime wheel","glass":"Coupe"},
+    {"n":"Aviation","ing":"2 oz Gin, 0.5 oz Maraschino, 0.25 oz Creme de Violette, 0.75 oz Lemon","rec":"Shake with ice. Strain into coupe.","garn":"Brandied cherry","glass":"Coupe"},
+    {"n":"Bees Knees","ing":"2 oz Gin, 0.75 oz Lemon, 0.75 oz Honey syrup","rec":"Shake with ice. Strain into coupe.","garn":"Lemon twist","glass":"Coupe"},
+    {"n":"Singapore Sling","ing":"1.5 oz Gin, 0.5 oz Cherry brandy, 0.5 oz Benedictine, 4 oz Soda, Lime, Pineapple","rec":"Shake gin, lime, pineapple, Benedictine. Strain. Top soda. Float cherry brandy.","garn":"Pineapple + cherry","glass":"Collins"},
+    {"n":"Last Word","ing":"0.75 oz Gin, 0.75 oz Green Chartreuse, 0.75 oz Maraschino, 0.75 oz Lime","rec":"Shake with ice. Strain into coupe.","garn":"None","glass":"Coupe"},
+    {"n":"French Martini","ing":"2 oz Gin, 0.5 oz Chambord, 0.5 oz Pineapple juice","rec":"Shake with ice. Double strain into martini glass.","garn":"None","glass":"Martini"}
+  ]},
+  {"cat":"Whiskey Cocktails","ic":"\ud83e\udd43","list":[
+    {"n":"Boulevardier","ing":"1.5 oz Bourbon/Rye, 1 oz Campari, 1 oz Sweet Vermouth","rec":"Stir with ice. Strain into rocks glass over big cube.","garn":"Orange peel","glass":"Rocks"},
+    {"n":"Sazerac","ing":"2 oz Rye, 0.25 oz Absinthe, 1 sugar cube, Peychauds bitters, Lemon peel","rec":"Rinse glass with absinthe. Muddle sugar + bitters. Add rye + ice. Stir. Express lemon.","garn":"Lemon peel","glass":"Rocks"},
+    {"n":"Mint Julep","ing":"2 oz Bourbon, 0.5 oz Simple syrup, 8 Mint leaves, Crushed ice","rec":"Muddle mint + syrup. Pack crushed ice. Add bourbon. Churn until frosty.","garn":"Mint bouquet","glass":"Julep cup"},
+    {"n":"Irish Coffee","ing":"1.5 oz Irish Whiskey, 5 oz Hot coffee, 1 tsp Brown sugar, Heavy cream","rec":"Dissolve sugar in coffee. Add whiskey. Float cream on top (pour over spoon).","garn":"None (cream layer)","glass":"Irish coffee mug"},
+    {"n":"Paper Plane","ing":"0.75 oz Bourbon, 0.75 oz Amaro Nonino, 0.75 oz Aperol, 0.75 oz Lemon","rec":"Shake all with ice. Strain into coupe.","garn":"None","glass":"Coupe"},
+    {"n":"Godfather","ing":"2 oz Scotch, 0.5 oz Amaretto","rec":"Build over ice in rocks glass. Stir.","garn":"None","glass":"Rocks"}
+  ]},
+  {"cat":"Rum Cocktails","ic":"\ud83c\udf79","list":[
+    {"n":"Mojito","ing":"2 oz White Rum, 1 oz Lime, 0.75 oz Simple syrup, 10 Mint leaves, Soda water","rec":"Muddle mint + syrup. Add rum + lime. Fill with crushed ice. Top soda.","garn":"Mint + lime wheel","glass":"Collins"},
+    {"n":"Caipirinha","ing":"2 oz Cachaca, 1 Lime (quartered), 2 tsp Sugar","rec":"Muddle lime + sugar. Fill with crushed ice. Add cachaca. Stir vigorously.","garn":"None","glass":"Rocks"},
+    {"n":"Painkiller","ing":"2 oz Dark Rum, 4 oz Pineapple, 1 oz OJ, 1 oz Coconut cream, Nutmeg","rec":"Blend with crushed ice. Pour into glass. Grate nutmeg on top.","garn":"Nutmeg + pineapple","glass":"Tiki"},
+    {"n":"Rum Runner","ing":"1 oz Light Rum, 1 oz Dark Rum, 1 oz Blackberry brandy, 2 oz Pineapple, 1 oz Lime","rec":"Shake with ice. Strain over crushed ice.","garn":"Fruit skewer","glass":"Hurricane"},
+    {"n":"Planters Punch","ing":"2 oz Dark Rum, 1 oz Lime, 0.5 oz Simple syrup, 2 oz Pineapple, Dash Angostura","rec":"Shake all with ice. Strain over crushed ice. Top with bitters.","garn":"Mint + fruit","glass":"Collins"}
+  ]},
+  {"cat":"Champagne &amp; Bubbly","ic":"\ud83e\udd42","list":[
+    {"n":"Bellini","ing":"3 oz Prosecco, 2 oz White peach puree","rec":"Pour peach puree into flute. Top with chilled Prosecco. Stir gently.","garn":"None","glass":"Flute"},
+    {"n":"Mimosa","ing":"3 oz Champagne, 2 oz Fresh orange juice","rec":"Pour OJ into flute. Top with chilled Champagne.","garn":"Orange twist","glass":"Flute"},
+    {"n":"Kir Royale","ing":"4 oz Champagne, 0.25 oz Creme de Cassis","rec":"Pour cassis into flute. Top with Champagne.","garn":"None","glass":"Flute"},
+    {"n":"Aperol Spritz","ing":"3 oz Prosecco, 2 oz Aperol, 1 oz Soda, Orange slice","rec":"Build in wine glass over ice. Stir gently.","garn":"Orange slice","glass":"Wine"},
+    {"n":"French Blonde","ing":"1.5 oz Gin, 0.75 oz Lillet Blanc, 0.75 oz Grapefruit, 0.25 oz St Germain","rec":"Shake with ice. Strain into coupe or flute.","garn":"Grapefruit twist","glass":"Coupe / Flute"}
+  ]},
+  {"cat":"Non-Alcoholic Mocktails","ic":"\ud83e\udd64","list":[
+    {"n":"Virgin Mojito","ing":"1 oz Lime, 0.75 oz Simple syrup, 12 Mint leaves, Soda water","rec":"Muddle mint + syrup. Add lime. Fill with crushed ice. Top soda.","garn":"Mint + lime","glass":"Collins"},
+    {"n":"Shirley Temple","ing":"4 oz Ginger ale, 0.5 oz Grenadine, 2 oz Sprite, Cherry","rec":"Build over ice. Stir. Garnish with 3 cherries.","garn":"3 Maraschino cherries","glass":"Highball"},
+    {"n":"Sunset Cooler","ing":"4 oz Orange juice, 2 oz Cranberry, 0.5 oz Lime, 2 oz Soda","rec":"Build over ice. Stir. Garnish.","garn":"Orange + cherry","glass":"Highball"},
+    {"n":"Cucumber Lemonade","ing":"4 slices Cucumber, 4 oz Lemonade, 1 oz Simple syrup, Mint, Soda","rec":"Muddle cucumber + mint. Add lemonade and syrup. Shake. Strain over ice. Top soda.","garn":"Cucumber + mint","glass":"Collins"}
+  ]},
+  {"cat":"DIY Syrups &amp; Mixers","ic":"\ud83c\udf36\ufe0f","list":[
+    {"n":"Simple Syrup","ing":"1 cup Sugar, 1 cup Water","rec":"Heat equal parts sugar and water until dissolved. Cool. Store fridge 2 weeks.","note":"Rich syrup: 2:1 sugar to water"},
+    {"n":"Honey Syrup","ing":"0.5 cup Honey, 0.5 cup Warm water","rec":"Whisk together until combined. Store refrigerated.","note":"Great for Bees Knees"},
+    {"n":"Ginger Syrup","ing":"0.5 cup fresh Ginger (sliced), 1 cup Sugar, 1 cup Water","rec":"Simmer 20 min. Strain. Cool. Store fridge 2 weeks.","note":"Use in Moscow Mules"},
+    {"n":"Orgeat (Almond)","ing":"1 cup Almond milk, 1 cup Sugar, 1 tsp Rose water, 0.5 tsp Orange flower","rec":"Warm almond milk. Dissolve sugar. Add floral waters. Cool.","note":"Essential for Mai Tai"},
+    {"n":"Grenadine","ing":"1 cup Pomegranate juice, 1 cup Sugar, 1 tsp Rose water","rec":"Heat until dissolved. Cool. Real grenadine beats store-bought.","note":"Use for Shirley Temples, Tequila Sunrise"},
+    {"n":"Sour Mix","ing":"1 cup Lemon juice, 1 cup Lime juice, 1 cup Simple syrup","rec":"Combine and refrigerate. Use within 1 week.","note":"Perfect for Margaritas, Whiskey Sours"},
+    {"n":"Cinnamon Syrup","ing":"4 Cinnamon sticks, 1 cup Sugar, 1 cup Water","rec":"Simmer 15 min. Remove sticks. Cool. Store fridge.","note":"Amazing in Old Fashioneds"}
+  ]},
+  {"cat":"Bar Tools &amp; Essentials","ic":"\ud83e\uddea","list":[
+    {"n":"Essential Tools","ing":"Cocktail shaker, Jigger, Mixing glass, Bar spoon, Hawthorne strainer, Fine strainer, Muddler, Citrus juicer, Y-peeler, Glassware","rec":"Start with shaker + jigger + strainer. Build from there.","note":"A good shaker is your most important tool."},
+    {"n":"Essential Liquors","ing":"Vodka, Gin, White Rum, Bourbon, Rye, Tequila, Dry Vermouth, Sweet Vermouth, Triple Sec, Angostura Bitters, Campari","rec":"With these 12 bottles you can make 50+ cocktails.","note":"Add Lillet, Maraschino, Chartreuse for advanced recipes."},
+    {"n":"Garnish 101","ing":"Citrus twists, Lime wheels, Orange slices, Maraschino cherries, Mint sprigs, Pineapple wedges, Celery stalks, Olives, Cocktail onions","rec":"Fresh always beats jarred. Use a Y-peeler for clean twists.","note":"Express citrus oils over the drink for aroma."},
+    {"n":"Ice Guide","ing":"Large cubes, Crushed ice, Sphere molds, Block ice","rec":"Bigger ice = less dilution. Buy silicone molds.","note":"Use filtered water for crystal clear ice."}
+  ]}
+]

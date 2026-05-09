@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="How fast can you tap? Click as many times as you can in 10 seconds. Test your click speed.">
+<link rel="canonical" href="https://usefultoolkit.org/tools/mini-tap-challenge.html">
+<title>Tap Challenge - Click Speed Test</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg,#0f172a);color:var(--text,#f1f5f9);min-height:100vh}
+:root{--bg:#0f172a;--bg2:#1e293b;--text:#f1f5f9;--text2:#94a3b8;--card:#1e293b;--border:#334155;--accent:#8b5cf6}
+body.light-mode{--bg:#f8fafc;--bg2:#f1f5f9;--text:#1e293b;--text2:#64748b;--card:#fff;--border:#e5e7eb}
+.dark-toggle{position:fixed;top:12px;right:12px;z-index:9998;background:var(--card);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px}
+.header{background:linear-gradient(135deg,#8b5cf6,#6366f1,#4f46e5);padding:20px 16px;text-align:center}
+.header h1{color:#fff;font-size:22px;margin-bottom:2px}.header p{color:rgba(255,255,255,.8);font-size:13px}
+.container{max-width:700px;margin:0 auto;padding:12px}
+footer{text-align:center;padding:20px;font-size:12px;color:var(--text2)}
+.game-area{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin:12px 0;text-align:center}
+.btn{display:inline-block;padding:10px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff}
+.btn-primary:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(139,92,246,.4)}
+.stat{font-size:13px;color:var(--text2)}.stat span{color:var(--accent);font-weight:700}
+.tc-btn{font-size:28px;padding:40px 60px;width:100%;max-width:300px;border-radius:20px;margin:10px auto;display:block}
+.back-link{display:inline-block;margin-bottom:10px;color:var(--accent);font-size:13px;text-decoration:none}
+.back-link:hover{text-decoration:underline}
+</style></head><body>
+<div class="dark-toggle" onclick="var b=document.body;b.classList.toggle('light-mode');localStorage.setItem('light',b.classList.contains('light-mode')?'1':'')">&#127769;</div>
+<div class="header"><h1>&#128070; Tap Challenge</h1><p>How fast can you tap? 10 second challenge!</p></div>
+<div class="container"><a href="/tools/mini-games.html" class="back-link">&larr; Back to Mini Games</a>
+<div class="game-area">
+<button id="tc-btn" class="btn btn-primary tc-btn" onclick="tTap()">&#128070; TAP!</button>
+<div class="stat" style="margin-top:16px">Taps: <span id="tc-clicks">0</span> &bull; Time: <span id="tc-time">10.0</span>s</div>
+<div id="tc-result" style="font-size:14px;margin-top:10px"></div>
+</div></div>
+<footer>&copy; 2025 UseToolKit &bull; Free browser games</footer>
+<script>if(localStorage.getItem('light')==='1')document.body.classList.add('light-mode')</script>
+<div id="gt" style="position:fixed;bottom:16px;right:16px;z-index:9999"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"gt")}</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+var tc=0,tt=10,timer=null,active=false;
+function tStart(){
+  active=true;tc=0;tt=10;
+  document.getElementById("tc-clicks").textContent="0";
+  document.getElementById("tc-time").textContent="10.0";
+  document.getElementById("tc-btn").textContent="&#128070; TAP!";
+  document.getElementById("tc-btn").style.background="";
+  document.getElementById("tc-result").innerHTML="";
+  timer=setInterval(function(){
+    tt=Math.round((tt-0.1)*10)/10;
+    document.getElementById("tc-time").textContent=tt.toFixed(1);
+    if(tt<=0){
+      clearInterval(timer);active=false;
+      document.getElementById("tc-btn").textContent="&#128259; Play Again";
+      document.getElementById("tc-btn").style.background="linear-gradient(135deg,#22c55e,#16a34a)";
+      var rate=Math.round(tc/10);
+      var msg="Fast!";
+      if(tc>=80)msg="Lightning!";
+      else if(tc>=60)msg="Fast!";
+      else if(tc>=40)msg="Good!";
+      else msg="Keep trying!";
+      document.getElementById("tc-result").innerHTML="Taps: "+tc+" in 10s ("+rate+"/sec)<br>"+msg;
+    }
+  },100);
+}
+function tTap(){if(!active){tStart();return}tc++;document.getElementById("tc-clicks").textContent=tc}
+</script></body></html>

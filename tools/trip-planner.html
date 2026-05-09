@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trip Planner - Budget, Interests & Itinerary Planner Free</title>
+<meta name="description" content="Plan your trip with detailed budget by category, interest-based activities (food, nightlife, hiking, shopping, culture), daily itinerary, packing list, and weather forecast.">
+<meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/trip-planner.html" />
+<style>
+.tool-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.tool-emoji{font-size:40px;line-height:1}
+.tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tool-actions .btn{min-width:120px;text-align:center}
+.btn{padding:10px 24px;border-radius:8px;font-weight:600;cursor:pointer;border:0;font-size:14px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.result-content{background:white;padding:16px;border-radius:8px;margin-top:8px;border:1px solid #e5e7eb;font-size:14px;white-space:pre-wrap;word-wrap:break-word}
+.tagline{font-size:15px;color:#555;margin-bottom:20px;line-height:1.5}
+.options-grid{display:flex;gap:8px;flex-wrap:wrap}
+.options-grid .option-chip{padding:8px 18px;border:2px solid #e5e7eb;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;transition:all .2s}
+.options-grid .option-chip.selected{background:#0891b2;color:white;border-color:#0891b2}
+.options-grid .option-chip:hover:not(.selected){border-color:#0891b2}
+label.prompt-hint{display:block;margin-bottom:4px;font-size:13px;color:#6b7280;font-weight:500}
+input.ai-input,select.ai-input{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box}
+input.ai-input:focus{outline:0;border-color:#0891b2}
+.custom-checkbox{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+
+.weather-card{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:16px;padding:24px;margin:16px 0;text-align:center}
+.weather-card h2{color:white;margin:0 0 8px;font-size:28px}
+.weather-temp{font-size:56px;font-weight:700;margin:8px 0}
+.weather-icon{font-size:64px}
+.weather-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px;margin-top:16px;background:rgba(255,255,255,0.15);border-radius:12px;padding:16px}
+.weather-detail{text-align:center}
+.weather-detail strong{font-size:18px;display:block}
+.weather-detail span{font-size:12px;opacity:0.8}
+.forecast-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin:12px 0}
+.forecast-day{background:#f8fafc;border-radius:10px;padding:10px;text-align:center;font-size:13px}
+.forecast-day .day-name{font-weight:600;margin-bottom:4px}
+.forecast-day .day-icon{font-size:24px}
+.forecast-day .day-temp{color:#0891b2;font-weight:500;margin-top:4px}
+.country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:12px 0}
+.country-btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;background:white;cursor:pointer;font-size:13px;text-align:left;transition:all .2s;text-decoration:none;color:#333;display:block}
+.country-btn:hover{background:#f0fdf4;border-color:#22c55e}
+.weather-input{width:100%;padding:12px 16px;border:2px solid #e5e7eb;border-radius:10px;font-size:16px;margin:8px 0;box-sizing:border-box}
+.weather-input:focus{border-color:#667eea;outline:none}
+.loading-spinner{display:inline-block;width:20px;height:20px;border:3px solid #e5e7eb;border-top-color:#667eea;border-radius:50%;animation:spin .6s linear infinite;margin:10px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.weather-tool-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+</style>
+</head><body>
+affiliate-disclosure" style="background:#fef9c3;padding:10px 20px;text-align:center;font-size:13px;color:#92400e;border-bottom:1px solid #fde68a">
+Some links on this site are affiliate links. We may earn a commission at no extra cost to you. <a href="/recommends.html" style="color:#0891b2;text-decoration:underline">Learn more</a>.
+</div>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a><a href="/recommends.html" class="nav-link">Recommendations</a></nav></div></header>
+<main><div class="container">
+<p class="breadcrumb"><a href="/">Home</a> › <a href="/tools.html">Tools</a> › <a href="/tools/weather.html">Weather</a> › <span>Trip Planner - Budget, Interests & Itinerary Planner Free</span></p>
+<div class="tool-header"><div class="tool-emoji">✈️</div><div><h1 style="margin:0">Trip Planner</h1><p style="margin:4px 0 0;color:#555">Budget, interests, itinerary & weather — all in one</p></div></div>
+<div class="tool-box"><div id="app"><div class="tagline">Plan your trip with detailed budget, interests, and daily breakdown.</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+<div><label class="prompt-hint">Destination</label><input type="text" id="tpCity" class="ai-input" value="Bangkok" placeholder="City"></div>
+<div><label class="prompt-hint">Country</label><input type="text" id="tpCountry" class="ai-input" value="Thailand" placeholder="Country"></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+<div><label class="prompt-hint">Departure</label><input type="date" id="tpDepart" class="ai-input"></div>
+<div><label class="prompt-hint">Return</label><input type="date" id="tpReturn" class="ai-input"></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+<div><label class="prompt-hint">Total Budget ($)</label><input type="number" id="tpBudget" class="ai-input" value="3000" min="100"></div>
+<div><label class="prompt-hint">Number of Travelers</label><input type="number" id="tpTravelers" class="ai-input" value="2" min="1" max="20"></div>
+</div>
+
+<div><label class="prompt-hint" style="margin-top:12px;display:block">Your Interests (select all that apply)</label>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin:8px 0">
+<div class="option-chip" onclick="toggleInt(this)" data-val="food">🍜 Food & Dining</div>
+<div class="option-chip" onclick="toggleInt(this)" data-val="nightlife">🌙 Nightlife</div>
+<div class="option-chip" onclick="toggleInt(this)" data-val="shopping">🛍️ Shopping</div>
+<div class="option-chip" onclick="toggleInt(this)" data-val="hiking">🥾 Hiking & Nature</div>
+<div class="option-chip" onclick="toggleInt(this)" data-val="culture">🏛️ Culture & Museums</div>
+<div class="option-chip" onclick="toggleInt(this)" data-val="beach">🏖️ Beach & Relax</div>
+<div class="option-chip" onclick="toggleInt(this)" data-val="adventure">🧗 Adventure & Sports</div>
+<div class="option-chip" onclick="toggleInt(this)" data-val="photography">📸 Photography</div>
+</div></div>
+
+<div class="tool-actions"><button class="btn btn-primary" onclick="planDetailedTrip()">✈️ Plan My Trip</button><button class="btn btn-secondary" onclick="document.getElementById('tpResult').style.display='none'">Reset</button></div>
+
+<div id="tpResult"></div></div></div>
+<div class="share-bar"><span>Share:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=Trip%20Planner%20-%20Budget%2C%20Interests%20%26%20Itinerary%20Planner%20Free&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Ftrip-planner.html" target="_blank" rel="noopener">🐦</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Ftrip-planner.html" target="_blank" rel="noopener">👥</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=Trip%20Planner%20-%20Budget%2C%20Interests%20%26%20Itinerary%20Planner%20Free%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Ftrip-planner.html" target="_blank" rel="noopener">📱</a></div>
+<div class="calc-info"><h3>How to Use</h3><p>Enter a city or country name and get real-time weather data. Powered by Open-Meteo API — free, no key needed.</p><h3>Countries Covered</h3><p>All countries worldwide. Just type a city name and get instant weather data.</p><h3>Why This Tool</h3><p>Free, fast, works on mobile & desktop. No sign-ups required.</p></div>
+</div></main>
+<script>var selectedInterests=[];
+
+function toggleInt(el){
+el.classList.toggle("selected")
+var v=el.getAttribute("data-val")
+var idx=selectedInterests.indexOf(v)
+if(idx>=0)selectedInterests.splice(idx,1)
+else selectedInterests.push(v)
+}
+
+function planDetailedTrip() {
+var city=document.getElementById("tpCity").value.trim()||"Bangkok"
+var country=document.getElementById("tpCountry").value.trim()||"Thailand"
+var depart=document.getElementById("tpDepart").value
+var retrn=document.getElementById("tpReturn").value
+var budget=parseFloat(document.getElementById("tpBudget").value)||3000
+var travelers=parseInt(document.getElementById("tpTravelers").value)||2
+
+if(!depart||!retrn){var today=new Date();depart=today.toISOString().split("T")[0];var nxt=new Date(today);nxt.setDate(nxt.getDate()+7);retrn=nxt.toISOString().split("T")[0]}
+
+var dep=new Date(depart);var ret=new Date(retrn);var days=Math.max(1,Math.ceil((ret-dep)/(86400000)))
+
+// Default interests if none selected
+var interests=selectedInterests.length>0?selectedInterests:["food","shopping","culture","nightlife"]
+
+// Budget allocation based on interests
+var alloc={}
+var baseAlloc={flights:0.30,accommodation:0.25,food:0.12,nightlife:0.08,shopping:0.08,hiking:0.05,culture:0.05,transport:0.05,misc:0.02}
+
+// Adjust based on interests
+if(interests.indexOf("food")>=0)baseAlloc.food=0.18
+if(interests.indexOf("nightlife")>=0)baseAlloc.nightlife=0.12
+if(interests.indexOf("shopping")>=0)baseAlloc.shopping=0.12
+if(interests.indexOf("hiking")>=0)baseAlloc.hiking=0.08
+if(interests.indexOf("culture")>=0)baseAlloc.culture=0.08
+if(interests.indexOf("beach")>=0)baseAlloc.accommodation=0.30
+if(interests.indexOf("adventure")>=0){baseAlloc.hiking=0.10;baseAlloc.adventure=0.08}
+
+var totalPct=0;for(var k in baseAlloc)totalPct+=baseAlloc[k]
+// Normalize
+for(var k in baseAlloc)baseAlloc[k]=baseAlloc[k]/totalPct
+
+var results={}
+for(var k in baseAlloc)results[k]=Math.round(budget*baseAlloc[k])
+
+// Flight is per traveler
+var flightTotal=results.flights
+var perDayAlloc=Math.round((budget-flightTotal)/days)
+
+// Build interest icons and descriptions
+var interestInfo={food:"🍜 Food & Dining",nightlife:"🌙 Nightlife & Bars",shopping:"🛍️ Shopping & Souvenirs",hiking:"🥾 Hiking & Nature",culture:"🏛️ Culture & Museums",beach:"🏖️ Beach & Relaxation",adventure:"🧗 Adventure Sports",photography:"📸 Photography Spots"}
+
+function getInterestDesc(int){
+var descs={food:"Try local cuisine, street food tours, cooking classes, food markets",nightlife:"Bars, clubs, night markets, rooftop lounges, live music",shopping:"Markets, malls, local crafts, souvenirs, boutiques",hiking:"Trails, national parks, viewpoints, nature walks",culture:"Temples, museums, historical sites, galleries, heritage tours",beach:"Beach days, swimming, snorkeling, sunset walks, water sports",adventure:"Zip-lining, rock climbing, diving, bungee, rafting",photography:"Golden hour shoots, landmarks, street photography, landscapes"}
+return descs[int]||"Explore & enjoy"
+}
+
+var r=document.getElementById("tpResult")
+r.style.display="block"
+
+// Hero header
+r.innerHTML='<div style="background:linear-gradient(135deg,#0ea5e9,#667eea);color:white;border-radius:16px;padding:24px;margin:16px 0;text-align:center"><div style=font-size:48px>✈️</div><h2 style="color:white;margin:8px 0">'+city+', '+country+'</h2><p style=opacity:0.9>'+days+' days  |  '+travelers+' traveler'+(travelers>1?"s":"")+'  |  '+(new Date(depart)).toLocaleDateString("en-US",{month:"short",day:"numeric"})+' - '+(new Date(retrn)).toLocaleDateString("en-US",{month:"short",day:"numeric"})+'</p><div style="display:flex;justify-content:center;gap:24px;margin:12px 0;flex-wrap:wrap"><div><strong style=font-size:28px>$'+budget.toLocaleString()+'</strong><br><span style=font-size:12px;opacity:0.8>Total Budget</span></div><div><strong style=font-size:28px>$'+Math.round(budget/days).toLocaleString()+'</strong><br><span style=font-size:12px;opacity:0.8>Per Day</span></div><div><strong style=font-size:28px>$'+Math.round(budget/travelers).toLocaleString()+'</strong><br><span style=font-size:12px;opacity:0.8>Per Person</span></div></div></div>'
+
+// Budget Breakdown
+r.innerHTML+='<h3>💰 Budget Breakdown</h3><div class=weather-details style=color:#333>'
+if(results.flights)r.innerHTML+='<div class=weather-detail><strong>$'+results.flights.toLocaleString()+'</strong><span>✈️ Flights (x'+travelers+')</span></div>'
+r.innerHTML+='<div class=weather-detail><strong>$'+results.accommodation.toLocaleString()+'</strong><span>🏨 Accommodation</span></div>'
+r.innerHTML+='<div class=weather-detail><strong>$'+results.food.toLocaleString()+'</strong><span>🍽️ Food & Dining</span></div>'
+if(interests.indexOf("nightlife")>=0)r.innerHTML+='<div class=weather-detail><strong>$'+results.nightlife.toLocaleString()+'</strong><span>🌙 Nightlife</span></div>'
+if(interests.indexOf("shopping")>=0)r.innerHTML+='<div class=weather-detail><strong>$'+results.shopping.toLocaleString()+'</strong><span>🛍️ Shopping</span></div>'
+if(interests.indexOf("hiking")>=0||interests.indexOf("adventure")>=0)r.innerHTML+='<div class=weather-detail><strong>$'+(results.hiking+(results.adventure||0)).toLocaleString()+'</strong><span>🧍 Activities</span></div>'
+r.innerHTML+='<div class=weather-detail><strong>$'+results.transport.toLocaleString()+'</strong><span>🚌 Local Transport</span></div>'
+r.innerHTML+='<div class=weather-detail><strong>$'+Math.max(0,budget-flightTotal-results.accommodation-results.food-results.nightlife-results.shopping-(results.hiking+(results.adventure||0))-results.transport).toLocaleString()+'</strong><span>💸 Extras & Misc</span></div>'
+r.innerHTML+='</div>'
+
+// Interests section
+r.innerHTML+='<h3>❤️ Your Interests & Activities</h3><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px">'
+interests.forEach(function(int){
+r.innerHTML+='<div style="padding:10px;border:1px solid #e5e7eb;border-radius:8px"><strong>'+interestInfo[int]+'</strong><br><span style=font-size:12px;color:#6b7280>'+getInterestDesc(int)+'</span></div>'
+})
+r.innerHTML+='</div>'
+
+// Daily itinerary
+r.innerHTML+='<h3>📅 Daily Itinerary</h3>'
+var dayIdeas=[{theme:"🛵 Arrive & Explore",desc:"Check in, explore the neighborhood, find a local restaurant for dinner"},{theme:"🎓 Culture Day",desc:"Visit top museums, temples, or historical sites in the city"},{theme:"🌊 Nature & Outdoors",desc:"Hike a trail, visit a park, or take a nature walk"},{theme:"🍽️ Food Tour",desc:"Street food crawl, cooking class, or food market visit"},{theme:"🏊 Beach / Relax",desc:"Beach day, spa, pool time, or just wander the city"},{theme:"🛍️ Shopping Day",desc:"Local markets, malls, souvenir shopping, boutiques"},{theme:"🎵 Night Out",desc:"Rooftop bar, club, night market, live music venue"},{theme:"🗺️ Day Trip",desc:"Take a day trip outside the city to nearby attractions"}]
+
+var interestIdx={food:3,nightlife:6,shopping:5,hiking:2,culture:1,beach:4,adventure:2,photography:0}
+for(var i=0;i<Math.min(days,7);i++){
+var d=new Date(dep);d.setDate(d.getDate()+i)
+// Pick theme based on rotation and interests
+var idx=i%8
+if(i===0)idx=0
+else if(i<interests.length&&interestIdx[interests[i-1]]!==undefined)idx=interestIdx[interests[i-1]]
+r.innerHTML+='<div style="padding:10px;border-left:3px solid #667eea;margin:4px 0;background:#f8fafc;border-radius:0 8px 8px 0"><div style="display:flex;justify-content:space-between;align-items:center"><strong style=color:#667eea>'+d.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})+'</strong><span style=font-size:12px;color:#6b7280>~$'+perDayAlloc+'</span></div><div>'+dayIdeas[idx].theme+'<br><span style=font-size:13px;color:#6b7280>'+dayIdeas[idx].desc+'</span></div></div>'
+}
+
+// Packing checklist
+r.innerHTML+='<h3>🧴 Packing Checklist</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">'
+var packing=["📄 Passport/IDs","💳 Cards & Cash","📱 Phone & Charger","🖥️ Laptop/Tablet","🧼 Toiletries Kit","👕 '+days+' Days Clothes","🥼 Comfortable Shoes"]
+if(interests.indexOf("beach")>=0)packing.push("🧜 Swimwear & Towel")
+if(interests.indexOf("hiking")>=0)packing.push("🥼 Hiking Boots")
+if(interests.indexOf("photography")>=0)packing.push("📷 Camera & Gear")
+packing.push("🧢 Weather Jacket","👑 Sunglasses","📦 Luggage Lock")
+packing.forEach(function(p){
+r.innerHTML+='<div style="display:flex;align-items:center;gap:8px;padding:4px 0"><input type=checkbox style="width:16px;height:16px"><span style=font-size:13px>'+p+'</span></div>'
+})
+r.innerHTML+='</div>'
+
+// Weather
+fetch("https://geocoding-api.open-meteo.com/v1/search?name="+encodeURIComponent(city)+"&count=1&language=en&format=json").then(function(a){return a.json()}).then(function(d){
+if(!d.results||!d.results.length)return
+var l=d.results[0]
+return fetch("https://api.open-meteo.com/v1/forecast?latitude="+l.latitude+"&longitude="+l.longitude+"&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_sum&timezone=auto&forecast_days="+Math.min(days,16))
+}).then(function(a){return a.json()}).then(function(d){
+if(!d||!d.daily)return
+var d2=d.daily;var wh="<h3>🌦️ Weather During Your Trip</h3><div class=forecast-grid>"
+for(var i=0;i<Math.min(d2.time.length,7);i++){
+var dt=new Date(d2.time[i]+"T12:00:00")
+var ic={0:"☀️",1:"⛅",2:"⛅",3:"☁️",45:"🌫️",61:"🌧️",71:"🌨️",95:"⛈️"}
+wh+='<div class=forecast-day><div class=day-name>'+dt.toLocaleDateString("en-US",{weekday:"short"})+'</div><div class=day-icon>'+(ic[d2.weather_code[i]]||"☀️")+'</div><div class=day-temp>'+Math.round(d2.temperature_2m_max[i])+'°/'+Math.round(d2.temperature_2m_min[i])+'°</div></div>'
+}
+wh+="</div>"
+document.getElementById("tpResult").innerHTML+=wh
+})
+}
+</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</a></li><li><a href="/tools/discount-calculator.html">Discount Calculator</a></li><li><a href="/tools/investment-calculator.html">Investment Calculator</a></li><li><a href="/tools/tax-calculator.html">Tax Calculator</a></li><li><a href="/tools/random-password-generator.html">Password Generator</a></li><li><a href="/tools/freelance-rate-calculator.html">Freelance Rate</a></li></ul></div><div class="footer-links"><h4>Guides</h4><ul><li><a href="/guides/how-to-save-money-fast.html">Save Money Fast</a></li><li><a href="/guides/budgeting-for-beginners.html">Budgeting</a></li><li><a href="/guides/how-to-start-a-business.html">Start a Business</a></li><li><a href="/guides/freelancing-101.html">Freelancing 101</a></li><li><a href="/guides/investing-for-beginners.html">Investing</a></li><li><a href="/guides/productivity-tips.html">Productivity</a></li><li><a href="/guides/resume-writing-tips.html">Resume Tips</a></li><li><a href="/guides/passive-income-ideas.html">Passive Income</a></li><li><a href="/guides/frugal-living-tips.html">Frugal Living</a></li><li><a href="/guides/digital-minimalism-guide.html">Digital Minimalism</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 ProductivityTools.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

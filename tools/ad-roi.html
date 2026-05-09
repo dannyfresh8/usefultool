@@ -1,0 +1,40 @@
+@"
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ad ROI Calculator - ProductivityTools</title><meta name="description" content="Calculate Facebook, TikTok, and Google ad return on investment including product cost, shipping, platform fees, and ad spend. Know your true ROAS and profit margins for every campaign.""><meta name="robots" content="index, follow">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-179G7PSK2S"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-179G7PSK2S');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/style.css">  <link rel="canonical" href="https://usefultoolkit.org/tools/ad-roi.html" />
+</head>
+<body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>Ad ROI</span></div>
+<h1>Ad ROI Calculator</h1>
+<p>Calculate your Facebook/TikTok ad return on investment.</p>
+<div class="tool-box"><div class=tool-box><label>Ad spend ($):</label><input type=number id=ad1 value=500><label>Total sales ($):</label><input type=number id=ad2 value=2000><label>Product cost %:</label><input type=number id=ad3 value=40><label>Fees & ship %:</label><input type=number id=ad4 value=20><button onclick=adcalc()>Calculate ROI</button><div id=adR class=result-box></div></div><script>function adcalc(){var spend=+ad1.value,sales=+ad2.value,costp=+ad3.value/100,feesp=+ad4.value/100;if(!spend||!sales){adR.innerHTML="Enter spend and sales";return}var cost=sales*costp,fees=sales*feesp,gross=sales-cost-fees,profit=gross-spend,roas=sales/spend,roi=profit/spend*100;adR.innerHTML="<strong>Ad spend:</strong> $"+spend.toFixed(2)+"<br><strong>Revenue:</strong> $"+sales.toFixed(2)+"<br><strong>Product cost:</strong> $"+cost.toFixed(2)+"<br><strong>Fees:</strong> $"+fees.toFixed(2)+"<hr><strong>Profit: $"+profit.toFixed(2)+"</strong><br><strong>ROAS: "+roas.toFixed(2)+"x</strong><br><strong>ROI: "+roi.toFixed(1)+"%</strong><br>"+(roas>3?"✅ Strong ROAS":roas>2?"👍 Decent":roas>1?"⚠ Low":"❌ Losing money")}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script></div>
+<div class=related-tools><h3>💰 Dropshipping Tools</h3><ul><li><a href=dropship-profit.html>Dropship Profit</a></li><li><a href=roi-calculator.html>ROI Calc</a></li><li><a href=profit-margin.html>Profit Margin</a></li><li><a href=budget-planner.html>Budget</a></li></ul></div>
+</div>
+<div class="tool-content">
+  <section>
+    <h2>How to Use This Ad Roi Tool</h2>
+    <p>Enter your values in the fields above and click calculate. The tool handles the math instantly so you can focus on decisions, not formulas.</p>
+    <h2>Why Ad Roi Matters</h2>
+    <p>Quick, accurate calculations save time and help you make informed decisions. Whether for finance, health, or business, having reliable numbers at your fingertips eliminates guesswork.</p>
+  </section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+"@

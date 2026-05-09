@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Compressor - Reduce Image Size Online Free</title>
+<meta name="description" content="Compress JPG, PNG, WebP images online free. Reduce file sizes for web and email."><meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/media-image-compress.html" />
+
+<style>
+.dropzone{border:2px dashed #cbd5e1;border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#f8fafc;margin-bottom:10px}
+.dropzone:hover,.dropzone.dragover{border-color:#0891b2;background:#ecfeff}
+.dropzone .dz-icon{font-size:48px;margin-bottom:10px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.btn{padding:12px 28px;border-radius:10px;font-weight:600;cursor:pointer;border:0;font-size:15px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.file-info{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;margin:4px 0;font-size:14px}
+.file-info .remove{cursor:pointer;color:#ef4444;font-weight:bold;margin-left:auto}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+</style></head><body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>image compress</span></div>
+<h1>Image Compressor</h1>
+<p>Compress JPG, PNG, WebP images. Adjust quality slider for the perfect balance of size and quality.</p>
+<div class="tool-box"><div id="app"><div class="dropzone" id="imgDropzone" onclick="document.getElementById('imgInput').click()"><div class="dz-icon">🖼️</div><p><strong>Drop an image here</strong> or click to browse</p><p class="info-sub">JPG, PNG, WebP</p><input type="file" id="imgInput" accept="image/*" style="display:none"></div><div id="imgInfo" style="margin-top:12px"></div><div id="imgConfig" style="display:none;margin-top:16px"><div><label style="font-size:14px;font-weight:500">Quality: <span id="qualityVal">70%</span></label><input type="range" id="qualitySlider" min="10" max="100" value="70" style="width:100%" oninput="updateQuality(this.value)"></div><div style="text-align:center;margin-top:12px"><button class="btn btn-primary" onclick="compressImage()">📦 Compress</button></div><div id="imgProgress" style="display:none;color:#0891b2;font-weight:500;margin-top:12px">⏳ Compressing...</div></div><div id="imgResult" class="result-box"></div><p class="info-sub">Uses HTML5 Canvas. All in-browser.</p></div></div>
+<div class="share-bar"><span>Share this tool:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=media%20image%20compress&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-image-compress.html" target="_blank" rel="noopener">🐦 Tweet</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-image-compress.html" target="_blank" rel="noopener">👥 Share</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=media%20image%20compress%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-image-compress.html" target="_blank" rel="noopener">📱 WhatsApp</a><a class="share-btn share-telegram" href="https://t.me/share/url?url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-image-compress.html&text=media%20image%20compress" target="_blank" rel="noopener">✉️ Telegram</a><button class="share-btn share-copy" onclick="copyPageUrl()">📋 Copy Link</button></div>
+<div class="calc-info"><h3>How to Use</h3><p>Upload an image, adjust quality with the slider, click Compress. Preview and download.</p><h3>Why This Matters</h3><p>Smaller images load faster on websites, use less bandwidth, and are easier to share.</p></div>
+<div class="related-links"><h3>More Media Tools</h3><ul>
+<li><a href="/tools/media-video-to-audio.html">Video to Audio</a></li>
+<li><a href="/tools/media-audio-to-text.html">Audio to Text</a></li>
+<li><a href="/tools/media-image-compress.html">Image Compressor</a></li>
+<li><a href="/tools/media-fill-sign.html">Fill & Sign</a></li>
+<li><a href="/tools/media-edit-text.html">Edit Documents</a></li>
+<li><a href="/tools/media-image-to-text.html">Image to Text</a></li>
+<li><a href="/tools/media-video-compress.html">Video Compressor</a></li>
+<li><a href="/tools/pdf-merge.html">PDF Merger</a></li>
+<li><a href="/tools/pdf-split.html">PDF Splitter</a></li>
+<li><a href="/tools/pdf-protect.html">PDF Protector</a></li>
+</ul></div></div></main>
+<script>let imgFile=null;
+document.getElementById("imgInput").addEventListener("change",function(){loadImageFile(this.files[0])});
+const idz=document.getElementById("imgDropzone");idz.addEventListener("dragover",function(e){e.preventDefault();idz.classList.add("dragover")});idz.addEventListener("dragleave",function(){idz.classList.remove("dragover")});idz.addEventListener("drop",function(e){e.preventDefault();idz.classList.remove("dragover");loadImageFile(e.dataTransfer.files[0])});
+function updateQuality(v){document.getElementById("qualityVal").textContent=v+"%"}
+function loadImageFile(f){if(!f||!f.type.startsWith("image/"))return;imgFile=f;var s=f.size>1048576?(f.size/1048576).toFixed(1)+" MB":(f.size/1024).toFixed(0)+" KB";document.getElementById("imgInfo").innerHTML='<div class="file-info">🖼️ '+f.name+' <span style="color:#888;font-size:12px">('+s+')</span></div>';document.getElementById("imgConfig").style.display="block";document.getElementById("imgResult").style.display="none"}
+async function compressImage(){if(!imgFile)return;document.getElementById("imgProgress").style.display="block";try{var q=parseInt(document.getElementById("qualitySlider").value)/100;var img=await createImageBitmap(imgFile);var c=document.createElement("canvas");c.width=img.width;c.height=img.height;var ctx=c.getContext("2d");ctx.drawImage(img,0,0);var ext=imgFile.name.includes("png")?"png":imgFile.name.includes("webp")?"webp":"jpeg";var mime=ext==="jpeg"?"image/jpeg":ext==="png"?"image/png":"image/webp";c.toBlob(function(blob){document.getElementById("imgProgress").style.display="none";var r=document.getElementById("imgResult");r.style.display="block";var sv=((1-blob.size/imgFile.size)*100).toFixed(1);r.innerHTML='<div class="stat"><span>Original:</span><strong>'+fmt(imgFile.size)+'</strong></div><div class="stat"><span>Compressed:</span><strong>'+fmt(blob.size)+'</strong></div><div class="stat"><span>Saved:</span><strong style="color:#16a34a">'+sv+'%</strong></div><div style="text-align:center;margin-top:10px"><a href="'+URL.createObjectURL(blob)+'" download="compressed.'+ext+'" style="color:#0891b2;font-weight:600">⬇ Download</a></div>';},mime,q)}catch(e){document.getElementById("imgProgress").style.display="none";document.getElementById("imgResult").style.display="block";document.getElementById("imgResult").innerHTML='<div class="stat" style="color:red"><span>❌ '+e.message.substring(0,60)+'</span></div>'}}
+function fmt(b){return b>1048576?(b/1048576).toFixed(1)+" MB":(b/1024).toFixed(0)+" KB"}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

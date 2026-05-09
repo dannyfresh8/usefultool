@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scan to Text - OCR Scanner Convert Scanned Docs to Text Free</title>
+<meta name="description" content="Scan documents to text online free. Convert scanned images, photos, and camera captures to editable text."><meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/media-scan-to-text.html" />
+
+<style>
+.dropzone{border:2px dashed #cbd5e1;border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#f8fafc;margin-bottom:10px}
+.dropzone:hover,.dropzone.dragover{border-color:#0891b2;background:#ecfeff}
+.dropzone .dz-icon{font-size:48px;margin-bottom:10px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.btn{padding:12px 28px;border-radius:10px;font-weight:600;cursor:pointer;border:0;font-size:15px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.file-info{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;margin:6px 0;font-size:14px}
+.file-info .remove{cursor:pointer;color:#ef4444;font-weight:bold;margin-left:auto}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+textarea.edit-area{width:100%;min-height:120px;padding:12px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-family:inherit;box-sizing:border-box;resize:vertical}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tab{flex:1;padding:10px;border:2px solid #e5e7eb;border-radius:8px;text-align:center;cursor:pointer;font-size:13px;font-weight:500;min-width:100px}
+.tab.active{border-color:#0891b2;background:#ecfeff}
+#previewImg{max-width:100%;max-height:300px;border-radius:8px;margin:10px 0;display:none}
+.scanning-overlay{display:none;text-align:center;padding:20px;margin:10px 0;background:#f0fdf4;border-radius:8px}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+</style></head><body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <a href="/tools/media.html">Media Tools</a> &gt; <span>Scan to Text - OCR Scanner Convert Scanned Docs to Text Free</span></div>
+<h1>Scan to Text - Document Scanner & OCR</h1>
+<p>Scan documents, receipts, and notes from camera or images. Extract text using browser-based OCR. 100% free.</p>
+<div class="tool-box"><div id="app"><div class="tabs"><div class="tab active" id="tab-camera" onclick="setScanMode('camera')"><div style="font-size:24px">📷</div>Camera Scan</div><div class="tab" id="tab-upload" onclick="setScanMode('upload')"><div style="font-size:24px">📤</div>Upload Image</div></div><div id="scanCameraSection"><div style="text-align:center;padding:10px"><div id="cameraContainer" style="max-width:400px;margin:0 auto;background:#1a1a2e;border-radius:10px;overflow:hidden;position:relative"><video id="cameraFeed" autoplay playsinline style="width:100%;display:none"></video><div id="cameraPlaceholder" style="padding:40px;color:#888;font-size:14px">📷 Camera feed will appear here</div></div><div style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn btn-primary" onclick="startCamera()" id="startCamBtn">📷 Start Camera</button><button class="btn btn-secondary" onclick="stopCamera()" id="stopCamBtn" style="display:none">⏹ Stop</button><button class="btn btn-primary" onclick="capturePhoto()" id="captureBtn" style="display:none">📸 Capture</button></div><p class="info-sub">Grant camera permission when prompted. Capture a clear photo of the document.</p></div><div id="scanUploadSection" style="display:none"><div class="dropzone" id="scanDropzone" onclick="document.getElementById('scanInput').click()"><div class="dz-icon">📄</div><p><strong>Drop a scanned document here</strong> or click to browse</p><p class="info-sub">JPG, PNG, WebP — clear text works best</p><input type="file" id="scanInput" accept="image/*" style="display:none"></div></div><div id="scanPreview" style="text-align:center"></div><div style="text-align:center;margin-top:12px"><button class="btn btn-primary" onclick="scanDocument()" id="scanBtn">🔍 Scan for Text</button></div><div class="scanning-overlay" id="scanProgress"><span style="color:#0891b2;font-weight:500">⏳ Scanning...</span><div id="scanStatus" style="font-size:12px;color:#888;margin-top:4px"></div></div><div id="scanResult" class="result-box"></div><div id="scanTextSection" style="display:none;margin-top:16px"><h3 style="font-size:15px;margin-bottom:8px">📝 Extracted Text:</h3><textarea class="edit-area" id="scanTextOutput" style="min-height:150px" readonly></textarea><div style="text-align:center;margin-top:8px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn btn-secondary" onclick="copyScanText()">📋 Copy</button><button class="btn btn-secondary" onclick="downloadScanText()">💾 Download .txt</button></div></div><p class="info-sub">⚠️ OCR runs in-browser via Tesseract.js. For best results aim for clear, well-lit photos.</p></div></div>
+<div class="share-bar"><span>Share this tool:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=media%20scan%20to%20text&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-scan-to-text.html" target="_blank" rel="noopener">🐦 Tweet</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-scan-to-text.html" target="_blank" rel="noopener">👥 Share</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=media%20scan%20to%20text%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-scan-to-text.html" target="_blank" rel="noopener">📱 WhatsApp</a><a class="share-btn share-telegram" href="https://t.me/share/url?url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-scan-to-text.html&text=media%20scan%20to%20text" target="_blank" rel="noopener">✉️ Telegram</a><button class="share-btn share-copy" onclick="copyPageUrl()">📋 Copy Link</button></div>
+<div class="calc-info"><h3>How to Use</h3><p>Click Start Camera to use your device camera, or switch to Upload Image. Position the document clearly and click Capture. Then click Scan for Text.</p><h3>Why This Matters</h3><p>Digitize printed documents, receipts, business cards, and handwritten notes without typing. Great for expense tracking and note-taking.</p></div>
+<div class="related-links"><h3>More Tools</h3><ul>
+<li><a href="/tools/media-image-to-text.html">Image to Text</a></li>
+<li><a href="/tools/media-video-to-audio.html">Video to Audio</a></li>
+<li><a href="/tools/media-audio-to-text.html">Audio to Text</a></li>
+<li><a href="/tools/media-image-compress.html">Image Compressor</a></li>
+<li><a href="/tools/media-fill-sign.html">Fill & Sign</a></li>
+<li><a href="/tools/media-edit-text.html">Edit Documents</a></li>
+<li><a href="/tools/media-video-compress.html">Video Compressor</a></li>
+<li><a href="/tools/pdf-merge.html">PDF Merger</a></li>
+<li><a href="/tools/pdf-zip.html">PDF Zip</a></li>
+</ul></div></div></main>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script>let scanImgSrc=null;let scanImgFile=null;let scanStream=null;let scanMode="camera";
+function setScanMode(m){scanMode=m;["camera","upload"].forEach(function(x){document.getElementById("tab-"+x).className=x===m?"tab active":"tab"});document.getElementById("scanCameraSection").style.display=x==="camera"?"block":"none";document.getElementById("scanUploadSection").style.display=x==="upload"?"block":"none"})}
+// Upload
+document.getElementById("scanInput").addEventListener("change",function(){var f=this.files[0];if(!f)return;scanImgFile=f;var url=URL.createObjectURL(f);scanImgSrc=url;document.getElementById("scanPreview").innerHTML='<img src="'+url+'" id="previewImg" style="max-width:100%;max-height:300px;border-radius:8px;margin:10px 0">';document.getElementById("scanResult").style.display="none";document.getElementById("scanTextSection").style.display="none"});
+const sdz=document.getElementById("scanDropzone");if(sdz){sdz.addEventListener("dragover",function(e){e.preventDefault();sdz.classList.add("dragover")});sdz.addEventListener("dragleave",function(){sdz.classList.remove("dragover")});sdz.addEventListener("drop",function(e){e.preventDefault();sdz.classList.remove("dragover");var f=e.dataTransfer.files[0];if(f&&f.type.startsWith("image/")){scanImgFile=f;scanImgSrc=URL.createObjectURL(f);document.getElementById("scanPreview").innerHTML='<img src="'+scanImgSrc+'" style="max-width:100%;max-height:300px;border-radius:8px;margin:10px 0">';document.getElementById("scanResult").style.display="none";document.getElementById("scanTextSection").style.display="none"}})}
+// Camera
+async function startCamera(){try{scanStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"}});var v=document.getElementById("cameraFeed");v.srcObject=scanStream;v.style.display="block";document.getElementById("cameraPlaceholder").style.display="none";document.getElementById("startCamBtn").style.display="none";document.getElementById("stopCamBtn").style.display="inline-block";document.getElementById("captureBtn").style.display="inline-block"}catch(e){alert("Camera error: "+e.message)}}
+function stopCamera(){if(scanStream){scanStream.getTracks().forEach(function(t){t.stop()});scanStream=null}document.getElementById("cameraFeed").style.display="none";document.getElementById("cameraPlaceholder").style.display="block";document.getElementById("startCamBtn").style.display="inline-block";document.getElementById("stopCamBtn").style.display="none";document.getElementById("captureBtn").style.display="none"}
+function capturePhoto(){var v=document.getElementById("cameraFeed");if(!v||!v.videoWidth){alert("Camera not ready");return}var c=document.createElement("canvas");c.width=v.videoWidth;c.height=v.videoHeight;c.getContext("2d").drawImage(v,0,0);c.toBlob(function(blob){scanImgFile=new File([blob],"scan-capture.jpg",{type:"image/jpeg"});scanImgSrc=c.toDataURL("image/jpeg");document.getElementById("scanPreview").innerHTML='<img src="'+scanImgSrc+'" style="max-width:100%;max-height:300px;border-radius:8px;margin:10px 0;border:2px solid #16a34a">';document.getElementById("scanResult").style.display="none";document.getElementById("scanTextSection").style.display="none"});stopCamera()}
+// OCR
+async function scanDocument(){if(!scanImgSrc&&!scanImgFile){alert("Capture a photo or upload an image first");return}document.getElementById("scanProgress").style.display="block";document.getElementById("scanResult").style.display="none";document.getElementById("scanTextSection").style.display="none";try{var src=scanImgSrc;if(!src&&scanImgFile)src=URL.createObjectURL(scanImgFile);document.getElementById("scanStatus").textContent="Loading OCR engine...";var result=await Tesseract.recognize(scanImgFile||src,"eng",{logger:function(m){if(m.status==="recognizing text")document.getElementById("scanStatus").textContent="Recognizing: "+Math.round(m.progress*100)+"%"}});document.getElementById("scanProgress").style.display="none";var text=result.data.text||"(No text detected)";var words=text.split(/\s+/).filter(Boolean).length;var r=document.getElementById("scanResult");r.style.display="block";r.innerHTML='<div class="stat"><span>✅ Scan complete</span><strong>'+words+' words</strong></div><div class="stat"><span>Confidence:</span><strong>'+(result.data.confidence?result.data.confidence.toFixed(1):"N/A")+'%</strong></div>';document.getElementById("scanTextOutput").value=text;document.getElementById("scanTextSection").style.display="block"}catch(e){document.getElementById("scanProgress").style.display="none";document.getElementById("scanResult").style.display="block";document.getElementById("scanResult").innerHTML='<div class="stat" style="color:red"><span>❌ Error: '+e.message.substring(0,80)+'</span></div>'}}
+function copyScanText(){var ta=document.getElementById("scanTextOutput");ta.select();document.execCommand("copy");alert("Copied!")}
+function downloadScanText(){var text=document.getElementById("scanTextOutput").value;if(!text.trim()){alert("No text to download");return}var blob=new Blob([text],{type:"text/plain"});var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="scanned-text.txt";a.click()}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

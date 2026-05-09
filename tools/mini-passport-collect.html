@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Collect passport stamps from 50 countries. Click to travel and stamp your passport.">
+<link rel="canonical" href="https://usefultoolkit.org/tools/mini-passport-collect.html">
+<title>Passport Collection - Collect Stamps</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg,#0f172a);color:var(--tx,#f1f5f9);min-height:100vh}
+:root{--bg:#0f172a;--bg2:#1e293b;--tx:#f1f5f9;--t2:#94a3b8;--cd:#1e293b;--bd:#334155;--ac:#8b5cf6}
+body.light-mode{--bg:#f8fafc;--bg2:#f1f5f9;--tx:#1e293b;--t2:#64748b;--cd:#fff;--bd:#e5e7eb}
+.dm{position:fixed;top:12px;right:12px;z-index:9998;background:var(--cd);border:1px solid var(--bd);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px}
+.hd{background:linear-gradient(135deg,#8b5cf6,#6366f1,#4f46e5);padding:20px 16px;text-align:center}
+.hd h1{color:#fff;font-size:22px;margin-bottom:2px}.hd p{color:rgba(255,255,255,.8);font-size:13px}
+.c{max-width:700px;margin:0 auto;padding:12px}.fo{text-align:center;padding:20px;font-size:12px;color:var(--t2)}
+.ga{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:16px;margin:12px 0;text-align:center}
+.btn{display:inline-block;padding:10px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.bp{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff}.bp:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(139,92,246,.4)}
+.bs{padding:6px 14px;font-size:12px}.st{font-size:13px;color:var(--t2)}.st span{color:var(--ac);font-weight:700}
+.bk{display:inline-block;margin-bottom:10px;color:var(--ac);font-size:13px;text-decoration:none}.bk:hover{text-decoration:underline}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:6px}
+.s{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;border:2px solid var(--bd);background:var(--bg2);transition:all .2s}
+.s:hover{border-color:var(--ac);transform:scale(1.05)}
+.s.co{background:#22c55e;border-color:#22c55e;color:#fff;font-size:14px;font-weight:700;cursor:default}
+</style></head><body>
+<div class="dm" onclick="var b=document.body;b.classList.toggle('light-mode');localStorage.setItem('light',b.classList.contains('light-mode')?'1':'')">&#127769;</div>
+<div class="hd"><h1>Passport Collection</h1><p>Click countries to collect stamps!</p></div>
+<div class="c"><a href="/tools/mini-games.html" class="bk">&larr; Back to Mini Games</a>
+<div class="ga">
+<p style="font-size:14px;margin-bottom:10px">Click on a country flag to travel there and stamp your passport! &#128083;</p>
+<div id="pp-area"><p style="color:var(--t2)">Loading passport...</p></div>
+<div class="st" style="margin-top:10px">Stamps: <span id="pp-c">0</span> / <span id="pp-t">50</span></div>
+<div id="pp-s" style="font-size:12px;color:var(--t2);margin-top:6px"></div>
+<button class="btn bp bs" style="margin-top:8px" onclick="ppReset()">Reset Passport</button>
+</div></div>
+<div class="fo">&copy; 2025 UseToolKit &bull; Free browser games</div>
+<script>if(localStorage.getItem('light')==='1')document.body.classList.add('light-mode')</script>
+<div id="gt" style="position:fixed;bottom:16px;right:16px;z-index:9999"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"gt")}</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+var pp=[{n:"United States",f:"&#127482;&#127480;"},{n:"United Kingdom",f:"&#127468;&#127463;"},{n:"France",f:"&#127467;&#127479;"},{n:"Germany",f:"&#127465;&#127466;"},{n:"Japan",f:"&#127471;&#127477;"},{n:"Brazil",f:"&#127463;&#127479;"},{n:"India",f:"&#127470;&#127475;"},{n:"Australia",f:"&#127462;&#127464;"},{n:"Italy",f:"&#127470;&#127481;"},{n:"Spain",f:"&#127466;&#127480;"},{n:"Canada",f:"&#127464;&#127462;"},{n:"Mexico",f:"&#127474;&#127485;"},{n:"China",f:"&#127464;&#127475;"},{n:"South Korea",f:"&#127472;&#127477;"},{n:"Turkey",f:"&#127481;&#127479;"},{n:"Russia",f:"&#127479;&#127482;"},{n:"Egypt",f:"&#127466;&#127468;"},{n:"South Africa",f:"&#127462;&#127488;"},{n:"Argentina",f:"&#127462;&#127479;"},{n:"Sweden",f:"&#127480;&#127466;"},{n:"Netherlands",f:"&#127475;&#127473;"},{n:"Switzerland",f:"&#127464;&#127469;"},{n:"Norway",f:"&#127475;&#127476;"},{n:"Greece",f:"&#127469;&#127479;"},{n:"Portugal",f:"&#127477;&#127481;"},{n:"Thailand",f:"&#127481;&#127469;"},{n:"Vietnam",f:"&#127483;&#127475;"},{n:"Cuba",f:"&#127464;&#127466;"},{n:"Chile",f:"&#127464;&#127473;"},{n:"New Zealand",f:"&#127475;&#127488;"},{n:"Peru",f:"&#127477;&#127466;"},{n:"Colombia",f:"&#127464;&#127476;"},{n:"Kenya",f:"&#127472;&#127466;"},{n:"Morocco",f:"&#127474;&#127476;"},{n:"Saudi Arabia",f:"&#127480;&#127462;"},{n:"UAE",f:"&#127462;&#127466;"},{n:"Singapore",f:"&#127480;&#127468;"},{n:"Malaysia",f:"&#127474;&#127476;"},{n:"Philippines",f:"&#127477;&#127468;"},{n:"Indonesia",f:"&#127470;&#127475;"},{n:"Poland",f:"&#127477;&#127473;"},{n:"Austria",f:"&#127462;&#127481;"},{n:"Denmark",f:"&#127465;&#127476;"},{n:"Finland",f:"&#127467;&#127476;"},{n:"Ireland",f:"&#127470;&#127476;"},{n:"Croatia",f:"&#127464;&#127479;"},{n:"Jamaica",f:"&#127471;&#127474;"},{n:"Iceland",f:"&#127470;&#127464;"},{n:"Hungary",f:"&#127469;&#127466;"},{n:"Romania",f:"&#127479;&#127476;"}];
+var ppD=[],ppC=0;
+function ppL(){var s=localStorage.getItem("ppC");ppD=s?JSON.parse(s):[];ppC=ppD.length;ppR()}
+function ppR(){var h="<div class='sg'>";pp.forEach(function(c,i){var cls="s";var col=ppD.indexOf(i)>=0;if(col)cls+=" co";h+="<div class='"+cls+"' onclick='ppCol("+i+")'>"+(col?"&#128083;":c.f)+"</div>"});h+="</div>";document.getElementById("pp-area").innerHTML=h;document.getElementById("pp-c").textContent=ppC;document.getElementById("pp-t").textContent=pp.length;if(ppC===pp.length)document.getElementById("pp-s").innerHTML="&#127881; Full passport! You visited every country!";else document.getElementById("pp-s").innerHTML="Collected "+ppC+"/"+pp.length+" stamps."}
+function ppCol(i){if(ppD.indexOf(i)>=0)return;ppD.push(i);ppC++;localStorage.setItem("ppC",JSON.stringify(ppD));ppR();document.getElementById("pp-s").innerHTML="&#128083; Stamp collected: "+pp[i].n+"!";setTimeout(function(){ppR()},100)}
+function ppReset(){if(confirm("Reset your passport? All stamps will be lost.")){ppD=[];ppC=0;localStorage.removeItem("ppC");ppR()}}
+ppL();
+</script></body></html>

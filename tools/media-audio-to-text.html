@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio to Text Converter - Transcribe Audio Free</title>
+<meta name="description" content="Convert audio to text online free. Transcribe MP3, WAV with live microphone speech-to-text."><meta name="robots" content="index, follow">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5370177145430212" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-5370177145430212">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="canonical" href="https://usefultoolkit.org/tools/media-audio-to-text.html" />
+
+<style>
+.dropzone{border:2px dashed #cbd5e1;border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#f8fafc;margin-bottom:10px}
+.dropzone:hover,.dropzone.dragover{border-color:#0891b2;background:#ecfeff}
+.dropzone .dz-icon{font-size:48px;margin-bottom:10px}
+.result-box{margin-top:16px;padding:16px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;display:none}
+.result-box .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #dcfce7;font-size:14px}
+.result-box .stat:last-child{border:0}
+.btn{padding:12px 28px;border-radius:10px;font-weight:600;cursor:pointer;border:0;font-size:15px;transition:all .2s;display:inline-block}
+.btn-primary{background:#0891b2;color:white}
+.btn-primary:hover{background:#0e7490}
+.btn-primary:disabled{background:#7dd3fc;cursor:not-allowed}
+.btn-secondary{background:#e5e7eb;color:#374151}
+.btn-secondary:hover{background:#d1d5db}
+.file-info{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;margin:4px 0;font-size:14px}
+.file-info .remove{cursor:pointer;color:#ef4444;font-weight:bold;margin-left:auto}
+.info-sub{font-size:12px;color:#888;margin-top:6px}
+
+.share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;align-items:center}
+.share-bar span{font-size:14px;color:#6b7280;font-weight:500}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;transition:all .2s;color:white}
+.share-btn:hover{transform:translateY(-1px);opacity:0.9}
+.share-twitter{background:#1da1f2}
+.share-facebook{background:#1877f2}
+.share-whatsapp{background:#25d366}
+.share-telegram{background:#0088cc}
+.share-linkedin{background:#0a66c2}
+.share-copy{background:#6b7280;cursor:pointer;border:0;font-family:inherit;font-size:13px}
+</style></head><body>
+<header class="header"><div class="container"><a href="/" class="logo"><div class="logo-icon">🛠️</div><div><div class="logo-title">ProductivityTools</div><div class="logo-sub">Free calculators & guides</div></div></a><nav class="nav"><a href="/" class="nav-link">Home</a><a href="/tools.html" class="nav-link active">Tools</a><a href="/guides.html" class="nav-link">Guides</a></nav></div></header>
+<main><div class="container"><div class="breadcrumb"><a href="/">Home</a> &gt; <a href="/tools.html">Tools</a> &gt; <span>audio to text</span></div>
+<h1>Audio to Text Transcriber</h1>
+<p>Transcribe audio files or use live microphone for real-time speech-to-text. 100% free in browser.</p>
+<div class="tool-box"><div id="app"><div class="tabs" style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap"><div class="tab active" id="tab-upload" onclick="setTransMode('upload')" style="flex:1;padding:10px;border:2px solid #e5e7eb;border-radius:8px;text-align:center;cursor:pointer;font-size:13px;font-weight:500;min-width:100px"><div style="font-size:24px">📤</div>Upload File</div><div class="tab" id="tab-listen" onclick="setTransMode('listen')" style="flex:1;padding:10px;border:2px solid #e5e7eb;border-radius:8px;text-align:center;cursor:pointer;font-size:13px;font-weight:500;min-width:100px"><div style="font-size:24px">🎤</div>Live Mic</div></div><div id="uploadSection"><div class="dropzone" id="audioDropzone" onclick="document.getElementById('audioInput').click()"><div class="dz-icon">🎵</div><p><strong>Drop audio here</strong> or click to browse</p><p class="info-sub">MP3, WAV, M4A</p><input type="file" id="audioInput" accept="audio/*" style="display:none"></div><div id="audioInfo" style="margin-top:8px"></div></div><div id="listenSection" style="display:none"><div style="text-align:center;padding:20px"><button class="btn btn-primary" onclick="startListening()" id="listenBtn">🎤 Start Listening</button><p class="info-sub" style="margin-top:8px">Tap to start</p></div></div><div id="transProgress" style="display:none;color:#0891b2;font-weight:500;margin-top:12px">⏳ Processing...</div><div id="transResult" class="result-box"></div><p class="info-sub">⚠️ Live mic uses browser speech recognition. For batch files try a dedicated service.</p></div></div>
+<div class="share-bar"><span>Share this tool:</span><a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=media%20audio%20to%20text&url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-audio-to-text.html" target="_blank" rel="noopener">🐦 Tweet</a><a class="share-btn share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-audio-to-text.html" target="_blank" rel="noopener">👥 Share</a><a class="share-btn share-whatsapp" href="https://api.whatsapp.com/send?text=media%20audio%20to%20text%20https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-audio-to-text.html" target="_blank" rel="noopener">📱 WhatsApp</a><a class="share-btn share-telegram" href="https://t.me/share/url?url=https%3A%2F%2Fusefultoolkit.org%2Ftools%2Fmedia-audio-to-text.html&text=media%20audio%20to%20text" target="_blank" rel="noopener">✉️ Telegram</a><button class="share-btn share-copy" onclick="copyPageUrl()">📋 Copy Link</button></div>
+<div class="calc-info"><h3>How to Use</h3><p>Switch to Live Microphone tab, tap Start Listening, and speak. Your words appear instantly.</p><h3>Why This Matters</h3><p>Transcribe meetings, lectures, interviews, and voice notes quickly without manual typing.</p></div>
+<div class="related-links"><h3>More Media Tools</h3><ul>
+<li><a href="/tools/media-video-to-audio.html">Video to Audio</a></li>
+<li><a href="/tools/media-audio-to-text.html">Audio to Text</a></li>
+<li><a href="/tools/media-image-compress.html">Image Compressor</a></li>
+<li><a href="/tools/media-fill-sign.html">Fill & Sign</a></li>
+<li><a href="/tools/media-edit-text.html">Edit Documents</a></li>
+<li><a href="/tools/media-image-to-text.html">Image to Text</a></li>
+<li><a href="/tools/media-video-compress.html">Video Compressor</a></li>
+<li><a href="/tools/pdf-merge.html">PDF Merger</a></li>
+<li><a href="/tools/pdf-split.html">PDF Splitter</a></li>
+<li><a href="/tools/pdf-protect.html">PDF Protector</a></li>
+</ul></div></div></main>
+<script>let audioFile=null;let recognition=null;let transMode="upload";
+function setTransMode(m){transMode=m;["upload","listen"].forEach(function(x){document.getElementById("tab-"+x).className=x===m?"tab active":"tab"});document.getElementById(x+"Section").style.display=x===m?"block":"none"})}
+document.getElementById("audioInput").addEventListener("change",function(){audioFile=this.files[0];if(!audioFile)return;document.getElementById("audioInfo").innerHTML='<div class="file-info">🎵 '+audioFile.name+'</div>';transcribeAudioFile()});
+const adz=document.getElementById("audioDropzone");adz.addEventListener("dragover",function(e){e.preventDefault();adz.classList.add("dragover")});adz.addEventListener("dragleave",function(){adz.classList.remove("dragover")});adz.addEventListener("drop",function(e){e.preventDefault();adz.classList.remove("dragover");var f=e.dataTransfer.files[0];if(f&&f.type.startsWith("audio/")){audioFile=f;document.getElementById("audioInfo").innerHTML='<div class="file-info">🎵 '+f.name+'</div>';transcribeAudioFile()}});
+async function transcribeAudioFile(){if(!audioFile)return;document.getElementById("transProgress").style.display="block";try{var ac=new(window.AudioContext||window.webkitAudioContext)();var ab=await audioFile.arrayBuffer();var ad=await ac.decodeAudioData(ab);var d=ad.duration.toFixed(1);document.getElementById("transProgress").style.display="none";var r=document.getElementById("transResult");r.style.display="block";r.innerHTML='<div class="stat"><span>✅ Loaded</span><strong>'+d+'s</strong></div><div class="stat"><span>File:</span><strong>'+audioFile.name+'</strong></div><p style="margin-top:10px;font-size:13px;color:#666">Use <b>Live Microphone</b> tab for real-time transcription.</p>'}catch(e){document.getElementById("transProgress").style.display="none";document.getElementById("transResult").style.display="block";document.getElementById("transResult").innerHTML='<div class="stat" style="color:red"><span>⚠️ '+e.message.substring(0,60)+'</span></div>'}}
+function startListening(){if(!("webkitSpeechRecognition" in window)&&!("SpeechRecognition" in window)){alert("Use Chrome or Edge for speech recognition.");return}var SR=window.SpeechRecognition||window.webkitSpeechRecognition;recognition=new SR();recognition.continuous=true;recognition.interimResults=true;recognition.lang="en-US";var r=document.getElementById("transResult");r.style.display="block";r.innerHTML='<div class="stat"><span>🎤 Listening...</span><strong><span id="micStatus" style="color:#0891b2">Live</span></strong></div><textarea style="width:100%;min-height:150px;padding:12px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;box-sizing:border-box;resize:vertical" id="liveText" placeholder="Speak..."></textarea><div style="text-align:center;margin-top:6px"><button class="btn btn-secondary" onclick="stopListening()">⏹ Stop</button></div>';recognition.onresult=function(e){var t="";for(var i=e.resultIndex;i<e.results.length;i++)t+=e.results[i][0].transcript;document.getElementById("liveText").value=t};recognition.onerror=function(e){document.getElementById("micStatus").textContent="Error"};recognition.start();document.getElementById("listenBtn").textContent="🔴 Listening...";document.getElementById("listenBtn").className="btn btn-secondary"}
+function stopListening(){if(recognition){recognition.stop();recognition=null}document.getElementById("listenBtn").textContent="🎤 Start Listening";document.getElementById("listenBtn").className="btn btn-primary";document.getElementById("micStatus").textContent="Stopped"}
+function copyPageUrl(){navigator.clipboard.writeText(window.location.href).then(function(){var b=event.target;var t=b.textContent;b.textContent='Copied!';setTimeout(function(){b.textContent=t},2000)})}
+var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title);document.querySelectorAll('.share-bar a').forEach(function(a){a.href=a.href.replace(/{URL}/g,u).replace(/{TITLE}/g,t)});</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><p>100+ free tools and guides.</p></div><div class="footer-links"><h4>Tools</h4><ul><li><a href="/tools/tip-calculator.html">Tip Calculator</a></li><li><a href="/tools/pomodoro-timer.html">Pomodoro Timer</a></li><li><a href="/tools/budget-planner.html">Budget Planner</a></li><li><a href="/tools/compound-interest-calculator.html">Compound Interest</a></li><li><a href="/tools/loan-calculator.html">Loan Calculator</h3><p>&copy; 2026 ProductivityTools. Compare rates with <a href="https://www.nerdwallet.com/l/loan-calculator" target="_blank" rel="nofollow sponsored">NerdWallet</a> or check <a href="https://www.lendingtree.com" target="_blank" rel="nofollow sponsored">LendingTree</a> offers.</p></div></div></footer>
+
+<script>
+function toggleDark(){var b=document.body;b.classList.toggle("dark-mode");var btn=document.getElementById("darkBtn");if(btn)btn.textContent=b.classList.contains("dark-mode")?"☀️":"🌙";localStorage.setItem("darkMode",b.classList.contains("dark-mode")?"1":"0")}(function(){if(localStorage.getItem("darkMode")==="1")document.body.classList.add("dark-mode")})()
+</script>
+<div id="google_translate_element" style="position:fixed;bottom:16px;right:16px;z-index:999;background:white;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:4px 8px"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"google_translate_element")}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body></html>

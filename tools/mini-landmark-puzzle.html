@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Drag and drop puzzle. Arrange landmark names from shortest to longest.">
+<link rel="canonical" href="https://usefultoolkit.org/tools/mini-landmark-puzzle.html">
+<title>Landmark Puzzle - Drag to Sort</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg,#0f172a);color:var(--tx,#f1f5f9);min-height:100vh}
+:root{--bg:#0f172a;--bg2:#1e293b;--tx:#f1f5f9;--t2:#94a3b8;--cd:#1e293b;--bd:#334155;--ac:#8b5cf6}
+body.light-mode{--bg:#f8fafc;--bg2:#f1f5f9;--tx:#1e293b;--t2:#64748b;--cd:#fff;--bd:#e5e7eb}
+.dm{position:fixed;top:12px;right:12px;z-index:9998;background:var(--cd);border:1px solid var(--bd);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px}
+.hd{background:linear-gradient(135deg,#8b5cf6,#6366f1,#4f46e5);padding:20px 16px;text-align:center}
+.hd h1{color:#fff;font-size:22px;margin-bottom:2px}.hd p{color:rgba(255,255,255,.8);font-size:13px}
+.c{max-width:700px;margin:0 auto;padding:12px}.fo{text-align:center;padding:20px;font-size:12px;color:var(--t2)}
+.ga{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:16px;margin:12px 0;text-align:center}
+.btn{display:inline-block;padding:10px 24px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none}
+.bp{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff}.bp:hover{transform:scale(1.02);box-shadow:0 4px 16px rgba(139,92,246,.4)}
+.bs{padding:6px 14px;font-size:12px}.st{font-size:13px;color:var(--t2)}.st span{color:var(--ac);font-weight:700}
+.bk{display:inline-block;margin-bottom:10px;color:var(--ac);font-size:13px;text-decoration:none}.bk:hover{text-decoration:underline}
+.qi{display:block;background:var(--bg2);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;margin:6px 0;text-align:left;font-size:14px}
+.qi[draggable]{cursor:grab}
+</style></head><body>
+<div class="dm" onclick="var b=document.body;b.classList.toggle('light-mode');localStorage.setItem('light',b.classList.contains('light-mode')?'1':'')">&#127769;</div>
+<div class="hd"><h1>Landmark Puzzle</h1><p>Drag landmarks from shortest to longest name</p></div>
+<div class="c"><a href="/tools/mini-games.html" class="bk">&larr; Back to Mini Games</a>
+<div class="ga">
+<p style="font-size:14px;margin-bottom:10px">Arrange from <strong>shortest</strong> to <strong>longest</strong> name. Drag to reorder.</p>
+<div id="lp-area"><p style="color:var(--t2)">Loading...</p></div>
+<div class="st" style="margin-top:10px">Round: <span id="lp-round">1</span> / 10 &bull; Score: <span id="lp-score">0</span></div>
+<div id="lp-fb" style="font-size:12px;margin-top:6px;min-height:18px"></div>
+<button class="btn bp bs" style="margin-top:8px" onclick="lpCheck()">Check Answer</button>
+</div></div>
+<div class="fo">&copy; 2025 UseToolKit &bull; Free browser games</div>
+<script>if(localStorage.getItem('light')==='1')document.body.classList.add('light-mode')</script>
+<div id="gt" style="position:fixed;bottom:16px;right:16px;z-index:9999"></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"en,es,fr,de,it,pt,ru,ar,ja,ko,zh-CN,tr,nl,pl,sv,da,fi,no,cs,ro,hu,el,hi,th,vi",layout:google.translate.TranslateElement.InlineLayout.SIMPLE,autoDisplay:false},"gt")}</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+var lp=[["Louvre","Colosseum","Parthenon","Taj Mahal"],["Pisa","Stonehenge","Great Wall","Angkor Wat"],["Sphinx","Eiffel Tower","Petra","Machu Picchu"],["Alps","Grand Canyon","Mount Fuji","Niagara Falls"],["Mesa","Everest","Yellowstone","Amazon River"],["Bondi","Santorini","Cappadocia","Bora Bora"],["Dubai","Las Vegas","Great Barrier","Northern Lights"],["Matterhorn","Kremlin","Neuschwanstein","Buckingham"],["Kilimanjaro","Sahara Desert","Himalayas","Rub al Khali"],["Sydney Opera","Colosseum","Parthenon","Taj Mahal"]];
+var lpr=0,lps=0,lpItems=[],lpDrag=-1;
+function lpLoad(){
+  var items=lp[lpr].map(function(n,i){return{n:n,l:n.length,i:i}});
+  for(var i=items.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=items[i];items[i]=items[j];items[j]=t}
+  lpItems=items;lpRender();
+}
+function lpRender(){
+  var h="";lpItems.forEach(function(it,idx){
+    h+='<div class="qi" draggable="true" data-idx="'+idx+'" ondragstart="lpDrag=parseInt(this.dataset.idx);this.style.opacity=\'0.5\'" ondragend="this.style.opacity=\'1\'" ondrop="event.preventDefault();if(lpDrag<0||lpDrag==='+idx+')return;var i=lpItems.splice(lpDrag,1)[0];lpItems.splice('+idx+',0,i);lpDrag=-1;lpRender()" ondragover="event.preventDefault()" style="cursor:grab;position:relative">&#x21E9; '+it.n+' <span style="float:right;font-size:11px;color:var(--t2)">'+it.l+' chars</span></div>';
+  });document.getElementById("lp-area").innerHTML=h;
+}
+function lpCheck(){
+  var ok=true;lpItems.forEach(function(it,idx){if(it.i!==idx)ok=false});
+  if(ok){lps++;document.getElementById("lp-fb").innerHTML="<span style='color:#22c55e'>Correct! Round "+(lpr+1)+" done!</span>";lpr++;
+    if(lpr>=lp.length){document.getElementById("lp-area").innerHTML="<h2>All done!</h2><p>Score: "+lps+"/"+lp.length+"</p><button class='btn bp' onclick='lpr=0;lps=0;lpLoad()'>Play Again</button>";document.getElementById("lp-round").textContent=lpr+1;return}
+    document.getElementById("lp-round").textContent=lpr+1;setTimeout(lpLoad,600);
+  } else {document.getElementById("lp-fb").innerHTML="<span style='color:#ef4444'>Not quite. Try rearranging!</span>"}
+  document.getElementById("lp-score").textContent=lps;
+}
+lpLoad();
+</script></body></html>
